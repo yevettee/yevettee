@@ -131,5 +131,5 @@ ROS2 · Gazebo · YOLO · Sensor Fusion
 
 ## Contact & Links
 - GitHub: https://github.com/yevettee
-- LinkedIn: [링크 추가]
-- Portfolio / Notion: [링크 추가]
+- LinkedIn: https://www.linkedin.com/in/윤정-옥-850b68291?utm_source=share_via&utm_content=profile&utm_medium=member_android
+- Portfolio / Notion: [링크 추가 예정]
