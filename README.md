@@ -21,6 +21,7 @@ ROS2 · Gazebo · YOLO · Sensor Fusion
 ### Robotics / Simulation
 - ROS2 (Humble)
 - Gazebo
+- NVIDIA Isaac Sim
 - Linux / Ubuntu
 
 ### Programming
@@ -29,20 +30,42 @@ ROS2 · Gazebo · YOLO · Sensor Fusion
 
 ### Perception / Vision
 - OpenCV
-- YOLO (Object Detection)
+- YOLO (Object Detection / OBB)
 - Sensor Fusion
 
 ### Tools & Platforms
 - Git / GitHub
 - Docker
 - Notion
-- Firebase (Database)
+- Firebase (Realtime Database)
 
 ---
 
 ## Featured Projects
 
-### 1. Doob-E: AI-Powered Service Robot Web System
+### 1. mother_bird 🍧 — 컵빙수 자동 제조 및 서빙 로봇 시스템
+
+**Overview**
+- 두산 로보틱스 M0609 협동로봇을 기반으로 한 컵빙수 자동 제조·서빙 시스템
+- 고객 키오스크 웹에서 주문하면 Firebase Realtime Database를 통해 ROS 2 기반 컨트롤러가 24단계 시퀀스를 실행하여 제빙·토핑·드로잉·서빙을 수행
+- 관리자 GUI(Pyside6)와 고객용 키오스크 웹을 통한 실시간 진행률 동기화 및 안전 감시
+
+**What I Did**
+- ROS2 노드 아키텍처 설계 및 bingsu_sequence(24개 단계) 시퀀스 구현
+- Firebase RTDB 연동(order_listener)으로 웹 ↔ ROS2 브리지 구성
+- 외력 감지·비상정지(Abort) 처리, 체크포인트 기반 Pause/Resume 설계
+- 관리자 GUI 및 키오스크 웹 구성, 동시 검증·재현 가이드 작성
+
+**Tech**
+- ROS2 Humble · Python · Doosan M0609 SDK · Firebase RTDB · PySide6 · OpenCV
+
+**Repository**
+- https://github.com/yevettee/mother_bird
+
+---
+
+### 2. Doob-E — AI-Powered Service Robot Web System
+
 > 정비소 도우미 로봇 웹 시스템 | 음성 명령 기반 물체 인식 및 pick 작업
 
 **Overview**
@@ -51,83 +74,62 @@ ROS2 · Gazebo · YOLO · Sensor Fusion
 - 웹 UI에서 실시간 YOLO 감지 결과, 로봇 상태, 카메라 영상 모니터링
 
 **What I Did**
-- **ROS2 통합 아키텍처 설계**: 음성 인식(STT/LLM), 비전 처리(YOLO), 로봇 제어를 연결하는 ROS2 노드 설계
-- **로봇 액션 노드 구현** (`robot_action_node.py`): 카메라 좌표 → 로봇 베이스 좌표 변환, approach & pick 동작 구현
-- **정렬/배치 노드 구현** (`robot_sort_node.py`): 여러 물체를 firebase 슬롯 정보를 기반으로 자동 정렬
-- **음성-비전 명령 매칭**: STT/LLM으로 생성된 command JSON과 YOLO 감지 결과를 매칭하여 정확한 타겟 선택
-- **실시간 모니터링 웹 UI**: RealSense 카메라 영상, YOLO 감지, 로봇 상태를 웹 대시보드에서 실시간 표시
-- **안전성 검증**: Dry-run, approach-only 모드로 단계별 테스트 및 pick 높이 보정 자동화
+- ROS2 통합 아키텍처 설계: 음성 인식(STT/LLM), 비전 처리(YOLO), 로봇 제어 연결
+- robot_action_node.py / robot_sort_node.py 구현 — 카메라→로봇 좌표 변환, approach/pick/ 정렬 시퀀스
+- 음성-비전 명령 매칭 로직 및 안전성 검증(DRY_RUN, pick 높이 보정)
+- 웹 대시보드(RealSense, YOLO overlay, 상태 표시) 연동
 
 **Tech**
-- ROS2 (Humble) · Python · OpenCV · YOLO v8 · RealSense SDK
-- STT/LLM (OpenAI API) · TTS · Firebase · Web UI (Flask)
+- ROS2 (Humble) · Python · OpenCV · YOLO · RealSense SDK · STT/LLM (OpenAI) · Flask · Firebase
 
 **Repository**
-- [Doob-E GitHub](https://github.com/yevettee/Doob-E)
+- https://github.com/yevettee/Doob-E
 
 ---
 
-### 2. mother_bird
-> 프로젝트 한 줄 요약 필요
+### 3. AquaSweep 🐟 — 양식장 청소 로봇 멀티 시뮬레이터
 
 **Overview**
-- [프로젝트 목적 작성]
-- [해결하려던 문제 작성]
+- NVIDIA Isaac Sim 위에 7개 수조가 있는 양식장 환경을 재현하고, 바닥 청소 로봇(Hippo), 벽 청소 협동로봇(M1013), 갠트리 로봇을 협업 제어하는 멀티 로봇 시뮬레이션
+- YOLO OBB + OpenCV 기반 인지로 물고기·이물질을 탐지하고, 수조별 계획(Planner) → 컨트롤러(Controller) → Isaac Sim 실행의 워크플로우로 청소 작업을 자동화
+- PyQt5 대시보드로 실시간 영상·진행률 시각화
 
 **What I Did**
-- [본인이 맡은 역할]
-- [구현/검증한 핵심 기능]
-- [사용 기술]
+- Isaac Sim 익스텐션 및 시뮬레이션 씬 설계(부력·물리·카메라), ROS2 ↔ Isaac 통신 설정
+- 다중 런타임(Isaac 3.11 / ROS2 3.10)에서 공통 메시지(aqua_interfaces)를 사용하도록 빌드·설정 스크립트 제작
+- Planner/Controller 아키텍처 및 대시보드 구현
 
 **Tech**
-- ROS2 / Python / C++ / Gazebo / YOLO / etc.
+- NVIDIA Isaac Sim 5.1 · ROS2 Humble · Python 3.10/3.11 · YOLO OBB · PyQt5
 
 **Repository**
-- [mother_bird 링크]
+- https://github.com/yevettee/AquaSweep
 
 ---
 
-### 3. AquaSweep
-> 프로젝트 한 줄 요약 필요
+### 4. MediCart 🤖🏥 — 병원 순회 도우미 로봇 시스템
 
 **Overview**
-- [프로젝트 목적 작성]
-- [해결하려던 문제 작성]
+- TurtleBot4 + OAK-D 카메라 + RPLIDAR 기반의 병동 순찰 및 간호사 보조 로봇
+- 모드 A: 자율 순찰(병실별 환자 유무 확인, QR 코드 신원 확인)
+- 모드 B: 간호사 추적(간호사 따라다니기) + 약품 라벨 OCR 검증(GCP Vision)
+- 웹 대시보드(Next.js + Flask)에서 실시간 제어·모니터링
 
 **What I Did**
-- [본인이 맡은 역할]
-- [구현/검증한 핵심 기능]
-- [사용 기술]
+- Nav2 기반 자율주행 및 미션 매니저 설계
+- YOLO/QR 기반 환자 인식 파이프라인 및 OCR(약품 라벨) 통합
+- Flask 백엔드와 Next.js 프론트엔드로 구성된 웹 대시보드 및 Firebase 연동
+- 시뮬레이션(Gazebo) 환경과 실제 하드웨어 모드 모두 지원하는 빌드·실행 가이드 작성
 
 **Tech**
-- [기술 스택]
+- ROS2 Humble · Nav2 · TurtleBot4 · OAK-D / RealSense · YOLO · Firebase · Flask · Next.js · GCP Vision API
 
 **Repository**
-- [AquaSweep 링크]
-
----
-
-### 4. MediCart
-> 프로젝트 한 줄 요약 필요
-
-**Overview**
-- [프로젝트 목적 작성]
-- [해결하려던 문제 작성]
-
-**What I Did**
-- [본인이 맡은 역할]
-- [구현/검증한 핵심 기능]
-- [사용 기술]
-
-**Tech**
-- [기술 스택]
-
-**Repository**
-- [MediCart 링크]
+- https://github.com/yevettee/MediCart
 
 ---
 
 ## Contact & Links
-- **GitHub**: [github.com/yevettee](https://github.com/yevettee)
-- **LinkedIn**: [링크 추가]
-- **Portfolio / Notion**: [링크 추가]
+- GitHub: https://github.com/yevettee
+- LinkedIn: [링크 추가]
+- Portfolio / Notion: [링크 추가]
