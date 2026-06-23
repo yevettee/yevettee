@@ -817,10 +817,23 @@
   <h2 class="section-title fade-up" data-i18n="contact.title">Let's connect.</h2>
   <p class="contact-sub fade-up" data-i18n="contact.sub">Open to opportunities in robotics software engineering.</p>
   <div class="contact-links fade-up">
-    <button onclick="navigator.clipboard.writeText('oyj9280'+'@naver.com');this.textContent='✓ Copied!';setTimeout(()=>this.innerHTML='<svg width=16 height=16 viewBox=\'0 0 16 16\' fill=\'none\'><rect x=1 y=3 width=14 height=10 rx=1.5 stroke=white stroke-width=1.5/><path d=\'M1 5l7 5 7-5\' stroke=white stroke-width=1.5 stroke-linejoin=round/></svg> oyj9280'+'@naver.com',2000)" class="btn btn-primary">
+    <button id="email-btn" class="btn btn-primary">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="1.5" stroke="white" stroke-width="1.5"/><path d="M1 5l7 5 7-5" stroke="white" stroke-width="1.5" stroke-linejoin="round"/></svg>
-      <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="513e283b68636961113f302734237f323e3c">[email&#160;protected]</a>
+      <span id="email-label"></span>
     </button>
+    <script>
+    (function(){
+      var u='oyj9280', d='naver', t='.com';
+      var em=u+'@'+d+t;
+      var sp=document.getElementById('email-label');
+      sp.textContent=em;
+      document.getElementById('email-btn').onclick=function(){
+        navigator.clipboard.writeText(em);
+        sp.textContent='✓ Copied!';
+        setTimeout(function(){ sp.textContent=em; },2000);
+      };
+    })();
+    </script>
     <a href="https://www.linkedin.com/in/윤정-옥-850b68291/" class="btn btn-secondary" target="_blank" rel="noopener">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M4 7v5M4 4.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M7 12V9c0-1.1.9-2 2-2s2 .9 2 2v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       LinkedIn
@@ -838,7 +851,7 @@
   <span class="footer-copy" data-i18n="footer.role">Robotics Software Engineer · Seoul, Korea</span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ─── TRANSLATIONS ───────────────────────────────────────────────
 const translations = {
   en: {
