@@ -42,6 +42,8 @@
   @media (prefers-reduced-motion: reduce) { [data-slide][data-active] [data-anim] { animation: none; } }
   /* touch/swipe hint */
   #slide-counter { user-select: none; }
+  .toc-row { cursor: pointer; transition: background .15s; }
+  .toc-row:hover { background: #f7f7f8; }
 </style>
 </head>
 <body>
@@ -97,12 +99,12 @@
         <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#6c6c72;">Index</span>
       </div>
       <div data-anim="2" style="display:flex;flex-direction:column;">
-        <div style="display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:24px;padding:18px 0;border-top:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#909097;">01</span><span style="font-size:20px;font-weight:600;">PROFILE<span style="color:#909097;font-weight:400;font-size:16px;">&nbsp;· 프로필</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#909097;letter-spacing:0.08em;">P. 03</span></div>
-        <div style="display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:24px;padding:18px 0;border-top:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#909097;">02</span><span style="font-size:20px;font-weight:600;white-space:nowrap;">ROBOT · 두산 부트캠프<span style="color:#909097;font-weight:400;font-size:16px;">&nbsp;· 협동로봇 4선</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#909097;letter-spacing:0.08em;">P. 04</span></div>
-        <div style="display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:24px;padding:18px 0;border-top:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#909097;">03</span><span style="font-size:20px;font-weight:600;">ROBOT · 교내 프로젝트<span style="color:#909097;font-weight:400;font-size:16px;">&nbsp;· 강화학습 · 제어</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#909097;letter-spacing:0.08em;">P. 23</span></div>
-        <div style="display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:24px;padding:18px 0;border-top:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#909097;">04</span><span style="font-size:20px;font-weight:600;">VISION<span style="color:#909097;font-weight:400;font-size:16px;">&nbsp;· 드론 비상착륙</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#909097;letter-spacing:0.08em;">P. 26</span></div>
-        <div style="display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:24px;padding:18px 0;border-top:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#909097;">05</span><span style="font-size:20px;font-weight:600;">APPENDIX · EMBEDDED<span style="color:#909097;font-weight:400;font-size:16px;">&nbsp;· 항공 · 우주 하드웨어</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#909097;letter-spacing:0.08em;">P. 28</span></div>
-        <div style="display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:24px;padding:18px 0;border-top:1px solid #e5e5e8;border-bottom:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#909097;">06</span><span style="font-size:20px;font-weight:600;">OUTLOOK<span style="color:#909097;font-weight:400;font-size:16px;">&nbsp;· 포부</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#909097;letter-spacing:0.08em;">P. 29</span></div>
+        <div class="toc-row" onclick="__deckGo(2)" style="display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:24px;padding:18px 0;border-top:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#909097;">01</span><span style="font-size:20px;font-weight:600;">PROFILE<span style="color:#909097;font-weight:400;font-size:16px;">&nbsp;· 프로필</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#909097;letter-spacing:0.08em;">P. 03</span></div>
+        <div class="toc-row" onclick="__deckGo(3)" style="display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:24px;padding:18px 0;border-top:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#909097;">02</span><span style="font-size:20px;font-weight:600;white-space:nowrap;">ROBOT · 두산 부트캠프<span style="color:#909097;font-weight:400;font-size:16px;">&nbsp;· 협동로봇 4선</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#909097;letter-spacing:0.08em;">P. 04</span></div>
+        <div class="toc-row" onclick="__deckGo(22)" style="display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:24px;padding:18px 0;border-top:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#909097;">03</span><span style="font-size:20px;font-weight:600;">ROBOT · 교내 프로젝트<span style="color:#909097;font-weight:400;font-size:16px;">&nbsp;· 강화학습 · 제어</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#909097;letter-spacing:0.08em;">P. 23</span></div>
+        <div class="toc-row" onclick="__deckGo(25)" style="display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:24px;padding:18px 0;border-top:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#909097;">04</span><span style="font-size:20px;font-weight:600;">VISION<span style="color:#909097;font-weight:400;font-size:16px;">&nbsp;· 드론 비상착륙</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#909097;letter-spacing:0.08em;">P. 26</span></div>
+        <div class="toc-row" onclick="__deckGo(27)" style="display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:24px;padding:18px 0;border-top:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#909097;">05</span><span style="font-size:20px;font-weight:600;">APPENDIX · EMBEDDED<span style="color:#909097;font-weight:400;font-size:16px;">&nbsp;· 항공 · 우주 하드웨어</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#909097;letter-spacing:0.08em;">P. 28</span></div>
+        <div class="toc-row" onclick="__deckGo(29)" style="display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:24px;padding:18px 0;border-top:1px solid #e5e5e8;border-bottom:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#909097;">06</span><span style="font-size:20px;font-weight:600;">OUTLOOK<span style="color:#909097;font-weight:400;font-size:16px;">&nbsp;· 포부</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#909097;letter-spacing:0.08em;">P. 30</span></div>
       </div>
     </section>
 
@@ -397,7 +399,7 @@
             </div>
           </div>
         </div>
-        <div style="border-top:1px solid #e5e5e8;padding-top:9px;">
+        <div style="border-top:1px solid #e5e5e8;padding-top:9px;margin-top:16px;">
           <p style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:#6c6c72;margin:0 0 8px;">Case 2 — 벽면 그림자 오탐지 — 유령 이물질 수십 개 폭증</p>
           <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;">
             <div style="padding-right:22px;border-right:1px solid #e5e5e8;">
@@ -424,7 +426,7 @@
             </div>
           </div>
         </div>
-        <div style="border-top:1px solid #e5e5e8;padding-top:9px;">
+        <div style="border-top:1px solid #e5e5e8;padding-top:9px;margin-top:16px;">
           <p style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:#6c6c72;margin:0 0 8px;">Case 3 — 수면 부근 철갑상어 미탐지 — 고정 임계값 한계</p>
           <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;">
             <div style="padding-right:22px;border-right:1px solid #e5e5e8;">
@@ -679,7 +681,7 @@
           </div>
         </div>
         <!-- Case 2 -->
-        <div style="border-top:1px solid #e5e5e8;padding-top:12px;">
+        <div style="border-top:1px solid #e5e5e8;padding-top:12px;margin-top:16px;">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
             <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#6c6c72;margin:0;">Case 2 — YOLOv8 공구 파지 실패 · Keypoint + OBB 재학습</p>
             <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#909097;border:1px dashed #d6d6da;border-radius:3px;padding:1px 6px;white-space:nowrap;">팀원 진행</span>
@@ -914,7 +916,7 @@
             </div>
           </div>
         </div>
-        <div style="border-top:1px solid #e5e5e8;padding-top:9px;">
+        <div style="border-top:1px solid #e5e5e8;padding-top:9px;margin-top:16px;">
           <p style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:#6c6c72;margin:0 0 8px;">Case 2 — 회진 상태머신 INTERVIEW 스텍 — 웹 문진 완료 신호 누락</p>
           <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;">
             <div style="padding-right:22px;border-right:1px solid #e5e5e8;">
@@ -931,7 +933,7 @@
             </div>
           </div>
         </div>
-        <div style="border-top:1px solid #e5e5e8;padding-top:9px;">
+        <div style="border-top:1px solid #e5e5e8;padding-top:9px;margin-top:16px;">
           <p style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:#6c6c72;margin:0 0 8px;">Case 3 — INTEL_AUTH_TOKEN 불일치 — 로그인 후 /login 루프</p>
           <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;">
             <div style="padding-right:22px;border-right:1px solid #e5e5e8;">
@@ -1268,7 +1270,7 @@
               </svg>
             </div>
           </div>
-        <div style="border-top:1.5px solid #0b0b0c;padding-top:12px;margin-top:6px;">
+        <div style="border-top:1.5px solid #0b0b0c;padding-top:12px;margin-top:16px;">
           <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#6c6c72;margin:0 0 8px;">Case 2 — 펜 홀더 휘어짐 · 물리적 설계 문제</p>
           <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;">
             <div style="padding-right:24px;border-right:1px solid #e5e5e8;">
@@ -1393,7 +1395,7 @@
             </div>
           </div>
           <div style="border-top:1.5px solid #0b0b0c;padding-top:10px;">
-            <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#6c6c72;margin:0 0 7px;">배운 점 · Lessons Learned</p>
+            <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#6c6c72;margin:0 0 7px;">배운 점</p>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
               <div style="padding:7px 9px;background:#fdf6f6;border:1px solid #e8d0d0;border-radius:6px;">
                 <p style="font-family:'Pretendard',sans-serif;font-size:11px;font-weight:700;color:#a32a2a;margin:0 0 3px;">My role</p>
@@ -1464,7 +1466,7 @@
             <p style="font-size:13px;line-height:1.6;color:#2a2a2d;margin:0;">DH parameter로 로봇 모델링 → 역기구학(기하·수치)으로 원 경로 계산 → Dynamixel 관절 제어로 실물 궤적 추종 검증</p>
           </div>
           <div style="border-top:1.5px solid #0b0b0c;padding-top:10px;">
-            <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#6c6c72;margin:0 0 7px;">배운 점 · Lessons Learned</p>
+            <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#6c6c72;margin:0 0 7px;">배운 점</p>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
               <div style="padding:8px 10px;background:#fdf6f6;border:1px solid #e8d0d0;border-radius:6px;">
                 <p style="font-family:'Pretendard',sans-serif;font-size:11px;font-weight:700;color:#a32a2a;margin:0 0 4px;text-transform:uppercase;letter-spacing:0.03em;">Singularity 문제</p>
@@ -1563,6 +1565,22 @@
       </div>
     </section>
 
+    <!-- ============ S20-B · DIVIDER APPENDIX ============ -->
+    <section data-slide="" data-screen-label="APPENDIX divider" style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:64px 72px;background:#0b0b0c;color:#ffffff;overflow:hidden;">
+      <div style="position:absolute;inset:0;background-image:linear-gradient(#ffffff0a 1px,transparent 1px),linear-gradient(90deg,#ffffff0a 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(circle at 26% 50%,#000,transparent 76%);mask-image:radial-gradient(circle at 26% 50%,#000,transparent 76%);"></div>
+      <div data-anim="" style="position:relative;display:flex;align-items:baseline;gap:24px;">
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:120px;line-height:1;letter-spacing:-0.03em;color:#2a2a2d;">05</span>
+        <div>
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:#909097;margin:0 0 10px;">Appendix · 항공 · 우주 하드웨어</p>
+          <h2 style="font-family:'Space Grotesk','Pretendard',sans-serif;font-weight:600;font-size:52px;letter-spacing:-0.02em;margin:0;">APPENDIX · EMBEDDED</h2>
+        </div>
+      </div>
+      <div data-anim="2" style="position:relative;margin-top:44px;display:flex;flex-direction:column;max-width:840px;">
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:18px;padding:16px 0;border-top:1px solid #2a2a2d;"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#909097;">01</span><span style="font-size:17px;color:#e5e5e8;">Cruise Control · MATLAB Simulink 제어 시뮬레이션</span></div>
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:18px;padding:16px 0;border-top:1px solid #2a2a2d;border-bottom:1px solid #2a2a2d;"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#909097;">02</span><span style="font-size:17px;color:#e5e5e8;">Satellite Mockup · 우주쓰레기 포집 실험용 위성 목업</span></div>
+      </div>
+    </section>
+
     <!-- ============ S21 · APPENDIX EMBEDDED ============ -->
     <section data-slide="" data-screen-label="APPENDIX EMBEDDED" style="position:absolute;inset:0;display:flex;flex-direction:column;padding:52px 64px;background:#f7f7f8;color:#0b0b0c;">
       <div data-anim="" style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:26px;">
@@ -1654,11 +1672,7 @@
     slides = Array.from(stage.querySelectorAll('[data-slide]'))
       .filter(function(s) { return s.getAttribute('data-skip') !== 'true'; });
 
-    // Restore last slide from localStorage
-    var saved = parseInt(localStorage.getItem('portfolio_slide') || '0', 10);
-    if (isNaN(saved) || saved < 0 || saved >= slides.length) saved = 0;
-
-    go(saved);
+    go(0);
     scale();
   }
 
@@ -1674,7 +1688,6 @@
       var p = function(v) { return String(v).padStart(2, '0'); };
       counter.textContent = p(n + 1) + ' / ' + p(slides.length);
     }
-    localStorage.setItem('portfolio_slide', n);
   }
 
   function scale() {
