@@ -11,7 +11,7 @@ Building robots that actually work — in fish farms, hospitals, and factory flo
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/윤정-옥-850b68291/)
 [![Email](https://img.shields.io/badge/Email-oyj9280%40naver.com-EA4335?style=for-the-badge&logo=naver&logoColor=white)](mailto:oyj9280@naver.com)
-[![Portfolio](https://img.shields.io/badge/Portfolio-yevettee.github.io-0b0b0c?style=for-the-badge&logo=github&logoColor=white)](https://yevettee.github.io)
+[![Portfolio](https://img.shields.io/badge/Portfolio-yevettee.github.io-0b0b0c?style=for-the-badge&logo=github&logoColor=white)](https://yevettee.github.io/yevettee/)
 
 </div>
 
