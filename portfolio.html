@@ -1672,7 +1672,8 @@
     slides = Array.from(stage.querySelectorAll('[data-slide]'))
       .filter(function(s) { return s.getAttribute('data-skip') !== 'true'; });
 
-    go(0);
+    var startSlide = parseInt(new URLSearchParams(window.location.search).get('slide'), 10);
+    go(isNaN(startSlide) ? 0 : startSlide);
     scale();
   }
 

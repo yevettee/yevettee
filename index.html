@@ -7,21 +7,27 @@
   <meta name="description" content="Yunjeong Ok (yevettee) — Robotics Software Engineer specializing in ROS2, Computer Vision, and Real-World Robotics." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0b0b0c;
-      --bg2: #141415;
-      --bg3: #1c1c1e;
-      --red: #a32a2a;
-      --red-light: #c23535;
-      --white: #f5f5f3;
-      --gray: #888884;
-      --gray-light: #555552;
-      --border: rgba(255,255,255,0.08);
+      --bg: #ffffff;
+      --bg2: #f5f6f8;
+      --bg3: #ececf0;
+      --accent: #2b5cff;
+      --accent-light: #5577ff;
+      --white: #15151a;
+      --gray: #5a5e66;
+      --gray-light: #97999e;
+      --border: rgba(20,25,40,0.1);
       --font-sans: 'Space Grotesk', system-ui, sans-serif;
       --font-mono: 'IBM Plex Mono', monospace;
+      --font-body: 'Pretendard', 'Inter', system-ui, sans-serif;
+      --radius: 14px;
+      --radius-sm: 4px;
+      --shadow-card: none;
+      --shadow-card-hover: none;
     }
 
     html { scroll-behavior: smooth; }
@@ -44,7 +50,7 @@
       justify-content: space-between;
       padding: 0 48px;
       height: 64px;
-      background: rgba(11,11,12,0.88);
+      background: rgba(255,255,255,0.88);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       gap: 24px;
@@ -58,7 +64,7 @@
       letter-spacing: 0.02em;
       flex-shrink: 0;
     }
-    .nav-logo span { color: var(--red); }
+    .nav-logo span { color: var(--accent); }
 
     .nav-links {
       display: flex;
@@ -85,7 +91,7 @@
       gap: 4px;
       flex-shrink: 0;
       border: 1px solid var(--border);
-      border-radius: 3px;
+      border-radius: var(--radius-sm);
       overflow: hidden;
     }
     .lang-btn {
@@ -103,7 +109,7 @@
     }
     .lang-btn:hover { color: var(--white); }
     .lang-btn.active {
-      background: var(--red);
+      background: var(--accent);
       color: white;
     }
     .lang-divider {
@@ -116,32 +122,40 @@
     #hero {
       min-height: 100vh;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      align-items: center;
+      justify-content: space-between;
+      gap: 56px;
       padding: 120px 48px 80px;
       position: relative;
       overflow: hidden;
     }
-    .hero-grid-bg {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(var(--border) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 60px 60px;
-      opacity: 0.4;
-      pointer-events: none;
+    .hero-content { flex: 1; min-width: 0; }
+    .hero-photo {
+      flex-shrink: 0;
+      width: clamp(180px, 22vw, 300px);
+      aspect-ratio: 3 / 4;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-card);
     }
-    .hero-red-bar {
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .hero-accent-bar {
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 4px;
-      background: var(--red);
+      background: var(--accent);
     }
     .hero-eyebrow {
       font-family: var(--font-mono);
       font-size: 13px;
-      color: var(--red);
+      color: var(--accent);
       letter-spacing: 0.12em;
       text-transform: uppercase;
       margin-bottom: 24px;
@@ -161,12 +175,14 @@
       letter-spacing: -0.01em;
     }
     .hero-tagline {
+      font-family: var(--font-body);
       font-size: clamp(16px, 2.2vw, 22px);
       color: var(--gray);
       font-weight: 400;
       margin-top: 28px;
       max-width: 600px;
       text-wrap: pretty;
+      line-height: 1.7;
     }
     .hero-tagline strong { color: var(--white); font-weight: 600; }
     .hero-cta {
@@ -180,7 +196,7 @@
       align-items: center;
       gap: 8px;
       padding: 12px 28px;
-      border-radius: 3px;
+      border-radius: var(--radius-sm);
       font-family: var(--font-sans);
       font-size: 14px;
       font-weight: 600;
@@ -191,16 +207,16 @@
       transition: all 0.2s;
       border: none;
     }
-    .btn-primary { background: var(--red); color: white; }
-    .btn-primary:hover { background: var(--red-light); transform: translateY(-1px); }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-1px); }
     .btn-secondary {
       background: transparent;
       color: var(--white);
       border: 1px solid var(--border);
     }
     .btn-secondary:hover {
-      border-color: rgba(255,255,255,0.3);
-      background: rgba(255,255,255,0.04);
+      border-color: rgba(0,0,0,0.25);
+      background: rgba(0,0,0,0.04);
       transform: translateY(-1px);
     }
     .hero-scroll {
@@ -223,7 +239,7 @@
     .section-label {
       font-family: var(--font-mono);
       font-size: 11px;
-      color: var(--red);
+      color: var(--accent);
       letter-spacing: 0.14em;
       text-transform: uppercase;
       margin-bottom: 16px;
@@ -241,9 +257,7 @@
     .project-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
+      gap: 24px;
     }
     .project-card {
       background: var(--bg2);
@@ -251,17 +265,22 @@
       display: flex;
       flex-direction: column;
       gap: 0;
-      transition: background 0.2s;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-card);
+      transition: background 0.2s, transform 0.25s ease, box-shadow 0.25s ease;
       position: relative;
       overflow: hidden;
     }
-    .project-card:hover { background: var(--bg3); }
+    .project-card:hover {
+      background: var(--bg3);
+    }
     .project-card::before {
       content: '';
       position: absolute;
       top: 0; left: 0;
       width: 3px; height: 0;
-      background: var(--red);
+      background: var(--accent);
       transition: height 0.3s;
       z-index: 1;
     }
@@ -321,13 +340,13 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       padding: 3px 8px;
-      border-radius: 2px;
+      border-radius: 6px;
       display: inline-block;
       width: fit-content;
     }
-    .badge-doosan { background: rgba(163,42,42,0.18); color: #d45a5a; }
-    .badge-school { background: rgba(31,122,77,0.18); color: #4aaa7e; }
-    .badge-vision { background: rgba(138,109,31,0.18); color: #c4a23e; }
+    .badge-doosan { background: rgba(43,92,255,0.1); color: #2b5cff; }
+    .badge-school { background: rgba(31,122,77,0.1); color: #1f7a4d; }
+    .badge-vision { background: rgba(138,109,31,0.12); color: #8a6d1f; }
 
     .project-name {
       font-size: 20px;
@@ -344,12 +363,36 @@
       margin-top: 2px;
     }
     .project-desc {
+      font-family: var(--font-body);
       font-size: 14px;
       color: var(--gray);
-      line-height: 1.65;
+      line-height: 1.7;
       text-wrap: pretty;
       flex: 1;
     }
+    .project-role-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .project-role-list {
+      font-size: 13px;
+    }
+    .project-challenge {
+      font-family: var(--font-body);
+      font-size: 12.5px;
+      line-height: 1.65;
+      color: var(--gray);
+      padding: 10px 12px;
+      background: rgba(0,0,0,0.025);
+      border-left: 2px solid var(--accent);
+      border-radius: 4px;
+    }
+    .project-challenge strong { color: var(--white); font-weight: 600; }
+    .project-links { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 4px; }
     .project-stack {
       display: flex;
       flex-wrap: wrap;
@@ -360,13 +403,13 @@
       font-size: 11px;
       padding: 3px 8px;
       border: 1px solid var(--border);
-      border-radius: 2px;
+      border-radius: 6px;
       color: var(--gray);
     }
     .project-link {
       font-family: var(--font-mono);
       font-size: 11px;
-      color: var(--red);
+      color: var(--accent);
       text-decoration: none;
       letter-spacing: 0.06em;
       text-transform: uppercase;
@@ -376,7 +419,7 @@
       margin-top: 4px;
       transition: color 0.2s;
     }
-    .project-link:hover { color: var(--red-light); }
+    .project-link:hover { color: var(--accent-light); }
     .project-link svg { transition: transform 0.2s; }
     .project-link:hover svg { transform: translate(2px,-2px); }
 
@@ -390,18 +433,40 @@
     .skill-group {
       padding: 28px;
       border: 1px solid var(--border);
-      border-radius: 2px;
+      border-radius: var(--radius);
       background: var(--bg3);
+      transition: border-color 0.25s ease;
+    }
+    .skill-group:hover {
+      border-color: var(--accent);
     }
     .skill-group-title {
       font-family: var(--font-mono);
       font-size: 11px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--red);
+      color: var(--accent);
       margin-bottom: 16px;
     }
     .skill-list { display: flex; flex-direction: column; gap: 8px; }
+    .about-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.9;
+    }
+    .about-list li {
+      position: relative;
+      padding-left: 16px;
+    }
+    .about-list li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: currentColor;
+    }
     .skill-item {
       display: flex;
       justify-content: space-between;
@@ -410,29 +475,23 @@
       color: var(--white);
       font-weight: 500;
     }
-    .skill-bar-wrap {
-      width: 80px; height: 3px;
-      background: var(--border);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    .skill-bar-fill {
-      height: 100%;
-      background: var(--red);
-      border-radius: 2px;
-      width: 0;
-      transition: width 1s ease;
+    .skill-tier {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      white-space: nowrap;
     }
 
     /* ─── ABOUT ─── */
     #about {
       background: var(--bg);
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
+      grid-template-columns: 1fr;
+      gap: 48px;
     }
     .about-text p {
+      font-family: var(--font-body);
       font-size: 16px;
       color: var(--gray);
       line-height: 1.8;
@@ -440,36 +499,11 @@
     }
     .about-text p + p { margin-top: 16px; }
     .about-text strong { color: var(--white); font-weight: 600; }
-    .about-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      align-self: start;
-    }
-    .stat-box { background: var(--bg2); padding: 28px 24px; text-align: center; }
-    .stat-number {
-      font-size: 40px;
-      font-weight: 700;
-      color: var(--white);
-      letter-spacing: -0.04em;
-      line-height: 1;
-    }
-    .stat-number span { color: var(--red); }
-    .stat-label {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--gray);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-top: 8px;
-    }
 
     /* ─── CONTACT ─── */
     #contact { background: var(--bg2); text-align: center; }
     #contact .section-title { margin-bottom: 16px; }
-    .contact-sub { color: var(--gray); font-size: 16px; margin-bottom: 48px; }
+    .contact-sub { font-family: var(--font-body); color: var(--gray); font-size: 16px; margin-bottom: 48px; }
     .contact-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
 
     /* ─── FOOTER ─── */
@@ -482,7 +516,7 @@
       background: var(--bg);
     }
     .footer-name { font-family: var(--font-mono); font-size: 13px; color: var(--gray-light); }
-    .footer-name span { color: var(--red); }
+    .footer-name span { color: var(--accent); }
     .footer-copy { font-family: var(--font-mono); font-size: 11px; color: var(--gray-light); }
 
     /* ─── ANIMATIONS ─── */
@@ -498,8 +532,8 @@
       nav { padding: 0 20px; }
       .nav-links { display: none; }
       section { padding: 72px 20px; }
-      #hero { padding: 100px 20px 60px; }
-      #about { grid-template-columns: 1fr; gap: 40px; }
+      #hero { padding: 100px 20px 60px; flex-direction: column-reverse; gap: 32px; }
+      .hero-photo { width: 160px; }
       @media (max-width: 768px) {
         .project-grid { grid-template-columns: 1fr; }
       }
@@ -528,23 +562,25 @@
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-grid-bg"></div>
-  <div class="hero-red-bar"></div>
-  <p class="hero-eyebrow" data-i18n="hero.eyebrow">Robotics Software Engineer</p>
-  <h1 class="hero-name">
-    <span class="hero-name-en">Yunjeong Ok</span>
-    <span class="hero-name-kr">옥윤정</span>
-  </h1>
-  <p class="hero-tagline" data-i18n-html="hero.tagline">
-    Building robots that work in the <strong>real world</strong> —
-    autonomous navigation, computer vision, and ROS2
-    across factory floors, fish farms, and hospital corridors.
-  </p>
-  <div class="hero-cta">
-    <a href="portfolio.html" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="hero.portfolio">포트폴리오 보기</a>
-    <a href="#projects" class="btn btn-secondary" data-i18n="hero.cta">View Projects</a>
-    <a href="https://github.com/yevettee" class="btn btn-secondary" target="_blank" rel="noopener">GitHub</a>
-    <a href="#contact" class="btn btn-secondary" data-i18n="hero.contact">Contact</a>
+  <div class="hero-accent-bar"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow" data-i18n="hero.eyebrow">Robotics Software Engineer</p>
+    <h1 class="hero-name">
+      <span class="hero-name-en">Yunjeong Ok</span>
+      <span class="hero-name-kr">옥윤정</span>
+    </h1>
+    <p class="hero-tagline" data-i18n-html="hero.tagline">
+      Robotics engineer. I work on <strong>navigation, computer vision, and ROS2</strong> systems.
+    </p>
+    <div class="hero-cta">
+      <a href="#about" class="btn btn-primary" data-i18n="hero.about">About</a>
+      <a href="#projects" class="btn btn-secondary" data-i18n="hero.cta">Projects</a>
+      <a href="https://github.com/yevettee" class="btn btn-secondary" target="_blank" rel="noopener">GitHub</a>
+      <a href="#contact" class="btn btn-secondary" data-i18n="hero.contact">Contact</a>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <img src="assets/etc/취업사진.png" alt="옥윤정 프로필 사진" />
   </div>
   <div class="hero-scroll">
     <span class="hero-scroll-line"></span>
@@ -556,36 +592,53 @@
 <section id="about">
   <div class="about-text fade-up">
     <p class="section-label" data-i18n="about.label">About</p>
-    <h2 class="section-title" style="margin-bottom:32px;" data-i18n-html="about.title">Turning algorithms<br/>into autonomous action.</h2>
-    <div style="display:flex;flex-direction:column;gap:0;">
+    <h2 class="section-title" style="margin-bottom:32px;" data-i18n-html="about.title">Robotics, built end to end.</h2>
+    <div>
       <p data-i18n-html="about.p1">
-        I'm a robotics engineer with hands-on experience deploying multi-robot systems using <strong>ROS2</strong> — from collaborative arms on a factory line to patrol bots navigating hospital wards autonomously.
+        I want to be a <strong>systems integration and test engineer</strong>. I validate robots in simulation, then on real hardware.
       </p>
-      <p style="margin-top:16px;" data-i18n-html="about.p2">
-        During the <strong>Doosan Robotics Bootcamp</strong>, I shipped four full-stack robot projects in rapid sprints, integrating hardware, perception, planning, and remote dashboards under real constraints.
+      <p style="margin-top:16px;" data-i18n="about.p2">
+        I work on ROS2 interface design, vision-based perception, and hardware integration. My strength is tying multiple subsystems into one system.
       </p>
       <p style="margin-top:16px;" data-i18n="about.p3">
-        I care most about the gap between simulation and reality — and closing it.
+        I design for the whole system, not just individual features. Goal: robots that hold up at integration.
       </p>
     </div>
   </div>
 
-  <div class="about-stats fade-up">
-    <div class="stat-box">
-      <div class="stat-number">4<span>+</span></div>
-      <div class="stat-label" data-i18n="stat.bootcamp">Bootcamp Projects</div>
+  <div class="fade-up" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;">
+    <div class="skill-group">
+      <div class="skill-group-title" data-i18n="edu.label">Education</div>
+      <div style="display:flex;flex-direction:column;gap:12px;font-size:14px;color:var(--gray);line-height:1.6;">
+        <div>
+          <span style="color:var(--white);font-weight:600;">Korea Aerospace University</span><br>
+          <span data-i18n="edu.kau.major">Electronic &amp; Aerospace Electronic Engineering</span>
+          <div style="font-family:var(--font-mono);font-size:11px;color:var(--gray-light);margin-top:4px;">2019.03 – 2025.08</div>
+        </div>
+        <div>
+          <span style="color:var(--white);font-weight:600;">Doosan Robotics Bootcamp</span><br>
+          <span data-i18n="edu.bootcamp.status">Completed</span>
+          <div style="font-family:var(--font-mono);font-size:11px;color:var(--gray-light);margin-top:4px;">2025.12 – 2026.06</div>
+        </div>
+      </div>
     </div>
-    <div class="stat-box">
-      <div class="stat-number">7<span>+</span></div>
-      <div class="stat-label" data-i18n="stat.total">Total Projects</div>
+    <div class="skill-group">
+      <div class="skill-group-title" data-i18n="certs.label">Certifications</div>
+      <ul class="about-list">
+        <li>ISTQB Foundation Level (CTFL)</li>
+        <li>ADsP <span style="color:var(--gray-light);">— 데이터분석 준전문가</span></li>
+        <li>컴퓨터활용능력 2급</li>
+        <li>TOEIC Speaking — Advanced Low</li>
+      </ul>
     </div>
-    <div class="stat-box">
-      <div class="stat-number">3<span>+</span></div>
-      <div class="stat-label" data-i18n="stat.deployed">Robots Deployed</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-number">2<span>y</span></div>
-      <div class="stat-label" data-i18n="stat.ros2">ROS2 Experience</div>
+    <div class="skill-group">
+      <div class="skill-group-title" data-i18n="strengths.label">Strengths</div>
+      <ul class="about-list">
+        <li data-i18n="strengths.1">Multi-subsystem integration (Web · ROS2 · Hardware)</li>
+        <li data-i18n="strengths.2">System interface design</li>
+        <li data-i18n="strengths.3">Computer vision</li>
+        <li data-i18n="strengths.4">Team communication &amp; technical leadership</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -607,20 +660,37 @@
           <span class="project-name-kr">양식장 청소 로봇</span>
         </div>
         <p class="project-desc" data-i18n="p03.desc">
-          Autonomous aquafarm debris-cleaning robot with ROS2 Nav2 for area coverage,
-          OpenCV-based foreign object detection, and a real-time web monitoring dashboard.
-          Solved false-positive filtering and obstacle detection edge cases in murky water.
+          Multi-robot aquafarm-cleaning simulation in NVIDIA Isaac Sim. Reproduces a
+          7-tank sturgeon farm with 3 robot types — 7 underwater cleaners (Hippo),
+          7 rail-mounted wall-cleaning cobots (M1013), and 1 gantry robot that
+          collects dead fish.
         </p>
-        <div class="project-stack">
-          <span class="stack-chip">ROS2</span>
-          <span class="stack-chip">Nav2</span>
-          <span class="stack-chip">OpenCV</span>
-          <span class="stack-chip">Web Dashboard</span>
+        <div>
+          <p class="project-role-label" data-i18n="role.label">My Role</p>
+          <ul class="about-list project-role-list">
+            <li data-i18n="role.aquasweep.1">Designed and built all Isaac Sim extensions (environment, physics, 8 robot types)</li>
+            <li data-i18n="role.aquasweep.2">aqua_detection — YOLO sturgeon detection + OpenCV debris-detection pipeline</li>
+            <li data-i18n="role.aquasweep.3">Integrated Planner → Controller → Isaac Sim multi-robot orchestration</li>
+          </ul>
         </div>
-        <a href="https://github.com/yevettee" class="project-link" target="_blank" rel="noopener">
-          View on GitHub
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+        <div class="project-challenge"><strong>Key challenge —</strong> 벽면 그림자를 이물질로 오탐지하던 문제를 면적 필터(25–450px)로 해결. 수면 근처 흐릿한 개체는 adaptive threshold로 검출률을 높였습니다.</div>
+        <div class="project-stack">
+          <span class="stack-chip">Isaac Sim</span>
+          <span class="stack-chip">ROS2</span>
+          <span class="stack-chip">YOLO</span>
+          <span class="stack-chip">OpenCV</span>
+          <span class="stack-chip">PyQt5</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/yevettee" class="project-link" target="_blank" rel="noopener">
+            View on GitHub
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="portfolio.html?slide=4" class="project-link" target="_blank" rel="noopener">
+            View More
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -634,21 +704,37 @@
           <span class="project-name-kr">공구정리 로봇</span>
         </div>
         <p class="project-desc" data-i18n="p02.desc">
-          Autonomous tool-organization robot using YOLOv8 OBB (Oriented Bounding Box) detection
-          to identify and sort rotated tools. Integrated Gazebo simulation environment
-          for validation before real-world deployment.
+          Voice-controlled tool-sorting assistant using a Doosan M0609 cobot. Camera
+          detects bolts, nuts, and tools and sorts them by voice command; pauses
+          instantly if a hand enters the workspace.
         </p>
+        <div>
+          <p class="project-role-label" data-i18n="role.label">My Role</p>
+          <ul class="about-list project-role-list">
+            <li data-i18n="role.doobe.1">Designed the speech-to-text (STT) pipeline</li>
+            <li data-i18n="role.doobe.2">Full feature integration</li>
+            <li data-i18n="role.doobe.3">Built the Gazebo simulation environment</li>
+            <li data-i18n="role.doobe.4">Web UI updates (emergency stop, wake-word toggle, etc.)</li>
+          </ul>
+        </div>
+        <div class="project-challenge"><strong>Key challenge —</strong> 실물 로봇 수가 제한적이라 Gazebo 검증 환경이 필요했는데, real 코드 구조는 유지한 채 sim 모드를 분리 추가해 실행 경로를 나눴습니다.</div>
         <div class="project-stack">
           <span class="stack-chip">ROS2</span>
-          <span class="stack-chip">YOLOv8 OBB</span>
+          <span class="stack-chip">YOLOv8</span>
           <span class="stack-chip">Gazebo</span>
-          <span class="stack-chip">Nav2</span>
+          <span class="stack-chip">mediapipe</span>
           <span class="stack-chip">Python</span>
         </div>
-        <a href="https://github.com/yevettee" class="project-link" target="_blank" rel="noopener">
-          View on GitHub
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+        <div class="project-links">
+          <a href="https://github.com/yevettee" class="project-link" target="_blank" rel="noopener">
+            View on GitHub
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="portfolio.html?slide=8" class="project-link" target="_blank" rel="noopener">
+            View More
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -662,20 +748,38 @@
           <span class="project-name-kr">간호사 보조 로봇</span>
         </div>
         <p class="project-desc" data-i18n="p04.desc">
-          Nurse-assistant patrol robot on TurtleBot4 with Nav2-based ward navigation,
-          autonomous room-rounding state machine (Mode A), and multi-robot rendezvous logic.
-          My role: ward-patrol integration and Nav2 localization troubleshooting.
+          Hospital-ward assistant robot on TurtleBot4. In autonomous rounds (Mode A),
+          it visits rooms, verifies patients via YOLO+QR, and runs a web
+          questionnaire; in nurse-assist mode (Mode B), it follows the nurse and
+          verifies medication labels via OCR.
         </p>
-        <div class="project-stack">
-          <span class="stack-chip">ROS2</span>
-          <span class="stack-chip">Nav2</span>
-          <span class="stack-chip">TurtleBot4</span>
-          <span class="stack-chip">State Machine</span>
+        <div>
+          <p class="project-role-label" data-i18n="role.label">My Role</p>
+          <ul class="about-list project-role-list">
+            <li data-i18n="role.medicart.1">Built the Mode A patrol state machine (mission_manager) end to end</li>
+            <li data-i18n="role.medicart.2">Nav2 ward-rounding logic, patient-ID integration, Firebase state logging</li>
+            <li data-i18n="role.medicart.3">Designed the interface between the web questionnaire and the state machine</li>
+            <li data-i18n="role.medicart.4" style="color:var(--gray-light);">Mode B (nurse-following, OCR) — built by a teammate</li>
+          </ul>
         </div>
-        <a href="https://github.com/yevettee" class="project-link" target="_blank" rel="noopener">
-          View on GitHub
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+        <div class="project-challenge"><strong>Key challenge —</strong> Nav2 초기 위치(localization)를 안 잡으면 로봇이 안 움직였습니다. RViz Pose Estimate를 필수 단계로 만들고 대시보드에 가드를 추가했습니다.</div>
+        <div class="project-stack">
+          <span class="stack-chip">TurtleBot4</span>
+          <span class="stack-chip">Nav2</span>
+          <span class="stack-chip">YOLO</span>
+          <span class="stack-chip">GCP Vision OCR</span>
+          <span class="stack-chip">Firebase</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/yevettee" class="project-link" target="_blank" rel="noopener">
+            View on GitHub
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="portfolio.html?slide=13" class="project-link" target="_blank" rel="noopener">
+            View More
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -689,21 +793,36 @@
           <span class="project-name-kr">빙수 제조 협동로봇</span>
         </div>
         <p class="project-desc" data-i18n="p01.desc">
-          Full-stack collaborative robot system for automated shaved ice production.
-          Web dashboard (Firebase + ROS2 bridge) controls a Doosan M0609 arm in real time,
-          with handwriting trajectory generation via camera-to-world calibration.
+          Doosan M0609 cobot automating the full shaved-ice process — from order to
+          topping to nickname sticker. Shaves ice, adds toppings, and writes the
+          customer's nickname by hand before placing the cup.
         </p>
+        <div>
+          <p class="project-role-label" data-i18n="role.label">My Role</p>
+          <ul class="about-list project-role-list">
+            <li data-i18n="role.shavedice.1">Designed ROS2 interfaces between modules</li>
+            <li data-i18n="role.shavedice.2">Full integration and web-service design</li>
+            <li data-i18n="role.shavedice.3">Built the handwriting-generation algorithm</li>
+          </ul>
+        </div>
+        <div class="project-challenge"><strong>Key challenge —</strong> 2-finger 그리퍼는 펜이 휘어져 글씨가 틀어졌습니다. 소프트웨어로는 안 됐고, 분필 홀더(스프링 Z축 완충)로 바꿔서 해결했습니다.</div>
         <div class="project-stack">
+          <span class="stack-chip">M0609</span>
           <span class="stack-chip">ROS2</span>
           <span class="stack-chip">Firebase</span>
-          <span class="stack-chip">M0609</span>
-          <span class="stack-chip">OpenCV</span>
+          <span class="stack-chip">PySide</span>
           <span class="stack-chip">Python</span>
         </div>
-        <a href="https://github.com/yevettee" class="project-link" target="_blank" rel="noopener">
-          View on GitHub
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+        <div class="project-links">
+          <a href="https://github.com/yevettee" class="project-link" target="_blank" rel="noopener">
+            View on GitHub
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="portfolio.html?slide=17" class="project-link" target="_blank" rel="noopener">
+            View More
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -717,20 +836,35 @@
           <span class="project-name-kr">강화학습 로봇팔</span>
         </div>
         <p class="project-desc" data-i18n="rl.desc">
-          DQN-based reinforcement learning agent controlling a robot arm in PyBullet simulation.
-          Implemented camera-to-world coordinate transform and depth normalization
-          for 3D target localization from RGB-D input.
+          DRL study project. Analyzed a reference DQN implementation and reproduced
+          a pick-and-place agent for a robot arm in PyBullet, working from RGB-D
+          input. Simulation only. Did not reach real hardware.
         </p>
+        <div>
+          <p class="project-role-label" data-i18n="role.label">My Role</p>
+          <ul class="about-list project-role-list">
+            <li data-i18n="role.rl.1">Reference-code architecture analysis</li>
+            <li data-i18n="role.rl.2">Camera-to-world coordinate transform</li>
+            <li data-i18n="role.rl.3">Depth normalization</li>
+          </ul>
+        </div>
+        <div class="project-challenge"><strong>Key challenge —</strong> Camera→World 변환과 depth 정규화를 직접 구현하며 DQN/TD3 파이프라인을 이해했습니다. 실제 로봇까진 못 갔지만, 이론과 코드 분석 역량은 남았습니다.</div>
         <div class="project-stack">
           <span class="stack-chip">PyBullet</span>
           <span class="stack-chip">DQN</span>
           <span class="stack-chip">Python</span>
           <span class="stack-chip">OpenCV</span>
         </div>
-        <a href="https://github.com/yevettee" class="project-link" target="_blank" rel="noopener">
-          View on GitHub
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+        <div class="project-links">
+          <a href="https://github.com/yevettee" class="project-link" target="_blank" rel="noopener">
+            View on GitHub
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="portfolio.html?slide=23" class="project-link" target="_blank" rel="noopener">
+            View More
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -744,20 +878,32 @@
           <span class="project-name-kr">드론 비전 졸업작품</span>
         </div>
         <p class="project-desc" data-i18n="vision.desc">
-          YOLO-based marker detection with camera calibration for precision drone landing.
-          Achieved 11.5 cm simulation accuracy and 13.3 cm real-world accuracy.
-          Covers full pipeline from calibration through distance estimation.
+          Graduation capstone assuming all sensors have failed — lands a drone
+          autonomously using only camera vision to detect a landing marker.
+          Validated in AirSim, then tested on a real DJI Tello.
         </p>
+        <div>
+          <p class="project-role-label" data-i18n="role.label">My Role</p>
+          <ul class="about-list project-role-list">
+            <li data-i18n="role.vision.1">Designed the landing algorithm</li>
+            <li data-i18n="role.vision.2">Camera calibration</li>
+            <li data-i18n="role.vision.3">Implemented distance estimation</li>
+            <li data-i18n="role.vision.4">Built the AirSim simulation environment</li>
+          </ul>
+        </div>
+        <div class="project-challenge"><strong>Key challenge —</strong> AirSim(11.5cm)에서 실물 DJI Tello(13.3cm)로 옮기며 생긴 오차를 캘리브레이션으로 줄여, 목표 오차 15cm 이내를 달성했습니다.</div>
         <div class="project-stack">
           <span class="stack-chip">YOLO</span>
-          <span class="stack-chip">OpenCV</span>
           <span class="stack-chip">Camera Calibration</span>
+          <span class="stack-chip">AirSim</span>
           <span class="stack-chip">DJI Tello</span>
         </div>
-        <a href="https://github.com/yevettee" class="project-link" target="_blank" rel="noopener">
-          View on GitHub
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+        <div class="project-links">
+          <a href="portfolio.html?slide=25" class="project-link" target="_blank" rel="noopener">
+            View More
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -771,42 +917,31 @@
 
   <div class="skills-grid">
     <div class="skill-group fade-up">
-      <div class="skill-group-title" data-i18n="skill.languages">Languages</div>
+      <div class="skill-group-title" data-i18n="skill.languages">Languages &amp; Tools</div>
       <div class="skill-list">
-        <div class="skill-item"><span>Python</span><div class="skill-bar-wrap"><div class="skill-bar-fill" data-w="92"></div></div></div>
-        <div class="skill-item"><span>C++</span><div class="skill-bar-wrap"><div class="skill-bar-fill" data-w="70"></div></div></div>
-        <div class="skill-item"><span>MATLAB</span><div class="skill-bar-wrap"><div class="skill-bar-fill" data-w="65"></div></div></div>
-        <div class="skill-item"><span>JavaScript</span><div class="skill-bar-wrap"><div class="skill-bar-fill" data-w="55"></div></div></div>
+        <div class="skill-item"><span>Python</span><span class="skill-tier" data-i18n="tier.python">Upper-Intermediate</span></div>
+        <div class="skill-item"><span>Git / Linux</span><span class="skill-tier" data-i18n="tier.git">Intermediate</span></div>
+        <div class="skill-item"><span>Firebase</span><span class="skill-tier" data-i18n="tier.firebase">Lower-Intermediate</span></div>
       </div>
     </div>
 
     <div class="skill-group fade-up">
-      <div class="skill-group-title" data-i18n="skill.robotics">Robotics</div>
+      <div class="skill-group-title" data-i18n="skill.robotics">Robotics &amp; Simulation</div>
       <div class="skill-list">
-        <div class="skill-item"><span>ROS2</span><div class="skill-bar-wrap"><div class="skill-bar-fill" data-w="88"></div></div></div>
-        <div class="skill-item"><span>Nav2</span><div class="skill-bar-wrap"><div class="skill-bar-fill" data-w="78"></div></div></div>
-        <div class="skill-item"><span>Gazebo</span><div class="skill-bar-wrap"><div class="skill-bar-fill" data-w="72"></div></div></div>
-        <div class="skill-item"><span>PyBullet</span><div class="skill-bar-wrap"><div class="skill-bar-fill" data-w="65"></div></div></div>
+        <div class="skill-item"><span>ROS2</span><span class="skill-tier" data-i18n="tier.ros2">Upper-Intermediate</span></div>
+        <div class="skill-item"><span>Nav2</span><span class="skill-tier" data-i18n="tier.nav2">Intermediate</span></div>
+        <div class="skill-item"><span>Gazebo</span><span class="skill-tier" data-i18n="tier.gazebo">Upper-Intermediate</span></div>
+        <div class="skill-item"><span>PyBullet</span><span class="skill-tier" data-i18n="tier.pybullet">Basic</span></div>
+        <div class="skill-item"><span>Reinforcement Learning</span><span class="skill-tier" data-i18n="tier.rl">Lower-Intermediate</span></div>
       </div>
     </div>
 
     <div class="skill-group fade-up">
       <div class="skill-group-title" data-i18n="skill.vision">Computer Vision</div>
       <div class="skill-list">
-        <div class="skill-item"><span>OpenCV</span><div class="skill-bar-wrap"><div class="skill-bar-fill" data-w="85"></div></div></div>
-        <div class="skill-item"><span>YOLOv8</span><div class="skill-bar-wrap"><div class="skill-bar-fill" data-w="80"></div></div></div>
-        <div class="skill-item"><span>Camera Calib.</span><div class="skill-bar-wrap"><div class="skill-bar-fill" data-w="75"></div></div></div>
-        <div class="skill-item"><span>Depth Estimation</span><div class="skill-bar-wrap"><div class="skill-bar-fill" data-w="68"></div></div></div>
-      </div>
-    </div>
-
-    <div class="skill-group fade-up">
-      <div class="skill-group-title" data-i18n="skill.tools">Tools & Cloud</div>
-      <div class="skill-list">
-        <div class="skill-item"><span>Git / Linux</span><div class="skill-bar-wrap"><div class="skill-bar-fill" data-w="85"></div></div></div>
-        <div class="skill-item"><span>Firebase</span><div class="skill-bar-wrap"><div class="skill-bar-fill" data-w="70"></div></div></div>
-        <div class="skill-item"><span>Docker</span><div class="skill-bar-wrap"><div class="skill-bar-fill" data-w="58"></div></div></div>
-        <div class="skill-item"><span>Reinforcement Learning</span><div class="skill-bar-wrap"><div class="skill-bar-fill" data-w="62"></div></div></div>
+        <div class="skill-item"><span>OpenCV</span><span class="skill-tier" data-i18n="tier.opencv">Intermediate</span></div>
+        <div class="skill-item"><span>YOLOv8</span><span class="skill-tier" data-i18n="tier.yolo">Intermediate</span></div>
+        <div class="skill-item"><span>Camera Calib.</span><span class="skill-tier" data-i18n="tier.cameracalib">Upper-Intermediate</span></div>
       </div>
     </div>
   </div>
@@ -844,6 +979,7 @@
       GitHub
     </a>
   </div>
+  <a href="portfolio.html" target="_blank" rel="noopener" class="fade-up" data-i18n="contact.portfolio" style="display:inline-block;margin-top:28px;font-family:var(--font-mono);font-size:12px;color:var(--gray-light);text-decoration:none;letter-spacing:0.04em;">View Full Portfolio Deck →</a>
 </section>
 
 <!-- FOOTER -->
@@ -861,40 +997,78 @@ const translations = {
     'nav.skills': 'Skills',
     'nav.contact': 'Contact',
     'hero.eyebrow': 'Robotics Software Engineer',
-    'hero.tagline': 'Building robots that work in the <strong>real world</strong> — autonomous navigation, computer vision, and ROS2 across factory floors, fish farms, and hospital corridors.',
-    'hero.portfolio': 'View Portfolio',
-    'hero.cta': 'View Projects',
+    'hero.tagline': 'Robotics engineer. I work on <strong>navigation, computer vision, and ROS2</strong> systems.',
+    'hero.about': 'About',
+    'hero.cta': 'Projects',
     'hero.contact': 'Contact',
     'hero.scroll': 'Scroll',
     'about.label': 'About',
-    'about.title': 'Turning algorithms<br/>into autonomous action.',
-    'about.p1': "I'm a robotics engineer with hands-on experience deploying multi-robot systems using <strong>ROS2</strong> — from collaborative arms on a factory line to patrol bots navigating hospital wards autonomously.",
-    'about.p2': 'During the <strong>Doosan Robotics Bootcamp</strong>, I shipped four full-stack robot projects in rapid sprints, integrating hardware, perception, planning, and remote dashboards under real constraints.',
-    'about.p3': 'I care most about the gap between simulation and reality — and closing it.',
-    'stat.bootcamp': 'Bootcamp Projects',
-    'stat.total': 'Total Projects',
-    'stat.deployed': 'Robots Deployed',
-    'stat.ros2': 'ROS2 Experience',
+    'about.title': 'Robotics, built end to end.',
+    'about.p1': "I want to be a <strong>systems integration and test engineer</strong>. I validate robots in simulation, then on real hardware.",
+    'about.p2': 'I work on ROS2 interface design, vision-based perception, and hardware integration. My strength is tying multiple subsystems into one system.',
+    'about.p3': 'I design for the whole system, not just individual features. Goal: robots that hold up at integration.',
+    'edu.label': 'Education',
+    'edu.kau.major': 'Electronic & Aerospace Electronic Engineering',
+    'edu.bootcamp.status': 'Completed',
+    'certs.label': 'Certifications',
+    'strengths.label': 'Strengths',
+    'strengths.1': 'Multi-subsystem integration (Web · ROS2 · Hardware)',
+    'strengths.2': 'System interface design',
+    'strengths.3': 'Computer vision',
+    'strengths.4': 'Team communication & technical leadership',
     'projects.label': 'Projects',
     'projects.title': "What I've built.",
     'badge.doosan': 'Doosan Bootcamp',
     'badge.school': 'School Project',
     'badge.vision': 'Graduation',
-    'p01.desc': 'Full-stack collaborative robot system for automated shaved ice production. Web dashboard (Firebase + ROS2 bridge) controls a Doosan M0609 arm in real time, with handwriting trajectory generation via camera-to-world calibration.',
-    'p02.desc': 'Autonomous tool-organization robot using YOLOv8 OBB (Oriented Bounding Box) detection to identify and sort rotated tools. Integrated Gazebo simulation environment for validation before real-world deployment.',
-    'p03.desc': 'Autonomous aquafarm debris-cleaning robot with ROS2 Nav2 for area coverage, OpenCV-based foreign object detection, and a real-time web monitoring dashboard. Solved false-positive filtering and obstacle detection edge cases in murky water.',
-    'p04.desc': 'Nurse-assistant patrol robot on TurtleBot4 with Nav2-based ward navigation, autonomous room-rounding state machine (Mode A), and multi-robot rendezvous logic. My role: ward-patrol integration and Nav2 localization troubleshooting.',
-    'rl.desc': 'DQN-based reinforcement learning agent controlling a robot arm in PyBullet simulation. Implemented camera-to-world coordinate transform and depth normalization for 3D target localization from RGB-D input.',
-    'vision.desc': 'YOLO-based marker detection with camera calibration for precision drone landing. Achieved 11.5 cm simulation accuracy and 13.3 cm real-world accuracy. Covers full pipeline from calibration through distance estimation.',
+    'p01.desc': "Doosan M0609 cobot automating the full shaved-ice process — from order to topping to nickname sticker. Shaves ice, adds toppings, and writes the customer's nickname by hand before placing the cup.",
+    'p02.desc': 'Voice-controlled tool-sorting assistant using a Doosan M0609 cobot. Camera detects bolts, nuts, and tools and sorts them by voice command; pauses instantly if a hand enters the workspace.',
+    'p03.desc': 'Multi-robot aquafarm-cleaning simulation in NVIDIA Isaac Sim. Reproduces a 7-tank sturgeon farm with 3 robot types — 7 underwater cleaners (Hippo), 7 rail-mounted wall-cleaning cobots (M1013), and 1 gantry robot that collects dead fish.',
+    'p04.desc': 'Hospital-ward assistant robot on TurtleBot4. In autonomous rounds (Mode A), it visits rooms, verifies patients via YOLO+QR, and runs a web questionnaire; in nurse-assist mode (Mode B), it follows the nurse and verifies medication labels via OCR.',
+    'rl.desc': 'DRL study project. Analyzed a reference DQN implementation and reproduced a pick-and-place agent for a robot arm in PyBullet, working from RGB-D input. Simulation only. Did not reach real hardware.',
+    'vision.desc': 'Graduation capstone assuming all sensors have failed — lands a drone autonomously using only camera vision to detect a landing marker. Validated in AirSim, then tested on a real DJI Tello.',
+    'role.label': 'My Role',
+    'role.aquasweep.1': 'Designed and built all Isaac Sim extensions (environment, physics, 8 robot types)',
+    'role.aquasweep.2': 'aqua_detection — YOLO sturgeon detection + OpenCV debris-detection pipeline',
+    'role.aquasweep.3': 'Integrated Planner → Controller → Isaac Sim multi-robot orchestration',
+    'role.doobe.1': 'Designed the speech-to-text (STT) pipeline',
+    'role.doobe.2': 'Full feature integration',
+    'role.doobe.3': 'Built the Gazebo simulation environment',
+    'role.doobe.4': 'Web UI updates (emergency stop, wake-word toggle, etc.)',
+    'role.medicart.1': 'Built the Mode A patrol state machine (mission_manager) end to end',
+    'role.medicart.2': 'Nav2 ward-rounding logic, patient-ID integration, Firebase state logging',
+    'role.medicart.3': 'Designed the interface between the web questionnaire and the state machine',
+    'role.medicart.4': 'Mode B (nurse-following, OCR) — built by a teammate',
+    'role.shavedice.1': 'Designed ROS2 interfaces between modules',
+    'role.shavedice.2': 'Full integration and web-service design',
+    'role.shavedice.3': 'Built the handwriting-generation algorithm',
+    'role.rl.1': 'Reference-code architecture analysis',
+    'role.rl.2': 'Camera-to-world coordinate transform',
+    'role.rl.3': 'Depth normalization',
+    'role.vision.1': 'Designed the landing algorithm',
+    'role.vision.2': 'Camera calibration',
+    'role.vision.3': 'Implemented distance estimation',
+    'role.vision.4': 'Built the AirSim simulation environment',
     'skills.label': 'Skills',
     'skills.title': 'Tech Stack.',
-    'skill.languages': 'Languages',
-    'skill.robotics': 'Robotics',
+    'skill.languages': 'Languages & Tools',
+    'skill.robotics': 'Robotics & Simulation',
     'skill.vision': 'Computer Vision',
-    'skill.tools': 'Tools & Cloud',
+    'tier.python': 'Upper-Intermediate',
+    'tier.git': 'Intermediate',
+    'tier.firebase': 'Lower-Intermediate',
+    'tier.ros2': 'Upper-Intermediate',
+    'tier.nav2': 'Intermediate',
+    'tier.gazebo': 'Upper-Intermediate',
+    'tier.pybullet': 'Basic',
+    'tier.rl': 'Lower-Intermediate',
+    'tier.opencv': 'Intermediate',
+    'tier.yolo': 'Intermediate',
+    'tier.cameracalib': 'Upper-Intermediate',
     'contact.label': 'Contact',
     'contact.title': "Let's connect.",
     'contact.sub': 'Open to opportunities in robotics software engineering.',
+    'contact.portfolio': 'View Full Portfolio Deck →',
     'footer.role': 'Robotics Software Engineer · Seoul, Korea',
   },
   kr: {
@@ -903,40 +1077,78 @@ const translations = {
     'nav.skills': '기술',
     'nav.contact': '연락처',
     'hero.eyebrow': '로봇 소프트웨어 엔지니어',
-    'hero.tagline': '<strong>실제 현장</strong>에서 동작하는 로봇을 만듭니다 — 공장, 양식장, 병원에서 자율 주행·컴퓨터 비전·ROS2로.',
-    'hero.portfolio': '포트폴리오 보기',
-    'hero.cta': '프로젝트 보기',
+    'hero.tagline': '<strong>주행, 컴퓨터 비전, ROS2</strong> 시스템 통합을 다루는 로봇 엔지니어입니다.',
+    'hero.about': '소개',
+    'hero.cta': '프로젝트',
     'hero.contact': '연락하기',
     'hero.scroll': '스크롤',
     'about.label': '소개',
-    'about.title': '알고리즘을<br/>자율 행동으로.',
-    'about.p1': '<strong>ROS2</strong>를 활용한 멀티로봇 시스템 배포 경험을 가진 로봇 소프트웨어 엔지니어입니다 — 공장 협동 암부터 병동 자율 순찰 로봇까지.',
-    'about.p2': '<strong>두산 로보틱스 부트캠프</strong>에서 4개의 풀스택 로봇 프로젝트를 빠른 스프린트로 완성했습니다. 실제 제약 조건 하에 하드웨어·인지·계획·원격 대시보드를 통합했습니다.',
-    'about.p3': '시뮬레이션과 현실의 간극을 좁히는 것에 가장 큰 관심을 갖고 있습니다.',
-    'stat.bootcamp': '부트캠프 프로젝트',
-    'stat.total': '전체 프로젝트',
-    'stat.deployed': '배포된 로봇',
-    'stat.ros2': 'ROS2 경력',
+    'about.title': '로보틱스, 처음부터 끝까지.',
+    'about.p1': '시뮬레이션과 실제 로봇 환경을 오가며 동작을 검증하는 <strong>시스템 통합·테스트 엔지니어</strong>를 지향합니다.',
+    'about.p2': 'ROS2 인터페이스 설계, 비전 인식, 하드웨어 통합까지 다루며, 여러 서브시스템을 하나의 동작으로 묶는 데 강점이 있습니다.',
+    'about.p3': '개별 기능이 아니라 시스템 전체가 맞물려 동작하도록 설계하고, 통합 단계에서 강건한 로봇을 만드는 엔지니어가 되겠습니다.',
+    'edu.label': '학력',
+    'edu.kau.major': '전자 및 항공전자공학',
+    'edu.bootcamp.status': '수료',
+    'certs.label': '자격증',
+    'strengths.label': '강점',
+    'strengths.1': '여러 서브시스템(웹·ROS 2·하드웨어) 통합 설계',
+    'strengths.2': 'System Interface 설계',
+    'strengths.3': 'Computer Vision',
+    'strengths.4': '팀 소통 · 기술 리딩',
     'projects.label': '프로젝트',
     'projects.title': '만든 것들.',
     'badge.doosan': '두산 부트캠프',
     'badge.school': '학교 프로젝트',
     'badge.vision': '졸업작품',
-    'p01.desc': '빙수 자동 제조를 위한 풀스택 협동로봇 시스템. Firebase + ROS2 브릿지 웹 대시보드로 Doosan M0609 암을 실시간 제어하며, 카메라-월드 좌표 변환을 통한 손글씨 궤적 생성.',
-    'p02.desc': 'YOLOv8 OBB(방향성 바운딩 박스) 기반 공구 인식 및 분류 자율 로봇. 실제 배포 전 Gazebo 시뮬레이션 환경에서 검증.',
-    'p03.desc': 'ROS2 Nav2 영역 커버리지, OpenCV 기반 이물질 감지, 실시간 웹 모니터링을 갖춘 양식장 자율 청소 로봇. 탁한 수중 환경의 오탐지 필터링 문제 해결.',
-    'p04.desc': 'TurtleBot4 기반 Nav2 병동 내비게이션, 자율 회진 상태머신(Mode A), 멀티로봇 랑데부 로직을 갖춘 간호사 보조 순찰 로봇. 담당: 회진 통합 및 Nav2 위치추정 트러블슈팅.',
-    'rl.desc': 'PyBullet 시뮬레이션에서 로봇팔을 제어하는 DQN 강화학습 에이전트. RGB-D 입력에서 3D 목표 위치 추정을 위한 카메라-월드 좌표 변환 및 깊이 정규화 구현.',
-    'vision.desc': '정밀 드론 착륙을 위한 카메라 캘리브레이션 기반 YOLO 마커 감지. 시뮬레이션 11.5cm, 실제 환경 13.3cm 정확도 달성. 캘리브레이션부터 거리 추정까지 전 파이프라인 구현.',
+    'p01.desc': '두산 M0609 협동로봇으로 주문부터 토핑, 닉네임 부착까지 컵빙수 제조 전 과정을 자동화했습니다. 제빙 → 토핑 → 적재 순으로 동작하고, 주문자 닉네임을 손글씨로 써서 컵에 붙입니다.',
+    'p02.desc': '두산 M0609 협동로봇으로 정비소 공구를 음성 명령에 따라 인식·분류·정리하는 어시스턴트. 카메라로 볼트·너트·공구를 구분해 명령대로 정리하고, 손이 감지되면 즉시 일시정지합니다.',
+    'p03.desc': 'NVIDIA Isaac Sim 위에 철갑상어 양식장(수조 7개)을 재현한 멀티로봇 시뮬레이션. 바닥을 청소하는 수중로봇(Hippo) 7대, 레일을 돌며 벽면을 닦는 협동로봇(M1013) 7대, 죽은 물고기를 집어 옮기는 갠트리 로봇 1대, 총 3종 15대가 협조 동작합니다.',
+    'p04.desc': 'TurtleBot4 기반 병원 순회 보조 로봇. 자율 회진(Mode A)에서는 병실을 돌며 YOLO+QR로 환자를 확인하고 웹 문진을 진행하며, 간호사 추종(Mode B)에서는 약품 라벨을 OCR로 검증합니다.',
+    'rl.desc': 'DRL 스터디 프로젝트. Reference DQN 코드를 분석하고, PyBullet에서 RGB-D 입력 기반 pick & place 에이전트를 재현했습니다. 실제 로봇 적용까지는 가지 못했습니다.',
+    'vision.desc': '모든 센서가 고장났다고 가정하고, 카메라 비전만으로 Landing Marker를 인식해 드론을 자율 착륙시키는 졸업작품. AirSim으로 검증한 뒤 실물 DJI Tello로 테스트했습니다.',
+    'role.label': '담당',
+    'role.aquasweep.1': 'Isaac Sim 익스텐션 전체 설계·구현 (환경·물리·로봇 8종)',
+    'role.aquasweep.2': 'aqua_detection — YOLO 철갑상어 탐지 + OpenCV 이물질 검출 파이프라인',
+    'role.aquasweep.3': 'Planner → Controller → Isaac Sim 멀티로봇 오케스트레이션 통합',
+    'role.doobe.1': 'STT(음성인식) 파이프라인 설계',
+    'role.doobe.2': '전체 기능 통합',
+    'role.doobe.3': 'Gazebo 시뮬레이션 환경 구축',
+    'role.doobe.4': 'Web UI 수정 및 기능 추가 (비상정지, WakeWord 비활성화 등)',
+    'role.medicart.1': 'Mode A 회진 통합 — mission_manager patrol 상태머신 전체 구현',
+    'role.medicart.2': 'Nav2 병실 순회 로직 · 환자 확인 연동 · Firebase 상태 기록',
+    'role.medicart.3': '웹 문진 완료 대기 ↔ 상태머신 전환 인터페이스 설계',
+    'role.medicart.4': 'Mode B (간호사 추종, OCR 검증) — 팀원 담당',
+    'role.shavedice.1': '단위 기능 간 ROS2 인터페이스 설계',
+    'role.shavedice.2': '전체 기능 통합 및 web 연동 설계',
+    'role.shavedice.3': '손글씨 알고리즘 구현',
+    'role.rl.1': 'Reference Code 아키텍처 분석',
+    'role.rl.2': 'Camera → World 좌표 변환 구현',
+    'role.rl.3': 'Depth 정규화 구현',
+    'role.vision.1': 'Landing Algorithm 설계',
+    'role.vision.2': 'Camera Calibration',
+    'role.vision.3': 'Distance 계산 구현',
+    'role.vision.4': 'AirSim 시뮬레이션 환경 구축',
     'skills.label': '기술',
     'skills.title': '기술 스택.',
-    'skill.languages': '프로그래밍 언어',
-    'skill.robotics': '로보틱스',
+    'skill.languages': '언어 & 도구',
+    'skill.robotics': '로보틱스 & 시뮬레이션',
     'skill.vision': '컴퓨터 비전',
-    'skill.tools': '도구 & 클라우드',
+    'tier.python': '중상',
+    'tier.git': '중',
+    'tier.firebase': '중하',
+    'tier.ros2': '중상',
+    'tier.nav2': '중',
+    'tier.gazebo': '중상',
+    'tier.pybullet': '하',
+    'tier.rl': '중하',
+    'tier.opencv': '중',
+    'tier.yolo': '중',
+    'tier.cameracalib': '중상',
     'contact.label': '연락처',
     'contact.title': '연락하기.',
     'contact.sub': '로봇 소프트웨어 엔지니어링 기회에 열려 있습니다.',
+    'contact.portfolio': '전체 포트폴리오 보기 →',
     'footer.role': '로봇 소프트웨어 엔지니어 · 서울, 한국',
   }
 };
@@ -980,19 +1192,6 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-// Skill bars
-const barObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
-        bar.style.width = bar.dataset.w + '%';
-      });
-      barObserver.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.3 });
-document.querySelectorAll('.skill-group').forEach(g => barObserver.observe(g));
 
 // Active nav
 const sections = document.querySelectorAll('section[id]');
