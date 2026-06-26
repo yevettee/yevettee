@@ -579,7 +579,7 @@
       <span class="hero-name-kr">옥윤정</span>
     </h1>
     <p class="hero-tagline" data-i18n-html="hero.tagline">
-      Robotics engineer. I work on <strong>navigation, computer vision, and ROS2</strong> systems.
+      Robotics engineer. I integrate <strong>communication, control, vision, and sensor</strong> systems, then validate them in simulation.
     </p>
     <div class="hero-cta">
       <a href="#about" class="btn btn-primary" data-i18n="hero.about">About</a>
@@ -626,7 +626,7 @@
         </div>
         <div>
           <span style="color:var(--white);font-weight:600;">Doosan Robotics Bootcamp</span><br>
-          <span data-i18n="edu.bootcamp.status">Completed</span>
+          <span data-i18n="edu.bootcamp.status">Completed</span> · <a href="assets/etc/DoosanRobotics_추천서.pdf" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;" data-i18n="edu.recommendation">Recommendation Letter</a>
           <div style="font-family:var(--font-mono);font-size:11px;color:var(--gray-light);margin-top:4px;">2025.12 – 2026.06</div>
         </div>
       </div>
@@ -641,12 +641,12 @@
       </ul>
     </div>
     <div class="skill-group">
-      <div class="skill-group-title" data-i18n="strengths.label">Strengths</div>
+      <div class="skill-group-title" data-i18n="platforms.label">Platforms</div>
       <ul class="about-list">
-        <li data-i18n="strengths.1">Multi-subsystem integration (Web · ROS2 · Hardware)</li>
-        <li data-i18n="strengths.2">System interface design</li>
-        <li data-i18n="strengths.3">Computer vision</li>
-        <li data-i18n="strengths.4">Team communication &amp; technical leadership</li>
+        <li data-i18n="platforms.1">Doosan Robotics M0609</li>
+        <li data-i18n="platforms.2">TurtleBot4</li>
+        <li data-i18n="platforms.3">DJI Tello</li>
+        <li data-i18n="platforms.4">ROBOTIS Dynamixel</li>
       </ul>
     </div>
   </div>
@@ -659,7 +659,52 @@
 
   <div class="project-grid">
 
-    <!-- P03 -->
+    <!-- P01 -->
+    <div class="project-card fade-up">
+      <img class="project-img" src="assets/p02-doob-e/두비_실제동작화면.png" alt="Doob-E 공구정리 로봇" />
+      <div class="project-card-body">
+        <span class="project-badge badge-doosan" data-i18n="badge.doosan">Doosan Bootcamp</span>
+        <div class="project-name">
+          Doob-E
+          <span class="project-name-kr">공구정리 로봇</span>
+        </div>
+        <p class="project-desc" data-i18n="p02.desc">
+          Doosan M0609 system integrating wake word, STT/LLM command parsing, YOLO
+          vision matching, and ROS 2 execution — built with a swappable sim/real
+          backend so the same logic runs through Gazebo validation before
+          pick/place and tool-sorting on the real robot.
+        </p>
+        <div>
+          <p class="project-role-label" data-i18n="role.label">My Role</p>
+          <ul class="about-list project-role-list">
+            <li data-i18n="role.doobe.1">Integrated STT/LLM command parsing with robot execution</li>
+            <li data-i18n="role.doobe.2">Matched vision results with command conditions and published ROS 2 target/sort topics</li>
+            <li data-i18n="role.doobe.3">Separated Gazebo and real-robot execution paths for validation</li>
+            <li data-i18n="role.doobe.4">Added web UI safety controls (emergency stop, wake-word toggle, etc.)</li>
+          </ul>
+        </div>
+        <div class="project-challenge"><strong>Key challenge —</strong> 명령 해석·비전 매칭 로직은 그대로 두고 실행 백엔드(sim_dsr_shim/sim_gripper ↔ 실제 드라이버)만 교체할 수 있게 설계해, Gazebo 검증과 실제 로봇 적용을 같은 코드로 연결했습니다.</div>
+        <div class="project-stack">
+          <span class="stack-chip">ROS2</span>
+          <span class="stack-chip">M0609</span>
+          <span class="stack-chip">RealSense</span>
+          <span class="stack-chip">STT/LLM</span>
+          <span class="stack-chip">Gazebo</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/yevettee/Doob-E" class="project-link" target="_blank" rel="noopener">
+            View on GitHub
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="portfolio.html?slide=5" class="project-link" target="_blank" rel="noopener">
+            View More
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- P02 -->
     <div class="project-card fade-up">
       <img class="project-img" src="assets/p03-aquasweep/빠끔이청소단_환경.png" alt="AquaSweep 양식장 청소 로봇" />
       <div class="project-card-body">
@@ -677,6 +722,7 @@
         <div>
           <p class="project-role-label" data-i18n="role.label">My Role</p>
           <ul class="about-list project-role-list">
+            <li data-i18n="role.aquasweep.lead">Team lead — led a 5-person team and set communication norms</li>
             <li data-i18n="role.aquasweep.1">Designed and built all Isaac Sim extensions (environment, physics, 8 robot types)</li>
             <li data-i18n="role.aquasweep.2">aqua_detection — YOLO sturgeon detection + OpenCV debris-detection pipeline</li>
             <li data-i18n="role.aquasweep.3">Integrated Planner → Controller → Isaac Sim multi-robot orchestration</li>
@@ -695,7 +741,7 @@
             View on GitHub
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <a href="portfolio.html?slide=4" class="project-link" target="_blank" rel="noopener">
+          <a href="portfolio.html?slide=10" class="project-link" target="_blank" rel="noopener">
             View More
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
@@ -703,35 +749,34 @@
       </div>
     </div>
 
-    <!-- P02 -->
+    <!-- P03 -->
     <div class="project-card fade-up">
-      <img class="project-img" src="assets/p02-doob-e/두비_실제동작화면.png" alt="Doob-E 공구정리 로봇" />
+      <img class="project-img" src="assets/p01-shaved-ice/제조환경세팅.jpg" alt="빙수 제조 협동로봇" />
       <div class="project-card-body">
         <span class="project-badge badge-doosan" data-i18n="badge.doosan">Doosan Bootcamp</span>
         <div class="project-name">
-          Doob-E
-          <span class="project-name-kr">공구정리 로봇</span>
+          Bingsu Cobot
+          <span class="project-name-kr">빙수 제조 협동로봇</span>
         </div>
-        <p class="project-desc" data-i18n="p02.desc">
-          Voice-controlled tool-sorting assistant using a Doosan M0609 cobot. Camera
-          detects bolts, nuts, and tools and sorts them by voice command; pauses
-          instantly if a hand enters the workspace.
+        <p class="project-desc" data-i18n="p01.desc">
+          Doosan M0609 cobot automating the full shaved-ice process — from order to
+          topping to nickname sticker. Shaves ice, adds toppings, and writes the
+          customer's nickname by hand before placing the cup.
         </p>
         <div>
           <p class="project-role-label" data-i18n="role.label">My Role</p>
           <ul class="about-list project-role-list">
-            <li data-i18n="role.doobe.1">Designed the speech-to-text (STT) pipeline</li>
-            <li data-i18n="role.doobe.2">Full feature integration</li>
-            <li data-i18n="role.doobe.3">Built the Gazebo simulation environment</li>
-            <li data-i18n="role.doobe.4">Web UI updates (emergency stop, wake-word toggle, etc.)</li>
+            <li data-i18n="role.shavedice.1">Designed ROS2 interfaces between modules</li>
+            <li data-i18n="role.shavedice.2">Full integration and web-service design</li>
+            <li data-i18n="role.shavedice.3">Built the handwriting-generation algorithm</li>
           </ul>
         </div>
-        <div class="project-challenge"><strong>Key challenge —</strong> 실물 로봇 수가 제한적이라 Gazebo 검증 환경이 필요했는데, real 코드 구조는 유지한 채 sim 모드를 분리 추가해 실행 경로를 나눴습니다.</div>
+        <div class="project-challenge"><strong>Key challenge —</strong> 2-finger 그리퍼는 펜이 휘어져 글씨가 틀어졌습니다. 소프트웨어로는 안 됐고, 분필 홀더(스프링 Z축 완충)로 바꿔서 해결했습니다.</div>
         <div class="project-stack">
+          <span class="stack-chip">M0609</span>
           <span class="stack-chip">ROS2</span>
-          <span class="stack-chip">YOLOv8</span>
-          <span class="stack-chip">Gazebo</span>
-          <span class="stack-chip">mediapipe</span>
+          <span class="stack-chip">Firebase</span>
+          <span class="stack-chip">PySide</span>
           <span class="stack-chip">Python</span>
         </div>
         <div class="project-links">
@@ -739,7 +784,7 @@
             View on GitHub
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <a href="portfolio.html?slide=8" class="project-link" target="_blank" rel="noopener">
+          <a href="portfolio.html?slide=13" class="project-link" target="_blank" rel="noopener">
             View More
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
@@ -784,50 +829,7 @@
             View on GitHub
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <a href="portfolio.html?slide=13" class="project-link" target="_blank" rel="noopener">
-            View More
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- P01 -->
-    <div class="project-card fade-up">
-      <img class="project-img" src="assets/p01-shaved-ice/제조환경세팅.jpg" alt="빙수 제조 협동로봇" />
-      <div class="project-card-body">
-        <span class="project-badge badge-doosan" data-i18n="badge.doosan">Doosan Bootcamp</span>
-        <div class="project-name">
-          Shaved Ice Robot
-          <span class="project-name-kr">빙수 제조 협동로봇</span>
-        </div>
-        <p class="project-desc" data-i18n="p01.desc">
-          Doosan M0609 cobot automating the full shaved-ice process — from order to
-          topping to nickname sticker. Shaves ice, adds toppings, and writes the
-          customer's nickname by hand before placing the cup.
-        </p>
-        <div>
-          <p class="project-role-label" data-i18n="role.label">My Role</p>
-          <ul class="about-list project-role-list">
-            <li data-i18n="role.shavedice.1">Designed ROS2 interfaces between modules</li>
-            <li data-i18n="role.shavedice.2">Full integration and web-service design</li>
-            <li data-i18n="role.shavedice.3">Built the handwriting-generation algorithm</li>
-          </ul>
-        </div>
-        <div class="project-challenge"><strong>Key challenge —</strong> 2-finger 그리퍼는 펜이 휘어져 글씨가 틀어졌습니다. 소프트웨어로는 안 됐고, 분필 홀더(스프링 Z축 완충)로 바꿔서 해결했습니다.</div>
-        <div class="project-stack">
-          <span class="stack-chip">M0609</span>
-          <span class="stack-chip">ROS2</span>
-          <span class="stack-chip">Firebase</span>
-          <span class="stack-chip">PySide</span>
-          <span class="stack-chip">Python</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/yevettee" class="project-link" target="_blank" rel="noopener">
-            View on GitHub
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a href="portfolio.html?slide=17" class="project-link" target="_blank" rel="noopener">
+          <a href="portfolio.html?slide=18" class="project-link" target="_blank" rel="noopener">
             View More
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
@@ -869,7 +871,7 @@
             View on GitHub
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <a href="portfolio.html?slide=23" class="project-link" target="_blank" rel="noopener">
+          <a href="portfolio.html?slide=21" class="project-link" target="_blank" rel="noopener">
             View More
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
@@ -908,7 +910,7 @@
           <span class="stack-chip">DJI Tello</span>
         </div>
         <div class="project-links">
-          <a href="portfolio.html?slide=25" class="project-link" target="_blank" rel="noopener">
+          <a href="portfolio.html?slide=24" class="project-link" target="_blank" rel="noopener">
             View More
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
@@ -940,8 +942,8 @@
         <div class="skill-item"><span>ROS2</span><span class="skill-tier" data-i18n="tier.ros2">Upper-Intermediate</span></div>
         <div class="skill-item"><span>Nav2</span><span class="skill-tier" data-i18n="tier.nav2">Intermediate</span></div>
         <div class="skill-item"><span>Gazebo</span><span class="skill-tier" data-i18n="tier.gazebo">Upper-Intermediate</span></div>
-        <div class="skill-item"><span>PyBullet</span><span class="skill-tier" data-i18n="tier.pybullet">Basic</span></div>
-        <div class="skill-item"><span>Reinforcement Learning</span><span class="skill-tier" data-i18n="tier.rl">Lower-Intermediate</span></div>
+        <div class="skill-item"><span>NVIDIA Isaac Sim</span><span class="skill-tier" data-i18n="tier.isaacsim">Upper-Intermediate</span></div>
+        <div class="skill-item"><span>AirSim</span><span class="skill-tier" data-i18n="tier.airsim">Intermediate</span></div>
       </div>
     </div>
 
@@ -949,7 +951,8 @@
       <div class="skill-group-title" data-i18n="skill.vision">Computer Vision</div>
       <div class="skill-list">
         <div class="skill-item"><span>OpenCV</span><span class="skill-tier" data-i18n="tier.opencv">Intermediate</span></div>
-        <div class="skill-item"><span>YOLOv8</span><span class="skill-tier" data-i18n="tier.yolo">Intermediate</span></div>
+        <div class="skill-item"><span>YOLO</span><span class="skill-tier" data-i18n="tier.yolo">Intermediate</span></div>
+        <div class="skill-item"><span>RealSense</span><span class="skill-tier" data-i18n="tier.realsense">Intermediate</span></div>
         <div class="skill-item"><span>Camera Calib.</span><span class="skill-tier" data-i18n="tier.cameracalib">Upper-Intermediate</span></div>
       </div>
     </div>
@@ -987,6 +990,10 @@
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1C4.13 1 1 4.13 1 8c0 3.09 2 5.71 4.79 6.64.35.06.48-.15.48-.34v-1.2c-1.94.42-2.35-.94-2.35-.94-.32-.81-.78-1.03-.78-1.03-.63-.43.05-.42.05-.42.7.05 1.07.72 1.07.72.62 1.06 1.63.75 2.03.57.06-.45.24-.75.44-.92-1.55-.18-3.18-.77-3.18-3.43 0-.76.27-1.38.72-1.86-.07-.18-.31-.88.07-1.84 0 0 .59-.19 1.93.72A6.7 6.7 0 0 1 8 4.8c.6 0 1.2.08 1.76.23 1.34-.91 1.93-.72 1.93-.72.38.96.14 1.66.07 1.84.45.49.72 1.1.72 1.86 0 2.67-1.63 3.25-3.19 3.43.25.22.47.65.47 1.31v1.94c0 .19.13.4.48.34C13 13.71 15 11.09 15 8c0-3.87-3.13-7-7-7z" fill="currentColor"/></svg>
       GitHub
     </a>
+    <a href="assets/etc/DoosanRobotics_추천서.pdf" class="btn btn-secondary" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 1.5h6l2 2v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M5.5 7h5M5.5 9.5h5M5.5 4.5h2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      <span data-i18n="contact.recommendation">Recommendation Letter</span>
+    </a>
   </div>
   <a href="portfolio.html" target="_blank" rel="noopener" class="fade-up" data-i18n="contact.portfolio" style="display:inline-block;margin-top:28px;font-family:var(--font-mono);font-size:12px;color:var(--gray-light);text-decoration:none;letter-spacing:0.04em;">View Full Portfolio Deck →</a>
 </section>
@@ -1006,7 +1013,7 @@ const translations = {
     'nav.skills': 'Skills',
     'nav.contact': 'Contact',
     'hero.eyebrow': 'Robotics Software Engineer',
-    'hero.tagline': 'Robotics engineer. I work on <strong>navigation, computer vision, and ROS2</strong> systems.',
+    'hero.tagline': 'Robotics engineer. I integrate <strong>communication, control, vision, and sensor</strong> systems, then validate them in simulation.',
     'hero.about': 'About',
     'hero.cta': 'Projects',
     'hero.contact': 'Contact',
@@ -1014,36 +1021,38 @@ const translations = {
     'about.label': 'About',
     'about.title': 'Robotics, built end to end.',
     'about.p1': "I want to be a <strong>systems integration and test engineer</strong>. I validate robots in simulation, then on real hardware.",
-    'about.p2': 'I work on ROS2 interface design, vision-based perception, and hardware integration. My strength is tying multiple subsystems into one system.',
+    'about.p2': 'I work across communication (ROS2 interfaces), control, vision, and sensors — my strength is tying multiple subsystems into one working system.',
     'about.p3': 'I design for the whole system, not just individual features. Goal: robots that hold up at integration.',
     'edu.label': 'Education',
     'edu.kau.major': 'Electronic & Aerospace Electronic Engineering',
     'edu.bootcamp.status': 'Completed',
+    'edu.recommendation': 'Recommendation Letter',
     'certs.label': 'Certifications',
-    'strengths.label': 'Strengths',
-    'strengths.1': 'Multi-subsystem integration (Web · ROS2 · Hardware)',
-    'strengths.2': 'System interface design',
-    'strengths.3': 'Computer vision',
-    'strengths.4': 'Team communication & technical leadership',
+    'platforms.label': 'Platforms',
+    'platforms.1': 'Doosan Robotics M0609',
+    'platforms.2': 'TurtleBot4',
+    'platforms.3': 'DJI Tello',
+    'platforms.4': 'ROBOTIS Dynamixel',
     'projects.label': 'Projects',
     'projects.title': "What I've built.",
     'badge.doosan': 'Doosan Bootcamp',
     'badge.school': 'School Project',
     'badge.vision': 'Graduation',
     'p01.desc': "Doosan M0609 cobot automating the full shaved-ice process — from order to topping to nickname sticker. Shaves ice, adds toppings, and writes the customer's nickname by hand before placing the cup.",
-    'p02.desc': 'Voice-controlled tool-sorting assistant using a Doosan M0609 cobot. Camera detects bolts, nuts, and tools and sorts them by voice command; pauses instantly if a hand enters the workspace.',
+    'p02.desc': 'Doosan M0609 system integrating wake word, STT/LLM command parsing, YOLO vision matching, and ROS 2 execution — built with a swappable sim/real backend so the same logic runs through Gazebo validation before pick/place and tool-sorting on the real robot.',
     'p03.desc': 'Multi-robot aquafarm-cleaning simulation in NVIDIA Isaac Sim. Reproduces a 7-tank sturgeon farm with 3 robot types — 7 underwater cleaners (Hippo), 7 rail-mounted wall-cleaning cobots (M1013), and 1 gantry robot that collects dead fish.',
     'p04.desc': 'Hospital-ward assistant robot on TurtleBot4. In autonomous rounds (Mode A), it visits rooms, verifies patients via YOLO+QR, and runs a web questionnaire; in nurse-assist mode (Mode B), it follows the nurse and verifies medication labels via OCR.',
     'rl.desc': 'DRL study project. Analyzed a reference DQN implementation and reproduced a pick-and-place agent for a robot arm in PyBullet, working from RGB-D input. Simulation only. Did not reach real hardware.',
     'vision.desc': 'Graduation capstone assuming all sensors have failed — lands a drone autonomously using only camera vision to detect a landing marker. Validated in AirSim, then tested on a real DJI Tello.',
     'role.label': 'My Role',
+    'role.aquasweep.lead': 'Team lead — led a 5-person team and set communication norms',
     'role.aquasweep.1': 'Designed and built all Isaac Sim extensions (environment, physics, 8 robot types)',
     'role.aquasweep.2': 'aqua_detection — YOLO sturgeon detection + OpenCV debris-detection pipeline',
     'role.aquasweep.3': 'Integrated Planner → Controller → Isaac Sim multi-robot orchestration',
-    'role.doobe.1': 'Designed the speech-to-text (STT) pipeline',
-    'role.doobe.2': 'Full feature integration',
-    'role.doobe.3': 'Built the Gazebo simulation environment',
-    'role.doobe.4': 'Web UI updates (emergency stop, wake-word toggle, etc.)',
+    'role.doobe.1': 'Integrated STT/LLM command parsing with robot execution',
+    'role.doobe.2': 'Matched vision results with command conditions and published ROS 2 target/sort topics',
+    'role.doobe.3': 'Separated Gazebo and real-robot execution paths for validation',
+    'role.doobe.4': 'Added web UI safety controls (emergency stop, wake-word toggle, etc.)',
     'role.medicart.1': 'Built the Mode A patrol state machine (mission_manager) end to end',
     'role.medicart.2': 'Nav2 ward-rounding logic, patient-ID integration, Firebase state logging',
     'role.medicart.3': 'Designed the interface between the web questionnaire and the state machine',
@@ -1069,15 +1078,17 @@ const translations = {
     'tier.ros2': 'Upper-Intermediate',
     'tier.nav2': 'Intermediate',
     'tier.gazebo': 'Upper-Intermediate',
-    'tier.pybullet': 'Basic',
-    'tier.rl': 'Lower-Intermediate',
+    'tier.isaacsim': 'Upper-Intermediate',
+    'tier.airsim': 'Intermediate',
     'tier.opencv': 'Intermediate',
     'tier.yolo': 'Intermediate',
+    'tier.realsense': 'Intermediate',
     'tier.cameracalib': 'Upper-Intermediate',
     'contact.label': 'Contact',
     'contact.title': "Let's connect.",
     'contact.sub': 'Open to opportunities in robotics software engineering.',
     'contact.portfolio': 'View Full Portfolio Deck →',
+    'contact.recommendation': 'Recommendation Letter',
     'footer.role': 'Robotics Software Engineer · Seoul, Korea',
   },
   kr: {
@@ -1086,7 +1097,7 @@ const translations = {
     'nav.skills': '기술',
     'nav.contact': '연락처',
     'hero.eyebrow': '로봇 소프트웨어 엔지니어',
-    'hero.tagline': '<strong>주행, 컴퓨터 비전, ROS2</strong> 시스템 통합을 다루는 로봇 엔지니어입니다.',
+    'hero.tagline': '<strong>통신·제어·비전·센서</strong>를 통합하고, 시뮬레이션으로 검증하는 로봇 엔지니어입니다.',
     'hero.about': '소개',
     'hero.cta': '프로젝트',
     'hero.contact': '연락하기',
@@ -1094,36 +1105,38 @@ const translations = {
     'about.label': '소개',
     'about.title': '로보틱스, 처음부터 끝까지.',
     'about.p1': '시뮬레이션과 실제 로봇 환경을 오가며 동작을 검증하는 <strong>시스템 통합·테스트 엔지니어</strong>를 지향합니다.',
-    'about.p2': 'ROS2 인터페이스 설계, 비전 인식, 하드웨어 통합까지 다루며, 여러 서브시스템을 하나의 동작으로 묶는 데 강점이 있습니다.',
+    'about.p2': '통신(ROS 2 인터페이스)·제어·비전·센서를 폭넓게 다루며, 여러 서브시스템을 하나의 동작으로 묶어내는 데 강점이 있습니다.',
     'about.p3': '개별 기능이 아니라 시스템 전체가 맞물려 동작하도록 설계하고, 통합 단계에서 강건한 로봇을 만드는 엔지니어가 되겠습니다.',
     'edu.label': '학력',
     'edu.kau.major': '전자 및 항공전자공학',
     'edu.bootcamp.status': '수료',
+    'edu.recommendation': '추천서 보기',
     'certs.label': '자격증',
-    'strengths.label': '강점',
-    'strengths.1': '여러 서브시스템(웹·ROS 2·하드웨어) 통합 설계',
-    'strengths.2': 'System Interface 설계',
-    'strengths.3': 'Computer Vision',
-    'strengths.4': '팀 소통 · 기술 리딩',
+    'platforms.label': 'Platforms',
+    'platforms.1': 'Doosan Robotics M0609',
+    'platforms.2': 'TurtleBot4',
+    'platforms.3': 'DJI Tello',
+    'platforms.4': 'ROBOTIS Dynamixel',
     'projects.label': '프로젝트',
     'projects.title': '만든 것들.',
     'badge.doosan': '두산 부트캠프',
     'badge.school': '학교 프로젝트',
     'badge.vision': '졸업작품',
     'p01.desc': '두산 M0609 협동로봇으로 주문부터 토핑, 닉네임 부착까지 컵빙수 제조 전 과정을 자동화했습니다. 제빙 → 토핑 → 적재 순으로 동작하고, 주문자 닉네임을 손글씨로 써서 컵에 붙입니다.',
-    'p02.desc': '두산 M0609 협동로봇으로 정비소 공구를 음성 명령에 따라 인식·분류·정리하는 어시스턴트. 카메라로 볼트·너트·공구를 구분해 명령대로 정리하고, 손이 감지되면 즉시 일시정지합니다.',
+    'p02.desc': 'Wake word, STT/LLM 명령 해석, YOLO 비전 매칭, ROS 2 실행을 연결한 두산 M0609 통합 시스템. 동일한 상위 로직을 유지한 채 sim/real 백엔드를 교체할 수 있게 설계해, Gazebo 검증을 거친 뒤 실제 로봇에서 pick/place와 공구 정리를 수행했습니다.',
     'p03.desc': 'NVIDIA Isaac Sim 위에 철갑상어 양식장(수조 7개)을 재현한 멀티로봇 시뮬레이션. 바닥을 청소하는 수중로봇(Hippo) 7대, 레일을 돌며 벽면을 닦는 협동로봇(M1013) 7대, 죽은 물고기를 집어 옮기는 갠트리 로봇 1대, 총 3종 15대가 협조 동작합니다.',
     'p04.desc': 'TurtleBot4 기반 병원 순회 보조 로봇. 자율 회진(Mode A)에서는 병실을 돌며 YOLO+QR로 환자를 확인하고 웹 문진을 진행하며, 간호사 추종(Mode B)에서는 약품 라벨을 OCR로 검증합니다.',
     'rl.desc': 'DRL 스터디 프로젝트. Reference DQN 코드를 분석하고, PyBullet에서 RGB-D 입력 기반 pick & place 에이전트를 재현했습니다. 실제 로봇 적용까지는 가지 못했습니다.',
     'vision.desc': '모든 센서가 고장났다고 가정하고, 카메라 비전만으로 Landing Marker를 인식해 드론을 자율 착륙시키는 졸업작품. AirSim으로 검증한 뒤 실물 DJI Tello로 테스트했습니다.',
     'role.label': '담당',
+    'role.aquasweep.lead': '팀장 — 5인 팀 리딩 · 커뮤니케이션 기준 정립',
     'role.aquasweep.1': 'Isaac Sim 익스텐션 전체 설계·구현 (환경·물리·로봇 8종)',
     'role.aquasweep.2': 'aqua_detection — YOLO 철갑상어 탐지 + OpenCV 이물질 검출 파이프라인',
     'role.aquasweep.3': 'Planner → Controller → Isaac Sim 멀티로봇 오케스트레이션 통합',
-    'role.doobe.1': 'STT(음성인식) 파이프라인 설계',
-    'role.doobe.2': '전체 기능 통합',
-    'role.doobe.3': 'Gazebo 시뮬레이션 환경 구축',
-    'role.doobe.4': 'Web UI 수정 및 기능 추가 (비상정지, WakeWord 비활성화 등)',
+    'role.doobe.1': 'STT/LLM command parsing과 로봇 실행 흐름 연동',
+    'role.doobe.2': 'vision 결과와 명령 조건을 매칭해 ROS 2 target/sort topic 발행',
+    'role.doobe.3': 'Gazebo 검증 경로와 real robot 실행 경로 분리',
+    'role.doobe.4': 'Web UI 안전 제어 추가 (비상정지, WakeWord toggle 등)',
     'role.medicart.1': 'Mode A 회진 통합 — mission_manager patrol 상태머신 전체 구현',
     'role.medicart.2': 'Nav2 병실 순회 로직 · 환자 확인 연동 · Firebase 상태 기록',
     'role.medicart.3': '웹 문진 완료 대기 ↔ 상태머신 전환 인터페이스 설계',
@@ -1149,15 +1162,17 @@ const translations = {
     'tier.ros2': '중상',
     'tier.nav2': '중',
     'tier.gazebo': '중상',
-    'tier.pybullet': '하',
-    'tier.rl': '중하',
+    'tier.isaacsim': '중상',
+    'tier.airsim': '중',
     'tier.opencv': '중',
     'tier.yolo': '중',
+    'tier.realsense': '중',
     'tier.cameracalib': '중상',
     'contact.label': '연락처',
     'contact.title': '연락하기.',
     'contact.sub': '로봇 소프트웨어 엔지니어링 기회에 열려 있습니다.',
     'contact.portfolio': '전체 포트폴리오 보기 →',
+    'contact.recommendation': '추천서 보기',
     'footer.role': '로봇 소프트웨어 엔지니어 · 서울, 한국',
   }
 };

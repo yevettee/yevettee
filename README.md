@@ -51,7 +51,7 @@ Building robots that actually work — in fish farms, hospitals, and factory flo
 | 🌊 **[AquaSweep](https://github.com/yevettee/AquaSweep)** | Autonomous underwater debris cleaning robot for aquafarms | ROS2 · Nav2 · OpenCV |
 | 🔧 **[Doob-E](https://github.com/yevettee/Doob-E)** | Tool organization robot with OBB-based object detection | YOLOv8 · ROS2 · Gazebo |
 | 🏥 **[MediCart](https://github.com/yevettee/MediCart)** | Nurse-assistant patrol robot with autonomous ward navigation | ROS2 · Nav2 · TurtleBot4 |
-| 🍧 **[Shaved Ice Robot](https://github.com/yevettee/mother_bird)** | Collaborative robot system with real-time web control dashboard | ROS2 · Firebase · M0609 |
+| 🍧 **[Bingsu Cobot](https://github.com/yevettee/mother_bird)** | Collaborative robot system with real-time web control dashboard | ROS2 · Firebase · M0609 |
 | 🧠 **[RL Robot](https://github.com/yevettee/RL_robot)** | Reinforcement learning robot arm with DQN in PyBullet sim | PyBullet · DQN · Python |
 | 🎯 **Vision Drone** | Marker detection & camera calibration for drone landing | YOLO · OpenCV · DJI Tello |
 
