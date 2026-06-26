@@ -26,9 +26,11 @@
     body > div > div:not([data-canvas]) { display: none !important; }
     /* 캔버스: 센터링 트랜스폼 제거 */
     div[data-canvas] { position: static !important; left: auto !important; top: auto !important; transform: none !important; width: 1280px !important; height: auto !important; overflow: visible !important; box-shadow: none !important; margin: 0 !important; }
-    /* 슬라이드 30장: 각각 한 페이지 */
+    /* 슬라이드 27장: 각각 한 페이지 */
     section[data-slide] { position: relative !important; display: flex !important; width: 1280px !important; height: 720px !important; overflow: hidden !important; page-break-after: always !important; break-after: page !important; opacity: 1 !important; visibility: visible !important; pointer-events: none !important; }
     section[data-slide]:last-of-type { page-break-after: avoid !important; break-after: avoid !important; }
+    /* 다크 배경 디바이더 · Thank you 페이지: 인쇄 시 배경이 흰색으로 빠지면서 흐린 글자만 남는 문제 방지 */
+    section.print-force-black, section.print-force-black * { color: #0b0b0c !important; }
   }
 </style>
 <style>
@@ -76,22 +78,6 @@
       </div>
     </section>
 
-    <!-- ============ S2 · COVER B (dark) ============ -->
-    <section data-slide="" data-screen-label="Cover B" data-cover="B" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:64px;background:#0b0b0c;color:#ffffff;overflow:hidden;">
-      <div style="position:absolute;inset:0;background-image:linear-gradient(#ffffff0d 1px,transparent 1px),linear-gradient(90deg,#ffffff0d 1px,transparent 1px);background-size:60px 60px;-webkit-mask-image:radial-gradient(circle at 50% 46%,#000,transparent 70%);mask-image:radial-gradient(circle at 50% 46%,#000,transparent 70%);"></div>
-      <div data-anim="" style="position:relative;">
-        <svg width="56" height="56" viewBox="0 0 64 64" fill="none" style="color:#ffffff;margin-bottom:34px;"><path d="M14 8 H8 V14" stroke="currentColor" stroke-width="2.4"></path><path d="M50 8 H56 V14" stroke="currentColor" stroke-width="2.4"></path><path d="M14 56 H8 V50" stroke="currentColor" stroke-width="2.4"></path><path d="M50 56 H56 V50" stroke="currentColor" stroke-width="2.4"></path><circle cx="32" cy="32" r="4.5" fill="currentColor"></circle><path d="M32 14 V24" stroke="currentColor" stroke-width="2.4"></path><path d="M32 40 V50" stroke="currentColor" stroke-width="2.4"></path><path d="M14 32 H24" stroke="currentColor" stroke-width="2.4"></path><path d="M40 32 H50" stroke="currentColor" stroke-width="2.4"></path></svg>
-        <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#909097;margin:0 0 22px;">Robotics · Portfolio 2026</p>
-        <h1 style="font-family:'Space Grotesk','Pretendard',sans-serif;font-weight:500;font-size:88px;line-height:1;letter-spacing:-0.03em;margin:0;">옥윤정<span style="color:#6f6fff;">.</span></h1>
-        <p style="font-family:'Pretendard',sans-serif;font-size:22px;color:#b7b7bd;margin:24px 0 0;font-weight:400;">시스템 전체의 조화를 먼저 생각하는 개발자</p>
-      </div>
-      <div data-anim="3" style="position:absolute;bottom:54px;display:flex;gap:42px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#6c6c72;">
-        <span>+82 10-4209-9241</span>
-        <span>oyj9280@naver.com</span>
-        <span><a href="https://github.com/yevettee" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">github.com/yevettee</a></span>
-      </div>
-    </section>
-
     <!-- ============ S3 · TOC ============ -->
     <section data-slide="" data-screen-label="목차" style="position:absolute;inset:0;display:flex;flex-direction:column;padding:64px 72px;background:#ffffff;color:#0b0b0c;">
       <div data-anim="" style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:40px;">
@@ -101,10 +87,10 @@
       <div data-anim="2" style="display:flex;flex-direction:column;">
         <div class="toc-row" onclick="__deckGo(2)" style="display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:24px;padding:18px 0;border-top:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#909097;">01</span><span style="font-size:20px;font-weight:600;">PROFILE<span style="color:#909097;font-weight:400;font-size:16px;">&nbsp;· 프로필</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#909097;letter-spacing:0.08em;">P. 03</span></div>
         <div class="toc-row" onclick="__deckGo(3)" style="display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:24px;padding:18px 0;border-top:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#909097;">02</span><span style="font-size:20px;font-weight:600;white-space:nowrap;">ROBOT · 두산 부트캠프<span style="color:#909097;font-weight:400;font-size:16px;">&nbsp;· 협동로봇 4선</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#909097;letter-spacing:0.08em;">P. 04</span></div>
-        <div class="toc-row" onclick="__deckGo(22)" style="display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:24px;padding:18px 0;border-top:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#909097;">03</span><span style="font-size:20px;font-weight:600;">ROBOT · 교내 프로젝트<span style="color:#909097;font-weight:400;font-size:16px;">&nbsp;· 강화학습 · 제어</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#909097;letter-spacing:0.08em;">P. 23</span></div>
-        <div class="toc-row" onclick="__deckGo(25)" style="display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:24px;padding:18px 0;border-top:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#909097;">04</span><span style="font-size:20px;font-weight:600;">VISION<span style="color:#909097;font-weight:400;font-size:16px;">&nbsp;· 드론 비상착륙</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#909097;letter-spacing:0.08em;">P. 26</span></div>
-        <div class="toc-row" onclick="__deckGo(27)" style="display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:24px;padding:18px 0;border-top:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#909097;">05</span><span style="font-size:20px;font-weight:600;">APPENDIX · EMBEDDED<span style="color:#909097;font-weight:400;font-size:16px;">&nbsp;· 항공 · 우주 하드웨어</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#909097;letter-spacing:0.08em;">P. 28</span></div>
-        <div class="toc-row" onclick="__deckGo(29)" style="display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:24px;padding:18px 0;border-top:1px solid #e5e5e8;border-bottom:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#909097;">06</span><span style="font-size:20px;font-weight:600;">OUTLOOK<span style="color:#909097;font-weight:400;font-size:16px;">&nbsp;· 포부</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#909097;letter-spacing:0.08em;">P. 30</span></div>
+        <div class="toc-row" onclick="__deckGo(22)" style="display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:24px;padding:18px 0;border-top:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#909097;">03</span><span style="font-size:20px;font-weight:600;">ROBOT · 교내 프로젝트<span style="color:#909097;font-weight:400;font-size:16px;">&nbsp;· 강화학습 · 제어</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#909097;letter-spacing:0.08em;">P. 20</span></div>
+        <div class="toc-row" onclick="__deckGo(25)" style="display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:24px;padding:18px 0;border-top:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#909097;">04</span><span style="font-size:20px;font-weight:600;">VISION<span style="color:#909097;font-weight:400;font-size:16px;">&nbsp;· 드론 비상착륙</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#909097;letter-spacing:0.08em;">P. 23</span></div>
+        <div class="toc-row" onclick="__deckGo(27)" style="display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:24px;padding:18px 0;border-top:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#909097;">05</span><span style="font-size:20px;font-weight:600;">APPENDIX · EMBEDDED<span style="color:#909097;font-weight:400;font-size:16px;">&nbsp;· 항공 · 우주 하드웨어</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#909097;letter-spacing:0.08em;">P. 25</span></div>
+        <div class="toc-row" onclick="__deckGo(29)" style="display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:24px;padding:18px 0;border-top:1px solid #e5e5e8;border-bottom:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#909097;">06</span><span style="font-size:20px;font-weight:600;">OUTLOOK<span style="color:#909097;font-weight:400;font-size:16px;">&nbsp;· 포부</span></span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#909097;letter-spacing:0.08em;">P. 27</span></div>
       </div>
     </section>
 
@@ -148,7 +134,7 @@
     </section>
 
     <!-- ============ S5 · DIVIDER 두산 ============ -->
-    <section data-slide="" data-screen-label="두산 divider" style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:64px 72px;background:#0b0b0c;color:#ffffff;overflow:hidden;">
+    <section data-slide="" class="print-force-black" data-screen-label="두산 divider" style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:64px 72px;background:#0b0b0c;color:#ffffff;overflow:hidden;">
       <div style="position:absolute;inset:0;background-image:linear-gradient(#ffffff0a 1px,transparent 1px),linear-gradient(90deg,#ffffff0a 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(circle at 26% 50%,#000,transparent 76%);mask-image:radial-gradient(circle at 26% 50%,#000,transparent 76%);"></div>
       <div data-anim="" style="position:relative;display:flex;align-items:baseline;gap:24px;">
         <span style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:120px;line-height:1;letter-spacing:-0.03em;color:#2a2a2d;">02</span>
@@ -177,8 +163,7 @@
       </div>
       <div data-anim="2" style="display:flex;flex-direction:column;max-width:680px;border-top:1px solid #e5e5e8;">
         <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">01</span><span style="font-size:15px;color:#2a2a2d;">Overview</span></div>
-        <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">02</span><span style="font-size:15px;color:#2a2a2d;">시스템 아키텍처 · 멀티로봇 협조 흐름</span></div>
-        <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">03</span><span style="font-size:15px;color:#2a2a2d;">Trouble Shooting</span></div>
+        <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">02</span><span style="font-size:15px;color:#2a2a2d;">Trouble Shooting</span></div>
       </div>
     </section>
 
@@ -240,137 +225,6 @@
               <li>Planner → Controller → Isaac Sim 멀티로봇 오케스트레이션 통합</li>
             </ul>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ S14-A · P01 ARCHITECTURE ============ -->
-    <section data-slide="" data-screen-label="P01 아키텍처" style="position:absolute;inset:0;display:flex;flex-direction:column;padding:30px 44px;background:#ffffff;color:#0b0b0c;">
-      <div data-anim="" style="margin-bottom:8px;">
-        <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#6c6c72;margin:0 0 4px;">두산 P1 — AquaSweep 시스템</p>
-        <h2 style="font-family:'Space Grotesk','Pretendard',sans-serif;font-weight:600;font-size:24px;letter-spacing:-0.02em;margin:0;">시스템 아키텍처 &amp; 멀티로봇 협조 흐름</h2>
-      </div>
-      <div data-anim="2" style="flex:1;min-height:0;display:flex;flex-direction:column;gap:8px;">
-        <div style="flex:1;min-height:0;border:1px solid #e5e5e8;border-radius:10px;background:#fcfcfd;padding:10px 14px;display:flex;flex-direction:column;gap:4px;">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#3f3f44;font-weight:700;">Isaac Sim 5.1 (Python 3.11) ↔ ROS 2 Humble (Python 3.10)</span>
-          <svg viewBox="0 0 1120 280" style="width:100%;flex:1;" preserveAspectRatio="xMidYMid meet">
-            <defs>
-              <marker id="a3" markerWidth="7" markerHeight="7" refX="6" refY="2.5" orient="auto"><path d="M0,0 L0,5 L7,2.5 z" fill="#606068"></path></marker>
-              <marker id="a3r" markerWidth="7" markerHeight="7" refX="6" refY="2.5" orient="auto"><path d="M0,0 L0,5 L7,2.5 z" fill="#a32a2a"></path></marker>
-              <marker id="a3g" markerWidth="7" markerHeight="7" refX="6" refY="2.5" orient="auto"><path d="M0,0 L0,5 L7,2.5 z" fill="#1f7a4d"></path></marker>
-            </defs>
-
-            <!-- ══ Isaac Sim 박스 ══ -->
-            <rect x="2" y="2" width="452" height="276" rx="8" fill="#eef5fc" stroke="#7aaed4" stroke-width="1.5"></rect>
-            <text x="14" y="21" font-family="IBM Plex Mono,monospace" font-size="12" fill="#0a3878" font-weight="bold">Isaac Sim 5.1  ·  Extensions</text>
-
-            <!-- 상단: 로더 + 카메라 -->
-            <rect x="10" y="28" width="174" height="32" rx="5" fill="#b8d8f0" stroke="#5a9cc8" stroke-width="1"></rect>
-            <text x="97" y="42" font-family="IBM Plex Mono,monospace" font-size="10" fill="#0a2a58" text-anchor="middle" font-weight="bold">aquasweep_ext</text>
-            <text x="97" y="55" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#3060a0" text-anchor="middle">통합 로더 · LOAD / RUN</text>
-
-            <rect x="194" y="28" width="252" height="32" rx="5" fill="#b8d8f0" stroke="#5a9cc8" stroke-width="1"></rect>
-            <text x="320" y="42" font-family="IBM Plex Mono,monospace" font-size="10" fill="#0a2a58" text-anchor="middle" font-weight="bold">top_cam_ext · under_cam_ext</text>
-            <text x="320" y="55" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#3060a0" text-anchor="middle">OmniGraph → /pool_N/top_img_raw</text>
-
-            <!-- 중단: 환경 -->
-            <rect x="6" y="70" width="440" height="26" rx="5" fill="none" stroke="#7ab8d8" stroke-width="1" stroke-dasharray="4,2"></rect>
-            <text x="12" y="79" font-family="IBM Plex Mono,monospace" font-size="8" fill="#4080a8">환경 · 물리</text>
-            <rect x="10" y="72" width="200" height="20" rx="4" fill="#d4ecf8" stroke="#80c0d8" stroke-width="1"></rect>
-            <text x="110" y="86" font-family="IBM Plex Mono,monospace" font-size="9" fill="#1a4a7a" text-anchor="middle">water_tank_env_ext  ·  수조 7개 · 부력 · 철갑상어</text>
-            <rect x="218" y="72" width="224" height="20" rx="4" fill="#d4ecf8" stroke="#80c0d8" stroke-width="1"></rect>
-            <text x="330" y="86" font-family="IBM Plex Mono,monospace" font-size="9" fill="#1a4a7a" text-anchor="middle">debris_env_ext  ·  이물질 파티클 생성</text>
-
-            <!-- 하단: 로봇 3종 -->
-            <rect x="6" y="104" width="440" height="104" rx="5" fill="none" stroke="#7ab8d8" stroke-width="1" stroke-dasharray="4,2"></rect>
-            <text x="12" y="116" font-family="IBM Plex Mono,monospace" font-size="8" fill="#4080a8">로봇 3종</text>
-
-            <rect x="10" y="118" width="134" height="50" rx="5" fill="#fcdcdc" stroke="#d08888" stroke-width="1"></rect>
-            <text x="77" y="134" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6a1818" text-anchor="middle" font-weight="bold">Hippo ×7</text>
-            <text x="77" y="148" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#903030" text-anchor="middle">underwater_robot_ext</text>
-            <text x="77" y="161" font-family="IBM Plex Mono,monospace" font-size="8" fill="#b06060" text-anchor="middle">BCD 부력 · 나선 경로</text>
-
-            <rect x="154" y="118" width="138" height="50" rx="5" fill="#fdf0cc" stroke="#c8a830" stroke-width="1"></rect>
-            <text x="223" y="134" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5a3c08" text-anchor="middle" font-weight="bold">M1013 코봇 ×7</text>
-            <text x="223" y="148" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#806020" text-anchor="middle">rail_robot_ext</text>
-            <text x="223" y="161" font-family="IBM Plex Mono,monospace" font-size="8" fill="#a08030" text-anchor="middle">원형 레일 · 지그재그</text>
-
-            <rect x="302" y="118" width="140" height="50" rx="5" fill="#d8f0d8" stroke="#60b060" stroke-width="1"></rect>
-            <text x="372" y="134" font-family="IBM Plex Mono,monospace" font-size="10" fill="#1a5018" text-anchor="middle" font-weight="bold">갠트리 ×1</text>
-            <text x="372" y="148" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#306030" text-anchor="middle">gantry_robot_ext</text>
-            <text x="372" y="161" font-family="IBM Plex Mono,monospace" font-size="8" fill="#508050" text-anchor="middle">천장 XYZ · 폐어 수거</text>
-
-            <!-- 서비스 레이블 -->
-            <text x="226" y="224" font-family="IBM Plex Mono,monospace" font-size="9" fill="#606068" text-anchor="middle">← StartMotion / StopMotion  서비스</text>
-            <text x="226" y="242" font-family="IBM Plex Mono,monospace" font-size="9" fill="#606068" text-anchor="middle">→ MotionStatus  피드백 발행</text>
-            <text x="226" y="264" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#909097" text-anchor="middle">Hippo 나선 완주 · M1013 지그재그 · Gantry 경로 완주</text>
-
-            <!-- ══ ROS 2 박스 ══ -->
-            <rect x="464" y="2" width="654" height="276" rx="8" fill="#f4f0ff" stroke="#9070c8" stroke-width="1.5"></rect>
-            <text x="478" y="21" font-family="IBM Plex Mono,monospace" font-size="12" fill="#2a0a78" font-weight="bold">ROS 2 Humble  ·  Nodes</text>
-
-            <!-- aqua_detection -->
-            <rect x="474" y="28" width="200" height="52" rx="5" fill="#d8d0f4" stroke="#8060c0" stroke-width="1"></rect>
-            <text x="574" y="46" font-family="IBM Plex Mono,monospace" font-size="11" fill="#1a0858" text-anchor="middle" font-weight="bold">aqua_detection</text>
-            <text x="574" y="60" font-family="IBM Plex Mono,monospace" font-size="9" fill="#5040a0" text-anchor="middle">YOLO 철갑상어 · OpenCV 이물질</text>
-            <text x="574" y="73" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#7060b8" text-anchor="middle">→ PoolStatus 발행</text>
-
-            <!-- aqua_planner -->
-            <rect x="692" y="28" width="200" height="52" rx="5" fill="#d8d0f4" stroke="#8060c0" stroke-width="1"></rect>
-            <text x="792" y="46" font-family="IBM Plex Mono,monospace" font-size="11" fill="#1a0858" text-anchor="middle" font-weight="bold">aqua_planner</text>
-            <text x="792" y="60" font-family="IBM Plex Mono,monospace" font-size="9" fill="#5040a0" text-anchor="middle">청소 가능 수조 선정</text>
-            <text x="792" y="73" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#7060b8" text-anchor="middle">벽 · 바닥 청소 병렬 지시</text>
-
-            <!-- aqua_controller -->
-            <rect x="474" y="96" width="418" height="56" rx="5" fill="#ccc4ec" stroke="#7058b0" stroke-width="1"></rect>
-            <text x="683" y="118" font-family="IBM Plex Mono,monospace" font-size="11" fill="#1a0858" text-anchor="middle" font-weight="bold">aqua_controller ×7</text>
-            <text x="683" y="133" font-family="IBM Plex Mono,monospace" font-size="9" fill="#4030a0" text-anchor="middle">수조별 Action 서버  ·  CleanFloor / CleanWall / MoveFish</text>
-            <text x="683" y="146" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#6858b8" text-anchor="middle">Isaac 모션 서비스 중계 → StartMotion / StopMotion</text>
-
-            <!-- aqua_dashboard -->
-            <rect x="474" y="168" width="636" height="62" rx="5" fill="#c4e4c4" stroke="#509050" stroke-width="1"></rect>
-            <text x="792" y="190" font-family="IBM Plex Mono,monospace" font-size="11" fill="#183418" text-anchor="middle" font-weight="bold">aqua_dashboard  ·  PyQt5 GUI</text>
-            <text x="792" y="206" font-family="IBM Plex Mono,monospace" font-size="9" fill="#305830" text-anchor="middle">수조별 상태 · 카메라 영상 · 청소 진행률 · Start / Pause</text>
-            <text x="792" y="222" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#487848" text-anchor="middle">msg: PoolStatus · RobotStatus · MotionStatus</text>
-
-            <!-- ══ 화살표 ══ -->
-            <!-- camera → detection (Image) -->
-            <path d="M448,44 L472,44" stroke="#606068" stroke-width="1.4" marker-end="url(#a3)"></path>
-            <text x="432" y="40" font-family="IBM Plex Mono,monospace" font-size="9" fill="#606068">Image</text>
-
-            <!-- detection → planner (PoolStatus) -->
-            <line x1="674" y1="54" x2="690" y2="54" stroke="#606068" stroke-width="1.4" marker-end="url(#a3)"></line>
-            <text x="675" y="48" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#606068">PoolStatus</text>
-
-            <!-- planner → controller -->
-            <line x1="792" y1="80" x2="792" y2="94" stroke="#606068" stroke-width="1.4" marker-end="url(#a3)"></line>
-            <text x="796" y="91" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#606068">Actions</text>
-
-            <!-- detection → controller (dashed) -->
-            <line x1="574" y1="80" x2="574" y2="94" stroke="#909097" stroke-width="1.1" stroke-dasharray="4,2" marker-end="url(#a3)"></line>
-
-            <!-- controller → Isaac (StartMotion) -->
-            <path d="M474,136 C460,136 453,212 450,212" stroke="#a32a2a" stroke-width="1.5" fill="none" marker-end="url(#a3r)"></path>
-            <text x="436" y="158" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#a32a2a">Start</text>
-            <text x="433" y="170" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#a32a2a">Motion</text>
-
-            <!-- Isaac → controller (MotionStatus) -->
-            <path d="M452,232 C462,232 468,172 474,168" stroke="#1f7a4d" stroke-width="1.4" fill="none" marker-end="url(#a3g)"></path>
-            <text x="453" y="252" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#1f7a4d">Motion</text>
-            <text x="451" y="264" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#1f7a4d">Status</text>
-
-            <!-- detection/planner/controller → dashboard (dashed) -->
-            <line x1="574" y1="152" x2="574" y2="166" stroke="#909097" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#a3)"></line>
-            <line x1="792" y1="152" x2="792" y2="166" stroke="#909097" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#a3)"></line>
-          </svg>
-        </div>
-        <!-- stat strip -->
-        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;">
-          <div style="border:1px solid #e5e5e8;border-radius:7px;padding:6px 10px;text-align:center;"><p style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:22px;margin:0;letter-spacing:-0.02em;line-height:1.1;">15</p><p style="font-family:'IBM Plex Mono',monospace;font-size:8.5px;color:#909097;text-transform:uppercase;margin:2px 0 0;">총 로봇 대수</p></div>
-          <div style="border:1px solid #e5e5e8;border-radius:7px;padding:6px 10px;text-align:center;"><p style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:22px;margin:0;letter-spacing:-0.02em;line-height:1.1;">7</p><p style="font-family:'IBM Plex Mono',monospace;font-size:8.5px;color:#909097;text-transform:uppercase;margin:2px 0 0;">수조 (Pool)</p></div>
-          <div style="border:1px solid #e5e5e8;border-radius:7px;padding:6px 10px;text-align:center;"><p style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:22px;margin:0;letter-spacing:-0.02em;line-height:1.1;">8</p><p style="font-family:'IBM Plex Mono',monospace;font-size:8.5px;color:#909097;text-transform:uppercase;margin:2px 0 0;">Isaac Ext.</p></div>
-          <div style="border:1px solid #e5e5e8;border-radius:7px;padding:6px 10px;text-align:center;"><p style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:22px;margin:0;letter-spacing:-0.02em;line-height:1.1;">6</p><p style="font-family:'IBM Plex Mono',monospace;font-size:8.5px;color:#909097;text-transform:uppercase;margin:2px 0 0;">ROS 2 Pkg</p></div>
-          <div style="border:1px solid #e5e5e8;border-radius:7px;padding:6px 10px;text-align:center;"><p style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:22px;margin:0;letter-spacing:-0.02em;line-height:1.1;">40×30</p><p style="font-family:'IBM Plex Mono',monospace;font-size:8.5px;color:#909097;text-transform:uppercase;margin:2px 0 0;">m 양식장</p></div>
         </div>
       </div>
     </section>
@@ -730,8 +584,7 @@
       </div>
       <div data-anim="2" style="display:flex;flex-direction:column;max-width:680px;border-top:1px solid #e5e5e8;">
         <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">01</span><span style="font-size:15px;color:#2a2a2d;">프로젝트 개요 · 자동 회진 &amp; 보조 카트</span></div>
-        <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">02</span><span style="font-size:15px;color:#2a2a2d;">시스템 아키텍처 · 회진 모드 흐름</span></div>
-        <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">03</span><span style="font-size:15px;color:#2a2a2d;">Trouble Shooting</span></div>
+        <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">02</span><span style="font-size:15px;color:#2a2a2d;">Trouble Shooting</span></div>
       </div>
     </section>
 
@@ -792,101 +645,6 @@
               <li>웹 문진 완료 대기(INTERVIEW) ↔ 상태머신 전환 인터페이스 설계</li>
               <li style="color:#909097;">Mode B 투약 보조 (간호사 추종 · OCR 검증) — 팀원 담당</li>
             </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ S15-A · P03 ARCHITECTURE ============ -->
-    <section data-slide="" data-screen-label="P03 아키텍처" style="position:absolute;inset:0;display:flex;flex-direction:column;padding:30px 44px;background:#ffffff;color:#0b0b0c;">
-      <div data-anim="" style="margin-bottom:8px;">
-        <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#6c6c72;margin:0 0 4px;">두산 P3 — Mode A 자율 회진</p>
-        <h2 style="font-family:'Space Grotesk','Pretendard',sans-serif;font-weight:600;font-size:24px;letter-spacing:-0.02em;margin:0;">시스템 아키텍처 · 회진 통합 구조</h2>
-      </div>
-      <div data-anim="2" style="flex:1;min-height:0;display:flex;gap:12px;">
-        <!-- Left: 회진 루프 흐름 -->
-        <div style="flex:1;min-height:0;border:1px solid #e5e5e8;border-radius:10px;background:#fcfcfd;padding:14px 18px;display:flex;flex-direction:column;gap:8px;">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:#3f3f44;font-weight:700;">Mode A — 자율 회진 루프</span>
-          <svg viewBox="0 0 520 430" style="width:100%;flex:1;" preserveAspectRatio="xMidYMid meet">
-            <defs>
-              <marker id="a4d" markerWidth="7" markerHeight="7" refX="6" refY="2.5" orient="auto"><path d="M0,0 L0,5 L7,2.5 z" fill="#606068"></path></marker>
-              <marker id="a4r" markerWidth="7" markerHeight="7" refX="6" refY="2.5" orient="auto"><path d="M0,0 L0,5 L7,2.5 z" fill="#a32a2a"></path></marker>
-            </defs>
-            <!-- Step boxes -->
-            <rect x="140" y="4" width="240" height="40" rx="6" fill="#e8f0e8" stroke="#70b070" stroke-width="1.2"></rect>
-            <text x="260" y="21" font-family="IBM Plex Mono,monospace" font-size="11" fill="#1a4a1a" text-anchor="middle" font-weight="bold">도킹 스테이션</text>
-            <text x="260" y="35" font-family="IBM Plex Mono,monospace" font-size="9" fill="#3a6a3a" text-anchor="middle">IDLE → Undock → PATROL</text>
-            <line x1="260" y1="44" x2="260" y2="62" stroke="#606068" stroke-width="1.3" marker-end="url(#a4d)"></line>
-
-            <rect x="100" y="64" width="320" height="40" rx="6" fill="#daeef8" stroke="#5a9cc8" stroke-width="1.2"></rect>
-            <text x="260" y="81" font-family="IBM Plex Mono,monospace" font-size="11" fill="#0a2a58" text-anchor="middle" font-weight="bold">Nav2 병실 이동</text>
-            <text x="260" y="95" font-family="IBM Plex Mono,monospace" font-size="9" fill="#2a5a90" text-anchor="middle">/robot6/navigate_to_pose  →  goal reached</text>
-            <line x1="260" y1="104" x2="260" y2="122" stroke="#606068" stroke-width="1.3" marker-end="url(#a4d)"></line>
-
-            <rect x="60" y="124" width="400" height="52" rx="6" fill="#fff4d8" stroke="#c89030" stroke-width="1.2"></rect>
-            <text x="260" y="143" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5a3000" text-anchor="middle" font-weight="bold">patient_identifier · 환자 확인</text>
-            <text x="260" y="157" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a5010" text-anchor="middle">YOLO 재실 확인  +  QR 신원 확인</text>
-            <text x="260" y="169" font-family="IBM Plex Mono,monospace" font-size="9" fill="#a07030" text-anchor="middle">→ /robot6/patient_identified</text>
-            <line x1="260" y1="176" x2="260" y2="194" stroke="#606068" stroke-width="1.3" marker-end="url(#a4d)"></line>
-
-            <rect x="60" y="196" width="400" height="52" rx="6" fill="#f0ecff" stroke="#9070c8" stroke-width="1.2"></rect>
-            <text x="260" y="215" font-family="IBM Plex Mono,monospace" font-size="11" fill="#2a0a68" text-anchor="middle" font-weight="bold">INTERVIEW 대기</text>
-            <text x="260" y="229" font-family="IBM Plex Mono,monospace" font-size="9" fill="#5040a0" text-anchor="middle">웹 문진앱 → Firebase 저장</text>
-            <text x="260" y="241" font-family="IBM Plex Mono,monospace" font-size="9" fill="#7060b8" text-anchor="middle">intake_done 수신 → NEXT_ROOM</text>
-            <line x1="260" y1="248" x2="260" y2="266" stroke="#606068" stroke-width="1.3" marker-end="url(#a4d)"></line>
-
-            <!-- 분기 -->
-            <rect x="100" y="268" width="320" height="36" rx="6" fill="#f8f8fa" stroke="#d6d6da" stroke-width="1"></rect>
-            <text x="260" y="283" font-family="IBM Plex Mono,monospace" font-size="10" fill="#3f3f44" text-anchor="middle">남은 병실?</text>
-            <text x="260" y="297" font-family="IBM Plex Mono,monospace" font-size="9" fill="#909097" text-anchor="middle">부재/불일치 → DB 기록 → 마지막 재방문</text>
-            <!-- yes arrow back to Nav2 -->
-            <path d="M420,286 C490,286 490,84 420,84" stroke="#a32a2a" stroke-width="1.3" fill="none" marker-end="url(#a4r)"></path>
-            <text x="494" y="190" font-family="IBM Plex Mono,monospace" font-size="9" fill="#a32a2a">Yes</text>
-            <!-- no arrow down -->
-            <line x1="260" y1="304" x2="260" y2="322" stroke="#606068" stroke-width="1.3" marker-end="url(#a4d)"></line>
-            <text x="265" y="318" font-family="IBM Plex Mono,monospace" font-size="9" fill="#606068">No</text>
-
-            <rect x="100" y="324" width="320" height="40" rx="6" fill="#e8f0e8" stroke="#70b070" stroke-width="1.2"></rect>
-            <text x="260" y="341" font-family="IBM Plex Mono,monospace" font-size="11" fill="#1a4a1a" text-anchor="middle" font-weight="bold">귀환 &amp; 재도킹</text>
-            <text x="260" y="355" font-family="IBM Plex Mono,monospace" font-size="9" fill="#3a6a3a" text-anchor="middle">navigate_to_pose station → DOCK → IDLE</text>
-
-            <!-- Firebase label -->
-            <rect x="6" y="196" width="46" height="52" rx="4" fill="#fff8ee" stroke="#d8a030" stroke-width="1"></rect>
-            <text x="29" y="214" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#8a4808" text-anchor="middle">Fire</text>
-            <text x="29" y="225" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#8a4808" text-anchor="middle">store</text>
-            <text x="29" y="238" font-family="IBM Plex Mono,monospace" font-size="7" fill="#a06020" text-anchor="middle">DB</text>
-            <line x1="60" y1="222" x2="58" y2="222" stroke="#d8a030" stroke-width="1" stroke-dasharray="2,2"></line>
-          </svg>
-        </div>
-        <!-- Right: 패키지 구성 + 기술 -->
-        <div style="width:300px;display:flex;flex-direction:column;gap:10px;min-height:0;">
-          <div style="border:1px solid #e5e5e8;border-radius:8px;padding:12px 14px;">
-            <p style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:#3f3f44;font-weight:700;margin:0 0 8px;">ROS 2 패키지 구성</p>
-            <div style="display:flex;flex-direction:column;gap:5px;">
-              <div style="display:flex;gap:8px;align-items:center;"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;background:#daeef8;border:1px solid #80c0d8;border-radius:3px;padding:1px 6px;white-space:nowrap;color:#0a3870;">mission_manager</span><span style="font-size:11px;color:#3f3f44;">patrol 상태머신 총괄</span></div>
-              <div style="display:flex;gap:8px;align-items:center;"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;background:#fff4d8;border:1px solid #d09030;border-radius:3px;padding:1px 6px;white-space:nowrap;color:#5a3000;">patient_identifier</span><span style="font-size:11px;color:#3f3f44;">YOLO + QR 환자 확인</span></div>
-              <div style="display:flex;gap:8px;align-items:center;"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;background:#f0ecff;border:1px solid #9070c8;border-radius:3px;padding:1px 6px;white-space:nowrap;color:#2a0a68;">nurse_tracker</span><span style="font-size:11px;color:#3f3f44;">간호사 추종 (Mode B)</span></div>
-              <div style="display:flex;gap:8px;align-items:center;"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;background:#e8f0e8;border:1px solid #70b070;border-radius:3px;padding:1px 6px;white-space:nowrap;color:#1a4a1a;">db_bridge</span><span style="font-size:11px;color:#3f3f44;">Firebase 처방 · 상태 기록</span></div>
-              <div style="display:flex;gap:8px;align-items:center;"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;background:#f8f8fa;border:1px solid #d6d6da;border-radius:3px;padding:1px 6px;white-space:nowrap;color:#3f3f44;">ocr_detector</span><span style="font-size:11px;color:#3f3f44;">약품 라벨 OCR (GCP)</span></div>
-              <div style="display:flex;gap:8px;align-items:center;"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;background:#f8f8fa;border:1px solid #d6d6da;border-radius:3px;padding:1px 6px;white-space:nowrap;color:#3f3f44;">dashboard</span><span style="font-size:11px;color:#3f3f44;">ROS2 ↔ WebSocket 브리지</span></div>
-            </div>
-          </div>
-          <div style="border:1px solid #e5e5e8;border-radius:8px;padding:12px 14px;">
-            <p style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:#3f3f44;font-weight:700;margin:0 0 8px;">웹 시스템</p>
-            <div style="display:flex;flex-direction:column;gap:5px;">
-              <div style="display:flex;gap:8px;align-items:center;"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;background:#fff8ee;border:1px solid #d8a030;border-radius:3px;padding:1px 6px;white-space:nowrap;color:#5a3000;">Flask</span><span style="font-size:11px;color:#3f3f44;">백엔드 API 서버 (port 5000)</span></div>
-              <div style="display:flex;gap:8px;align-items:center;"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;background:#fff8ee;border:1px solid #d8a030;border-radius:3px;padding:1px 6px;white-space:nowrap;color:#5a3000;">Next.js</span><span style="font-size:11px;color:#3f3f44;">/map · /control · /intake · /ocr</span></div>
-              <div style="display:flex;gap:8px;align-items:center;"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;background:#fff8ee;border:1px solid #d8a030;border-radius:3px;padding:1px 6px;white-space:nowrap;color:#5a3000;">Firebase</span><span style="font-size:11px;color:#3f3f44;">환자 DB · 처방전 · 문진 결과</span></div>
-            </div>
-          </div>
-          <div style="border:1px solid #e5e5e8;border-radius:8px;padding:12px 14px;">
-            <p style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:#3f3f44;font-weight:700;margin:0 0 8px;">하드웨어</p>
-            <div style="display:flex;flex-wrap:wrap;gap:5px;">
-              <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;border:1px solid #d6d6da;border-radius:3px;padding:2px 6px;color:#2a2a2d;">TurtleBot4</span>
-              <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;border:1px solid #d6d6da;border-radius:3px;padding:2px 6px;color:#2a2a2d;">OAK-D Pro</span>
-              <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;border:1px solid #d6d6da;border-radius:3px;padding:2px 6px;color:#2a2a2d;">RPLIDAR</span>
-              <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;border:1px solid #d6d6da;border-radius:3px;padding:2px 6px;color:#2a2a2d;">Raspberry Pi 5</span>
-            </div>
           </div>
         </div>
       </div>
@@ -965,9 +723,8 @@
       </div>
       <div data-anim="2" style="display:flex;flex-direction:column;max-width:680px;border-top:1px solid #e5e5e8;">
         <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">01</span><span style="font-size:15px;color:#2a2a2d;">Overview</span></div>
-        <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">02</span><span style="font-size:15px;color:#2a2a2d;">전체 시스템 아키텍처</span></div>
-        <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">03</span><span style="font-size:15px;color:#2a2a2d;">닉네임 쓰기 — 글씨쓰기 알고리즘</span></div>
-        <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">04</span><span style="font-size:15px;color:#2a2a2d;">Trouble Shooting</span></div>
+        <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">02</span><span style="font-size:15px;color:#2a2a2d;">닉네임 쓰기 — 글씨쓰기 알고리즘</span></div>
+        <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">03</span><span style="font-size:15px;color:#2a2a2d;">Trouble Shooting</span></div>
       </div>
     </section>
 
@@ -1000,135 +757,6 @@
             <p style="font-family:'Pretendard','Inter',sans-serif;font-size:15.5px;font-weight:800;letter-spacing:0.01em;text-transform:uppercase;color:#0b0b0c;margin:0 0 6px;">My role</p>
             <ul style="margin:0;padding:0 0 0 16px;font-size:14.5px;line-height:1.62;color:#2a2a2d;"><li>단위 기능 간 ROS 2 인터페이스 설계</li><li>전체 기능 통합 및 web 연동 설계</li><li>글씨쓰기 알고리즘 구현</li></ul>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ S7 · P04 ARCHITECTURE ============ -->
-    <section data-slide="" data-screen-label="P04 architecture" style="position:absolute;inset:0;display:flex;flex-direction:column;padding:30px 44px;background:#ffffff;color:#0b0b0c;">
-      <div data-anim="" style="margin-bottom:8px;">
-        <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#6c6c72;margin:0 0 4px;">두산 P4 — mother_bird 전체 시스템</p>
-        <h2 style="font-family:'Space Grotesk','Pretendard',sans-serif;font-weight:600;font-size:24px;letter-spacing:-0.02em;margin:0;">시스템 아키텍처 — 주문 → 로봇 → 서빙 전체 흐름</h2>
-      </div>
-      <div data-anim="2" style="flex:1;min-height:0;border:1px solid #e5e5e8;border-radius:10px;background:#fcfcfd;padding:10px 14px;display:flex;flex-direction:column;gap:4px;overflow:hidden;">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:#3f3f44;font-weight:700;">Web · Firebase RTDB · ROS 2 Humble · Doosan M0609</span>
-        <svg viewBox="0 0 1120 292" style="width:100%;flex:1;min-height:0;" preserveAspectRatio="xMidYMid meet">
-          <defs>
-            <marker id="a1" markerWidth="7" markerHeight="7" refX="6" refY="2.5" orient="auto"><path d="M0,0 L0,5 L7,2.5 z" fill="#606068"></path></marker>
-            <marker id="a1r" markerWidth="7" markerHeight="7" refX="6" refY="2.5" orient="auto"><path d="M0,0 L0,5 L7,2.5 z" fill="#a32a2a"></path></marker>
-            <marker id="a1b" markerWidth="7" markerHeight="7" refX="6" refY="2.5" orient="auto"><path d="M0,0 L0,5 L7,2.5 z" fill="#2b5fc7"></path></marker>
-            <marker id="a1g" markerWidth="7" markerHeight="7" refX="6" refY="2.5" orient="auto"><path d="M0,0 L0,5 L7,2.5 z" fill="#1f7a4d"></path></marker>
-          </defs>
-
-          <!-- ══ Web & Data 박스 ══ -->
-          <rect x="2" y="2" width="228" height="288" rx="8" fill="#fffbee" stroke="#d4a830" stroke-width="1.5"></rect>
-          <text x="14" y="20" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5a3000" font-weight="bold">Web &amp; Data</text>
-
-          <!-- 키오스크 -->
-          <rect x="8" y="26" width="214" height="44" rx="5" fill="#fce8a0" stroke="#c8a030" stroke-width="1"></rect>
-          <text x="115" y="52" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5a3000" text-anchor="middle" font-weight="bold">고객 키오스크 웹</text>
-
-          <!-- Firebase -->
-          <rect x="8" y="82" width="214" height="52" rx="5" fill="#f8e090" stroke="#c89828" stroke-width="1.3"></rect>
-          <text x="115" y="112" font-family="IBM Plex Mono,monospace" font-size="11" fill="#4a2800" text-anchor="middle" font-weight="bold">Firebase RTDB</text>
-
-          <!-- 관리자 GUI -->
-          <rect x="8" y="148" width="214" height="54" rx="5" fill="#fce8a0" stroke="#c8a030" stroke-width="1"></rect>
-          <text x="115" y="179" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5a3000" text-anchor="middle" font-weight="bold">관리자 GUI (PySide6)</text>
-
-          <!-- robot_state_monitor -->
-          <rect x="8" y="216" width="214" height="36" rx="5" fill="#fce8a0" stroke="#c8a030" stroke-width="1"></rect>
-          <text x="115" y="238" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5a3000" text-anchor="middle" font-weight="bold">robot_state_monitor</text>
-
-          <!-- 화살표: 키오스크 → Firebase -->
-          <line x1="115" y1="70" x2="115" y2="80" stroke="#d4a830" stroke-width="1.3" marker-end="url(#a1)"></line>
-          <!-- 관리자 GUI → Firebase -->
-          <line x1="115" y1="148" x2="115" y2="136" stroke="#d4a830" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#a1)"></line>
-
-          <!-- ══ ROS 2 박스 — 직접 설계·구현 영역 강조 ══ -->
-          <rect x="244" y="2" width="588" height="288" rx="8" fill="#eef5fc" stroke="#2b2bff" stroke-width="2.5"></rect>
-          <text x="258" y="20" font-family="IBM Plex Mono,monospace" font-size="11" fill="#0a3878" font-weight="bold">ROS 2 Humble  ·  Python 3.10</text>
-          <text x="818" y="20" font-family="IBM Plex Mono,monospace" font-size="9" fill="#2b2bff" font-weight="bold" text-anchor="end">직접 설계 · 구현</text>
-
-          <!-- order_listener -->
-          <rect x="252" y="26" width="186" height="48" rx="5" fill="#c6dff2" stroke="#68aad0" stroke-width="1"></rect>
-          <text x="345" y="54" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#0a2a58" text-anchor="middle" font-weight="bold">order_listener</text>
-
-          <!-- bingsu_controller -->
-          <rect x="454" y="26" width="196" height="48" rx="5" fill="#c6dff2" stroke="#68aad0" stroke-width="1"></rect>
-          <text x="552" y="54" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#0a2a58" text-anchor="middle" font-weight="bold">bingsu_controller</text>
-
-          <!-- bingsu_sequence (MAIN — large) -->
-          <rect x="252" y="90" width="576" height="90" rx="6" fill="#b0d0ec" stroke="#5090c0" stroke-width="1.5"></rect>
-          <text x="540" y="139" font-family="IBM Plex Mono,monospace" font-size="13" fill="#0a2050" text-anchor="middle" font-weight="bold">bingsu_sequence  (total_pkg)</text>
-
-          <!-- draw_motion / draw_kor -->
-          <rect x="252" y="196" width="286" height="44" rx="5" fill="#daeef8" stroke="#80c0d8" stroke-width="1"></rect>
-          <text x="395" y="222" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#0a3870" text-anchor="middle" font-weight="bold">draw_motion · draw_kor  (draw_pkg)</text>
-
-          <!-- robot_state_monitor 연결 레이블 -->
-          <rect x="554" y="196" width="274" height="44" rx="5" fill="#daeef8" stroke="#80c0d8" stroke-width="1"></rect>
-          <text x="691" y="222" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#0a3870" text-anchor="middle" font-weight="bold">robot_state_monitor</text>
-
-          <!-- 노드 간 화살표 -->
-          <!-- order_listener → bingsu_controller -->
-          <line x1="438" y1="50" x2="452" y2="50" stroke="#606068" stroke-width="1.3" marker-end="url(#a1)"></line>
-          <text x="439" y="45" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#606068">MakeBingsu</text>
-          <!-- bingsu_controller → bingsu_sequence -->
-          <line x1="552" y1="74" x2="552" y2="88" stroke="#606068" stroke-width="1.3" marker-end="url(#a1)"></line>
-          <text x="555" y="85" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#606068">/start</text>
-          <!-- order_listener → bingsu_sequence (dashed) -->
-          <line x1="345" y1="74" x2="345" y2="88" stroke="#909097" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#a1)"></line>
-          <!-- bingsu_sequence → draw_motion -->
-          <line x1="395" y1="180" x2="395" y2="194" stroke="#606068" stroke-width="1.3" marker-end="url(#a1)"></line>
-          <text x="397" y="191" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#606068">RobotCmd</text>
-          <!-- robot_state_monitor → bingsu_sequence -->
-          <line x1="691" y1="194" x2="691" y2="182" stroke="#a32a2a" stroke-width="1.3" marker-end="url(#a1r)"></line>
-
-          <!-- 관리자 GUI → bingsu_sequence (pause/abort) -->
-          <path d="M222,175 C235,175 242,145 252,145" stroke="#a32a2a" stroke-width="1.3" fill="none" marker-end="url(#a1r)"></path>
-          <text x="225" y="155" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#a32a2a">pause/abort</text>
-
-          <!-- Firebase → order_listener -->
-          <path d="M230,108 C238,108 244,50 250,50" stroke="#606068" stroke-width="1.3" fill="none" marker-end="url(#a1)"></path>
-          <text x="225" y="84" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#606068">orders/</text>
-
-          <!-- bingsu_sequence → Firebase (진행률) -->
-          <path d="M252,130 C238,130 232,108 230,108" stroke="#1f7a4d" stroke-width="1.2" fill="none" marker-end="url(#a1g)"></path>
-          <text x="225" y="122" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#1f7a4d">progress</text>
-
-          <!-- ══ Hardware 박스 ══ -->
-          <rect x="846" y="2" width="272" height="288" rx="8" fill="#eef6ee" stroke="#70b070" stroke-width="1.5"></rect>
-          <text x="858" y="20" font-family="IBM Plex Mono,monospace" font-size="11" fill="#1a4a1a" font-weight="bold">Hardware</text>
-
-          <!-- dsr_bringup2 -->
-          <rect x="852" y="26" width="258" height="44" rx="5" fill="#c4e0c4" stroke="#60a060" stroke-width="1"></rect>
-          <text x="981" y="52" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#1a4a1a" text-anchor="middle" font-weight="bold">dsr_bringup2 (Doosan SDK)</text>
-
-          <!-- M0609 -->
-          <rect x="852" y="84" width="258" height="72" rx="5" fill="#c4e0c4" stroke="#60a060" stroke-width="1.3"></rect>
-          <text x="981" y="124" font-family="IBM Plex Mono,monospace" font-size="11" fill="#1a4a1a" text-anchor="middle" font-weight="bold">Doosan M0609</text>
-
-          <!-- 엔드이펙터 -->
-          <rect x="852" y="170" width="258" height="110" rx="5" fill="#d4ead4" stroke="#78b878" stroke-width="1"></rect>
-          <text x="981" y="229" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#1a4a1a" text-anchor="middle" font-weight="bold">툴 &amp; 엔드이펙터</text>
-
-          <!-- bingsu_sequence → dsr_bringup2 -->
-          <line x1="830" y1="130" x2="850" y2="52" stroke="#a32a2a" stroke-width="1.5" marker-end="url(#a1r)"></line>
-          <text x="832" y="88" font-family="IBM Plex Mono,monospace" font-size="8" fill="#a32a2a">DSR_ROBOT2</text>
-          <text x="832" y="99" font-family="IBM Plex Mono,monospace" font-size="8" fill="#a32a2a">SDK 직접 호출</text>
-
-          <!-- dsr_bringup2 → M0609 -->
-          <line x1="981" y1="70" x2="981" y2="82" stroke="#606068" stroke-width="1.3" marker-end="url(#a1)"></line>
-
-          <!-- dsr_bringup2 → Manage_view (joint_states topic) -->
-          <path d="M852,44 C840,44 236,170 222,174" stroke="#2b5fc7" stroke-width="1.2" fill="none" marker-end="url(#a1b)"></path>
-          <text x="510" y="260" font-family="IBM Plex Mono,monospace" font-size="8" fill="#2b5fc7">/dsr01/joint_states (topic)</text>
-        </svg>
-        <div style="font-size:8.5px;line-height:1.45;color:#6c6c72;font-family:'IBM Plex Mono',monospace;border-top:1px solid #e5e5e8;padding-top:4px;">
-          <strong style="color:#5a3000;">Web&amp;Data</strong> 고객 키오스크(Mère Snow·Firebase SDK) · 관리자 GUI(24단계 진행률·/pause·/abort) · robot_state_monitor(외력·SAFE_STOP 감시) &nbsp;|&nbsp;
-          <strong style="color:#0a3878;">ROS 2</strong> order_listener→bingsu_controller→<strong>bingsu_sequence</strong>(24단계 오케스트레이션·Doosan SDK 직접 호출·Phase 1 컵배치→2 제빙→3 토핑→4 집게+드로잉→5 서빙)→draw_motion/draw_kor(드로잉) &nbsp;|&nbsp;
-          <strong style="color:#1a4a1a;">Hardware</strong> dsr_bringup2(SDK)→M0609(6축·9kg)→엔드이펙터(그리퍼·토핑스푼×3·집게·펜·제빙기/블렌더)
         </div>
       </div>
     </section>
@@ -1324,7 +952,7 @@
     </div></section>
 
     <!-- ============ S16 · DIVIDER 교내 ============ -->
-    <section data-slide="" data-screen-label="교내 divider" style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:64px 72px;background:#0b0b0c;color:#ffffff;overflow:hidden;">
+    <section data-slide="" class="print-force-black" data-screen-label="교내 divider" style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:64px 72px;background:#0b0b0c;color:#ffffff;overflow:hidden;">
       <div style="position:absolute;inset:0;background-image:linear-gradient(#ffffff0a 1px,transparent 1px),linear-gradient(90deg,#ffffff0a 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(circle at 26% 50%,#000,transparent 76%);mask-image:radial-gradient(circle at 26% 50%,#000,transparent 76%);"></div>
       <div data-anim="" style="position:relative;display:flex;align-items:baseline;gap:24px;">
         <span style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:120px;line-height:1;letter-spacing:-0.03em;color:#2a2a2d;">03</span>
@@ -1483,7 +1111,7 @@
     </section>
 
     <!-- ============ S19 · DIVIDER VISION ============ -->
-    <section data-slide="" data-screen-label="VISION divider" style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:64px 72px;background:#0b0b0c;color:#ffffff;overflow:hidden;">
+    <section data-slide="" class="print-force-black" data-screen-label="VISION divider" style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:64px 72px;background:#0b0b0c;color:#ffffff;overflow:hidden;">
       <div style="position:absolute;inset:0;background-image:linear-gradient(#ffffff0a 1px,transparent 1px),linear-gradient(90deg,#ffffff0a 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(circle at 26% 50%,#000,transparent 76%);mask-image:radial-gradient(circle at 26% 50%,#000,transparent 76%);"></div>
       <div data-anim="" style="position:relative;display:flex;align-items:baseline;gap:24px;">
         <span style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:120px;line-height:1;letter-spacing:-0.03em;color:#2a2a2d;">04</span>
@@ -1566,7 +1194,7 @@
     </section>
 
     <!-- ============ S20-B · DIVIDER APPENDIX ============ -->
-    <section data-slide="" data-screen-label="APPENDIX divider" style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:64px 72px;background:#0b0b0c;color:#ffffff;overflow:hidden;">
+    <section data-slide="" class="print-force-black" data-screen-label="APPENDIX divider" style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:64px 72px;background:#0b0b0c;color:#ffffff;overflow:hidden;">
       <div style="position:absolute;inset:0;background-image:linear-gradient(#ffffff0a 1px,transparent 1px),linear-gradient(90deg,#ffffff0a 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(circle at 26% 50%,#000,transparent 76%);mask-image:radial-gradient(circle at 26% 50%,#000,transparent 76%);"></div>
       <div data-anim="" style="position:relative;display:flex;align-items:baseline;gap:24px;">
         <span style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:120px;line-height:1;letter-spacing:-0.03em;color:#2a2a2d;">05</span>
@@ -1629,7 +1257,7 @@
     </section>
 
     <!-- ============ S22 · OUTLOOK / 포부 ============ -->
-    <section data-slide="" data-screen-label="포부 / Thank you" style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:64px 72px;background:#0b0b0c;color:#ffffff;overflow:hidden;">
+    <section data-slide="" class="print-force-black" data-screen-label="포부 / Thank you" style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:64px 72px;background:#0b0b0c;color:#ffffff;overflow:hidden;">
       <div style="position:absolute;inset:0;background-image:linear-gradient(#ffffff0a 1px,transparent 1px),linear-gradient(90deg,#ffffff0a 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(circle at 78% 30%,#000,transparent 74%);mask-image:radial-gradient(circle at 78% 30%,#000,transparent 74%);"></div>
       <div data-anim="" style="position:relative;display:flex;align-items:center;justify-content:space-between;">
         <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#909097;">06 — Outlook</span>
