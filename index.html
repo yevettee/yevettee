@@ -486,11 +486,12 @@
     }
     .skill-tier {
       font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.04em;
+      font-size: 13px;
+      letter-spacing: 3px;
       color: var(--accent);
       white-space: nowrap;
     }
+    .skill-tier .dim { color: var(--border); }
 
     /* ─── ABOUT ─── */
     #about {
@@ -714,30 +715,31 @@
           <span class="project-name-kr">양식장 청소 로봇</span>
         </div>
         <p class="project-desc" data-i18n="p03.desc">
-          Multi-robot aquafarm-cleaning simulation in NVIDIA Isaac Sim. Reproduces a
-          7-tank sturgeon farm with 3 robot types — 7 underwater cleaners (Hippo),
-          7 rail-mounted wall-cleaning cobots (M1013), and 1 gantry robot that
-          collects dead fish.
+          Isaac Sim + ROS 2 multi-robot aquafarm simulator. Reproduces a 7-tank
+          sturgeon farm and connects 15 simulated robots through custom
+          msg/srv/action interfaces, from detection and planning to controller
+          execution feedback.
         </p>
         <div>
           <p class="project-role-label" data-i18n="role.label">My Role</p>
           <ul class="about-list project-role-list">
             <li data-i18n="role.aquasweep.lead">Team lead — led a 5-person team and set communication norms</li>
-            <li data-i18n="role.aquasweep.1">Designed and built all Isaac Sim extensions (environment, physics, 8 robot types)</li>
-            <li data-i18n="role.aquasweep.2">aqua_detection — YOLO sturgeon detection + OpenCV debris-detection pipeline</li>
-            <li data-i18n="role.aquasweep.3">Integrated Planner → Controller → Isaac Sim multi-robot orchestration</li>
+            <li data-i18n="role.aquasweep.1">Built Isaac Sim extensions for the farm, water physics, cameras, and robot motion</li>
+            <li data-i18n="role.aquasweep.2">Defined ROS 2 msg/srv/action contracts for pool state, motion control, and progress feedback</li>
+            <li data-i18n="role.aquasweep.3">Integrated Detection → Planner → Controller → Isaac Sim execution and test flow</li>
           </ul>
         </div>
-        <div class="project-challenge"><strong>Key challenge —</strong> 벽면 그림자를 이물질로 오탐지하던 문제를 면적 필터(25–450px)로 해결. 수면 근처 흐릿한 개체는 adaptive threshold로 검출률을 높였습니다.</div>
+        <div class="project-challenge"><strong>Key challenge —</strong> ROS 2 노드와 Isaac Sim 내부 물리 루프의 실행 주기가 달라, cmd_vel 직접 제어 대신 Action → Service → MotionStatus 구조로 분리했습니다. Planner가 청소 가능 수조를 고르고, Controller가 Isaac Sim 서비스로 실행을 요청한 뒤 진행률을 피드백받도록 통합했습니다.</div>
         <div class="project-stack">
           <span class="stack-chip">Isaac Sim</span>
           <span class="stack-chip">ROS2</span>
+          <span class="stack-chip">Action/Service</span>
           <span class="stack-chip">YOLO</span>
           <span class="stack-chip">OpenCV</span>
           <span class="stack-chip">PyQt5</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/yevettee" class="project-link" target="_blank" rel="noopener">
+          <a href="https://github.com/yevettee/AquaSweep" class="project-link" target="_blank" rel="noopener">
             View on GitHub
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
@@ -780,11 +782,11 @@
           <span class="stack-chip">Python</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/yevettee" class="project-link" target="_blank" rel="noopener">
+          <a href="https://github.com/yevettee/mother_bird" class="project-link" target="_blank" rel="noopener">
             View on GitHub
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <a href="portfolio.html?slide=13" class="project-link" target="_blank" rel="noopener">
+          <a href="portfolio.html?slide=14" class="project-link" target="_blank" rel="noopener">
             View More
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
@@ -825,11 +827,11 @@
           <span class="stack-chip">Firebase</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/yevettee" class="project-link" target="_blank" rel="noopener">
+          <a href="https://github.com/yevettee/MediCart" class="project-link" target="_blank" rel="noopener">
             View on GitHub
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <a href="portfolio.html?slide=18" class="project-link" target="_blank" rel="noopener">
+          <a href="portfolio.html?slide=19" class="project-link" target="_blank" rel="noopener">
             View More
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
@@ -867,11 +869,11 @@
           <span class="stack-chip">OpenCV</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/yevettee" class="project-link" target="_blank" rel="noopener">
+          <a href="https://github.com/yevettee/RL_robot" class="project-link" target="_blank" rel="noopener">
             View on GitHub
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <a href="portfolio.html?slide=21" class="project-link" target="_blank" rel="noopener">
+          <a href="portfolio.html?slide=22" class="project-link" target="_blank" rel="noopener">
             View More
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
@@ -910,7 +912,7 @@
           <span class="stack-chip">DJI Tello</span>
         </div>
         <div class="project-links">
-          <a href="portfolio.html?slide=24" class="project-link" target="_blank" rel="noopener">
+          <a href="portfolio.html?slide=25" class="project-link" target="_blank" rel="noopener">
             View More
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
@@ -930,30 +932,30 @@
     <div class="skill-group fade-up">
       <div class="skill-group-title" data-i18n="skill.languages">Languages &amp; Tools</div>
       <div class="skill-list">
-        <div class="skill-item"><span>Python</span><span class="skill-tier" data-i18n="tier.python">Upper-Intermediate</span></div>
-        <div class="skill-item"><span>Git / Linux</span><span class="skill-tier" data-i18n="tier.git">Intermediate</span></div>
-        <div class="skill-item"><span>Firebase</span><span class="skill-tier" data-i18n="tier.firebase">Lower-Intermediate</span></div>
+        <div class="skill-item"><span>Python</span><span class="skill-tier">●●●●<span class="dim">○</span></span></div>
+        <div class="skill-item"><span>Git / Linux</span><span class="skill-tier">●●●<span class="dim">○○</span></span></div>
+        <div class="skill-item"><span>Firebase</span><span class="skill-tier">●●<span class="dim">○○○</span></span></div>
       </div>
     </div>
 
     <div class="skill-group fade-up">
       <div class="skill-group-title" data-i18n="skill.robotics">Robotics &amp; Simulation</div>
       <div class="skill-list">
-        <div class="skill-item"><span>ROS2</span><span class="skill-tier" data-i18n="tier.ros2">Upper-Intermediate</span></div>
-        <div class="skill-item"><span>Nav2</span><span class="skill-tier" data-i18n="tier.nav2">Intermediate</span></div>
-        <div class="skill-item"><span>Gazebo</span><span class="skill-tier" data-i18n="tier.gazebo">Upper-Intermediate</span></div>
-        <div class="skill-item"><span>NVIDIA Isaac Sim</span><span class="skill-tier" data-i18n="tier.isaacsim">Upper-Intermediate</span></div>
-        <div class="skill-item"><span>AirSim</span><span class="skill-tier" data-i18n="tier.airsim">Intermediate</span></div>
+        <div class="skill-item"><span>ROS2</span><span class="skill-tier">●●●●<span class="dim">○</span></span></div>
+        <div class="skill-item"><span>Nav2</span><span class="skill-tier">●●●<span class="dim">○○</span></span></div>
+        <div class="skill-item"><span>Gazebo</span><span class="skill-tier">●●●●<span class="dim">○</span></span></div>
+        <div class="skill-item"><span>NVIDIA Isaac Sim</span><span class="skill-tier">●●●●<span class="dim">○</span></span></div>
+        <div class="skill-item"><span>AirSim</span><span class="skill-tier">●●●<span class="dim">○○</span></span></div>
       </div>
     </div>
 
     <div class="skill-group fade-up">
       <div class="skill-group-title" data-i18n="skill.vision">Computer Vision</div>
       <div class="skill-list">
-        <div class="skill-item"><span>OpenCV</span><span class="skill-tier" data-i18n="tier.opencv">Intermediate</span></div>
-        <div class="skill-item"><span>YOLO</span><span class="skill-tier" data-i18n="tier.yolo">Intermediate</span></div>
-        <div class="skill-item"><span>RealSense</span><span class="skill-tier" data-i18n="tier.realsense">Intermediate</span></div>
-        <div class="skill-item"><span>Camera Calib.</span><span class="skill-tier" data-i18n="tier.cameracalib">Upper-Intermediate</span></div>
+        <div class="skill-item"><span>OpenCV</span><span class="skill-tier">●●●<span class="dim">○○</span></span></div>
+        <div class="skill-item"><span>YOLO</span><span class="skill-tier">●●●<span class="dim">○○</span></span></div>
+        <div class="skill-item"><span>RealSense</span><span class="skill-tier">●●●<span class="dim">○○</span></span></div>
+        <div class="skill-item"><span>Camera Calib.</span><span class="skill-tier">●●●●<span class="dim">○</span></span></div>
       </div>
     </div>
   </div>
@@ -1040,15 +1042,15 @@ const translations = {
     'badge.vision': 'Graduation',
     'p01.desc': "Doosan M0609 cobot automating the full shaved-ice process — from order to topping to nickname sticker. Shaves ice, adds toppings, and writes the customer's nickname by hand before placing the cup.",
     'p02.desc': 'Doosan M0609 system integrating wake word, STT/LLM command parsing, YOLO vision matching, and ROS 2 execution — built with a swappable sim/real backend so the same logic runs through Gazebo validation before pick/place and tool-sorting on the real robot.',
-    'p03.desc': 'Multi-robot aquafarm-cleaning simulation in NVIDIA Isaac Sim. Reproduces a 7-tank sturgeon farm with 3 robot types — 7 underwater cleaners (Hippo), 7 rail-mounted wall-cleaning cobots (M1013), and 1 gantry robot that collects dead fish.',
+    'p03.desc': 'Isaac Sim + ROS 2 multi-robot aquafarm simulator. Reproduces a 7-tank sturgeon farm and connects 15 simulated robots through custom msg/srv/action interfaces, from detection and planning to controller execution feedback.',
     'p04.desc': 'Hospital-ward assistant robot on TurtleBot4. In autonomous rounds (Mode A), it visits rooms, verifies patients via YOLO+QR, and runs a web questionnaire; in nurse-assist mode (Mode B), it follows the nurse and verifies medication labels via OCR.',
     'rl.desc': 'DRL study project. Analyzed a reference DQN implementation and reproduced a pick-and-place agent for a robot arm in PyBullet, working from RGB-D input. Simulation only. Did not reach real hardware.',
     'vision.desc': 'Graduation capstone assuming all sensors have failed — lands a drone autonomously using only camera vision to detect a landing marker. Validated in AirSim, then tested on a real DJI Tello.',
     'role.label': 'My Role',
     'role.aquasweep.lead': 'Team lead — led a 5-person team and set communication norms',
-    'role.aquasweep.1': 'Designed and built all Isaac Sim extensions (environment, physics, 8 robot types)',
-    'role.aquasweep.2': 'aqua_detection — YOLO sturgeon detection + OpenCV debris-detection pipeline',
-    'role.aquasweep.3': 'Integrated Planner → Controller → Isaac Sim multi-robot orchestration',
+    'role.aquasweep.1': 'Built Isaac Sim extensions for the farm, water physics, cameras, and robot motion',
+    'role.aquasweep.2': 'Defined ROS 2 msg/srv/action contracts for pool state, motion control, and progress feedback',
+    'role.aquasweep.3': 'Integrated Detection → Planner → Controller → Isaac Sim execution and test flow',
     'role.doobe.1': 'Integrated STT/LLM command parsing with robot execution',
     'role.doobe.2': 'Matched vision results with command conditions and published ROS 2 target/sort topics',
     'role.doobe.3': 'Separated Gazebo and real-robot execution paths for validation',
@@ -1072,18 +1074,6 @@ const translations = {
     'skill.languages': 'Languages & Tools',
     'skill.robotics': 'Robotics & Simulation',
     'skill.vision': 'Computer Vision',
-    'tier.python': 'Upper-Intermediate',
-    'tier.git': 'Intermediate',
-    'tier.firebase': 'Lower-Intermediate',
-    'tier.ros2': 'Upper-Intermediate',
-    'tier.nav2': 'Intermediate',
-    'tier.gazebo': 'Upper-Intermediate',
-    'tier.isaacsim': 'Upper-Intermediate',
-    'tier.airsim': 'Intermediate',
-    'tier.opencv': 'Intermediate',
-    'tier.yolo': 'Intermediate',
-    'tier.realsense': 'Intermediate',
-    'tier.cameracalib': 'Upper-Intermediate',
     'contact.label': 'Contact',
     'contact.title': "Let's connect.",
     'contact.sub': 'Open to opportunities in robotics software engineering.',
@@ -1124,15 +1114,15 @@ const translations = {
     'badge.vision': '졸업작품',
     'p01.desc': '두산 M0609 협동로봇으로 주문부터 토핑, 닉네임 부착까지 컵빙수 제조 전 과정을 자동화했습니다. 제빙 → 토핑 → 적재 순으로 동작하고, 주문자 닉네임을 손글씨로 써서 컵에 붙입니다.',
     'p02.desc': 'Wake word, STT/LLM 명령 해석, YOLO 비전 매칭, ROS 2 실행을 연결한 두산 M0609 통합 시스템. 동일한 상위 로직을 유지한 채 sim/real 백엔드를 교체할 수 있게 설계해, Gazebo 검증을 거친 뒤 실제 로봇에서 pick/place와 공구 정리를 수행했습니다.',
-    'p03.desc': 'NVIDIA Isaac Sim 위에 철갑상어 양식장(수조 7개)을 재현한 멀티로봇 시뮬레이션. 바닥을 청소하는 수중로봇(Hippo) 7대, 레일을 돌며 벽면을 닦는 협동로봇(M1013) 7대, 죽은 물고기를 집어 옮기는 갠트리 로봇 1대, 총 3종 15대가 협조 동작합니다.',
+    'p03.desc': 'Isaac Sim + ROS 2 기반 양식장 멀티로봇 시뮬레이터. 수조 7개의 철갑상어 양식장을 재현하고, custom msg/srv/action 인터페이스로 15대 로봇의 인지·계획·제어·실행 피드백을 연결했습니다.',
     'p04.desc': 'TurtleBot4 기반 병원 순회 보조 로봇. 자율 회진(Mode A)에서는 병실을 돌며 YOLO+QR로 환자를 확인하고 웹 문진을 진행하며, 간호사 추종(Mode B)에서는 약품 라벨을 OCR로 검증합니다.',
     'rl.desc': 'DRL 스터디 프로젝트. Reference DQN 코드를 분석하고, PyBullet에서 RGB-D 입력 기반 pick & place 에이전트를 재현했습니다. 실제 로봇 적용까지는 가지 못했습니다.',
     'vision.desc': '모든 센서가 고장났다고 가정하고, 카메라 비전만으로 Landing Marker를 인식해 드론을 자율 착륙시키는 졸업작품. AirSim으로 검증한 뒤 실물 DJI Tello로 테스트했습니다.',
     'role.label': '담당',
     'role.aquasweep.lead': '팀장 — 5인 팀 리딩 · 커뮤니케이션 기준 정립',
-    'role.aquasweep.1': 'Isaac Sim 익스텐션 전체 설계·구현 (환경·물리·로봇 8종)',
-    'role.aquasweep.2': 'aqua_detection — YOLO 철갑상어 탐지 + OpenCV 이물질 검출 파이프라인',
-    'role.aquasweep.3': 'Planner → Controller → Isaac Sim 멀티로봇 오케스트레이션 통합',
+    'role.aquasweep.1': 'Isaac Sim 익스텐션 구현 — 양식장 환경·물리·카메라·로봇 모션',
+    'role.aquasweep.2': '수조 상태·모션 제어·진행률 피드백용 ROS 2 msg/srv/action 인터페이스 정의',
+    'role.aquasweep.3': 'Detection → Planner → Controller → Isaac Sim 실행·테스트 흐름 통합',
     'role.doobe.1': 'STT/LLM command parsing과 로봇 실행 흐름 연동',
     'role.doobe.2': 'vision 결과와 명령 조건을 매칭해 ROS 2 target/sort topic 발행',
     'role.doobe.3': 'Gazebo 검증 경로와 real robot 실행 경로 분리',
@@ -1156,18 +1146,6 @@ const translations = {
     'skill.languages': '언어 & 도구',
     'skill.robotics': '로보틱스 & 시뮬레이션',
     'skill.vision': '컴퓨터 비전',
-    'tier.python': '중상',
-    'tier.git': '중',
-    'tier.firebase': '중하',
-    'tier.ros2': '중상',
-    'tier.nav2': '중',
-    'tier.gazebo': '중상',
-    'tier.isaacsim': '중상',
-    'tier.airsim': '중',
-    'tier.opencv': '중',
-    'tier.yolo': '중',
-    'tier.realsense': '중',
-    'tier.cameracalib': '중상',
     'contact.label': '연락처',
     'contact.title': '연락하기.',
     'contact.sub': '로봇 소프트웨어 엔지니어링 기회에 열려 있습니다.',
