@@ -190,9 +190,9 @@
       </div>
       <div data-anim="2" style="display:flex;flex-direction:column;max-width:680px;border-top:1px solid #e5e5e8;">
         <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">01</span><span style="font-size:15px;color:#2a2a2d;">Overview</span></div>
-        <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">02</span><span style="font-size:15px;color:#2a2a2d;">음성·비전·로봇 실행 아키텍처</span></div>
-        <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">03</span><span style="font-size:15px;color:#2a2a2d;">Sim / Real 병렬 검증 구조</span></div>
-        <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">04</span><span style="font-size:15px;color:#2a2a2d;">Safety Design</span></div>
+        <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">02</span><span style="font-size:15px;color:#2a2a2d;">Sim / Real 병렬 검증 구조</span></div>
+        <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">03</span><span style="font-size:15px;color:#2a2a2d;">음성·비전·로봇 실행 아키텍처</span></div>
+        <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">04</span><span style="font-size:15px;color:#2a2a2d;">Troubleshooting &amp; 배운 점</span></div>
       </div>
     </section>
 
@@ -229,7 +229,39 @@
       </div>
     </section>
 
-    <!-- ============ S11 · P01 ARCHITECTURE ============ -->
+    <!-- ============ S11 · P01 CONTROL SYSTEM ============ -->
+    <section data-slide="" data-screen-label="P01 관제" style="position:absolute;inset:0;display:flex;flex-direction:column;padding:44px 60px;background:#ffffff;color:#0b0b0c;">
+      <div data-anim="" style="margin-bottom:14px;">
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#6c6c72;margin:0 0 6px;">두산 P1 — Sim vs Real 비교</p>
+        <h2 style="font-family:'Space Grotesk','Pretendard',sans-serif;font-weight:600;font-size:28px;letter-spacing:-0.02em;margin:0;">Sim / Real 병렬 검증 화면</h2>
+      </div>
+      <div data-anim="2" style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:12px;flex:1;min-height:0;">
+        <!-- Sim top -->
+        <div style="display:flex;flex-direction:column;gap:0;min-height:0;border-radius:8px;overflow:hidden;border:1px solid #e5e5e8;position:relative;">
+          <img src="assets/p02-doob-e/gazebo관제.png" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+          <span style="position:absolute;top:8px;left:10px;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;color:#fff;background:rgba(163,42,42,0.85);padding:2px 7px;border-radius:3px;letter-spacing:0.08em;">SIM</span>
+          <span style="position:absolute;bottom:8px;left:10px;right:10px;font-family:'IBM Plex Mono',monospace;font-size:9px;color:#fff;background:rgba(0,0,0,0.55);padding:3px 8px;border-radius:3px;">Gazebo Harmonic 시뮬레이션 환경</span>
+        </div>
+        <!-- Real top -->
+        <div style="display:flex;flex-direction:column;gap:0;min-height:0;border-radius:8px;overflow:hidden;border:1px solid #e5e5e8;position:relative;">
+          <img src="assets/p02-doob-e/두비_실제동작화면.png" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+          <span style="position:absolute;top:8px;left:10px;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;color:#fff;background:rgba(27,74,180,0.85);padding:2px 7px;border-radius:3px;letter-spacing:0.08em;">REAL</span>
+          <span style="position:absolute;bottom:8px;left:10px;right:10px;font-family:'IBM Plex Mono',monospace;font-size:9px;color:#fff;background:rgba(0,0,0,0.55);padding:3px 8px;border-radius:3px;">실제 로봇 동작 + YOLO 감지 화면</span>
+        </div>
+        <!-- Sim bottom: web dashboard -->
+        <div style="display:flex;flex-direction:column;gap:0;min-height:0;border-radius:8px;overflow:hidden;border:1px solid #e5e5e8;position:relative;background:#111827;">
+          <img src="assets/p02-doob-e/gazebo관제2.png" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+          <span style="position:absolute;bottom:8px;left:10px;right:10px;font-family:'IBM Plex Mono',monospace;font-size:9px;color:#fff;background:rgba(0,0,0,0.6);padding:3px 8px;border-radius:3px;">Doob-E CMS — Gazebo 모드 관제</span>
+        </div>
+        <!-- Real bottom: setup -->
+        <div style="display:flex;flex-direction:column;gap:0;min-height:0;border-radius:8px;overflow:hidden;border:1px solid #e5e5e8;position:relative;">
+          <img src="assets/p02-doob-e/실제관제.png" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+          <span style="position:absolute;bottom:8px;left:10px;right:10px;font-family:'IBM Plex Mono',monospace;font-size:9px;color:#fff;background:rgba(0,0,0,0.55);padding:3px 8px;border-radius:3px;">실제 관제 화면 — Doob-E Control Management System</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ S12 · P01 ARCHITECTURE ============ -->
     <section data-slide="" data-screen-label="P01 architecture" style="position:absolute;inset:0;display:flex;flex-direction:column;padding:48px 60px;background:#ffffff;color:#0b0b0c;">
       <div data-anim="" style="margin-bottom:16px;">
         <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#6c6c72;margin:0 0 8px;">두산 P1 — Sim &amp; Real Architecture</p>
@@ -340,43 +372,11 @@
       </div>
     </section>
 
-    <!-- ============ S12 · P01 CONTROL SYSTEM ============ -->
-    <section data-slide="" data-screen-label="P01 관제" style="position:absolute;inset:0;display:flex;flex-direction:column;padding:44px 60px;background:#ffffff;color:#0b0b0c;">
-      <div data-anim="" style="margin-bottom:14px;">
-        <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#6c6c72;margin:0 0 6px;">두산 P1 — Sim vs Real 비교</p>
-        <h2 style="font-family:'Space Grotesk','Pretendard',sans-serif;font-weight:600;font-size:28px;letter-spacing:-0.02em;margin:0;">Sim / Real 병렬 검증 화면</h2>
-      </div>
-      <div data-anim="2" style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:12px;flex:1;min-height:0;">
-        <!-- Sim top -->
-        <div style="display:flex;flex-direction:column;gap:0;min-height:0;border-radius:8px;overflow:hidden;border:1px solid #e5e5e8;position:relative;">
-          <img src="assets/p02-doob-e/gazebo관제.png" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
-          <span style="position:absolute;top:8px;left:10px;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;color:#fff;background:rgba(163,42,42,0.85);padding:2px 7px;border-radius:3px;letter-spacing:0.08em;">SIM</span>
-          <span style="position:absolute;bottom:8px;left:10px;right:10px;font-family:'IBM Plex Mono',monospace;font-size:9px;color:#fff;background:rgba(0,0,0,0.55);padding:3px 8px;border-radius:3px;">Gazebo Harmonic 시뮬레이션 환경</span>
-        </div>
-        <!-- Real top -->
-        <div style="display:flex;flex-direction:column;gap:0;min-height:0;border-radius:8px;overflow:hidden;border:1px solid #e5e5e8;position:relative;">
-          <img src="assets/p02-doob-e/두비_실제동작화면.png" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
-          <span style="position:absolute;top:8px;left:10px;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;color:#fff;background:rgba(27,74,180,0.85);padding:2px 7px;border-radius:3px;letter-spacing:0.08em;">REAL</span>
-          <span style="position:absolute;bottom:8px;left:10px;right:10px;font-family:'IBM Plex Mono',monospace;font-size:9px;color:#fff;background:rgba(0,0,0,0.55);padding:3px 8px;border-radius:3px;">실제 로봇 동작 + YOLO 감지 화면</span>
-        </div>
-        <!-- Sim bottom: web dashboard -->
-        <div style="display:flex;flex-direction:column;gap:0;min-height:0;border-radius:8px;overflow:hidden;border:1px solid #e5e5e8;position:relative;background:#111827;">
-          <img src="assets/p02-doob-e/gazebo관제2.png" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
-          <span style="position:absolute;bottom:8px;left:10px;right:10px;font-family:'IBM Plex Mono',monospace;font-size:9px;color:#fff;background:rgba(0,0,0,0.6);padding:3px 8px;border-radius:3px;">Doob-E CMS — Gazebo 모드 관제</span>
-        </div>
-        <!-- Real bottom: setup -->
-        <div style="display:flex;flex-direction:column;gap:0;min-height:0;border-radius:8px;overflow:hidden;border:1px solid #e5e5e8;position:relative;">
-          <img src="assets/p02-doob-e/실제관제.png" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
-          <span style="position:absolute;bottom:8px;left:10px;right:10px;font-family:'IBM Plex Mono',monospace;font-size:9px;color:#fff;background:rgba(0,0,0,0.55);padding:3px 8px;border-radius:3px;">실제 관제 화면 — Doob-E Control Management System</span>
-        </div>
-      </div>
-    </section>
-
     <!-- ============ S13 · P01 SAFETY DESIGN ============ -->
     <section data-slide="" data-screen-label="P01 safety design" style="position:absolute;inset:0;display:flex;flex-direction:column;padding:38px 60px;background:#ffffff;color:#0b0b0c;">
       <div data-anim="" style="margin-bottom:12px;">
         <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#6c6c72;margin:0 0 6px;">두산 P1 — 명령 해석 · 실행 안전 검증</p>
-        <h2 style="font-family:'Space Grotesk','Pretendard',sans-serif;font-weight:600;font-size:26px;letter-spacing:-0.02em;margin:0;">SAFETY DESIGN</h2>
+        <h2 style="font-family:'Space Grotesk','Pretendard',sans-serif;font-weight:600;font-size:26px;letter-spacing:-0.02em;margin:0;">Troubleshooting &amp; 배운 점</h2>
       </div>
       <div data-anim="2" style="display:grid;grid-template-rows:1fr 1fr;gap:16px;flex:1;min-height:0;">
         <div style="border-top:1px solid #e5e5e8;padding-top:12px;display:grid;grid-template-columns:1.1fr 1.35fr;gap:24px;min-height:0;">
@@ -704,8 +704,9 @@
       </div>
       <div data-anim="2" style="display:flex;flex-direction:column;max-width:680px;border-top:1px solid #e5e5e8;">
         <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">01</span><span style="font-size:15px;color:#2a2a2d;">Overview</span></div>
-        <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">02</span><span style="font-size:15px;color:#2a2a2d;">닉네임 쓰기 — 글씨쓰기 알고리즘</span></div>
-        <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">03</span><span style="font-size:15px;color:#2a2a2d;">Trouble Shooting</span></div>
+        <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">02</span><span style="font-size:15px;color:#2a2a2d;">공정 실행 구조 · 시퀀스 제어</span></div>
+        <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">03</span><span style="font-size:15px;color:#2a2a2d;">닉네임 쓰기 — 글씨쓰기 알고리즘</span></div>
+        <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">04</span><span style="font-size:15px;color:#2a2a2d;">Troubleshooting &amp; 배운 점</span></div>
       </div>
     </section>
 
@@ -742,52 +743,7 @@
       </div>
     </section>
 
-    <!-- ============ S8 · P03 NICKNAME ============ -->
-    <section data-slide="" data-screen-label="P03 닉네임" style="position:absolute;inset:0;display:flex;flex-direction:column;padding:48px 60px;background:#ffffff;color:#0b0b0c;">
-      <div data-anim="" style="margin-bottom:18px;">
-        <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#6c6c72;margin:0 0 8px;">두산 P3 — Handwriting Routine</p>
-        <h2 style="font-family:'Space Grotesk','Pretendard',sans-serif;font-weight:600;font-size:30px;letter-spacing:-0.02em;margin:0;">닉네임 쓰기 — 글씨쓰기 알고리즘</h2>
-      </div>
-      <div data-anim="2" style="display:grid;grid-template-columns:1.25fr 1fr;gap:28px;flex:1;min-height:0;">
-        <div style="border:1px solid #e5e5e8;border-radius:10px;background:#fafafa;padding:20px 22px;display:flex;flex-direction:column;gap:0;overflow:hidden;">
-          <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#909097;margin:0 0 12px;">Handwriting Algorithm — Flow</p>
-          <div style="background:#fff;border:1px solid #e5e5e8;border-radius:6px;padding:9px 12px;">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#fff;background:#0b0b0c;border-radius:3px;padding:1px 5px;">01</span><span style="font-family:'Pretendard','Inter',sans-serif;font-size:12px;font-weight:700;color:#0b0b0c;">텍스트 → 획 좌표 추출</span></div>
-            <code style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#3f3f44;line-height:1.5;">Hershey 필기체 폰트 — 글자 = 획(stroke) 목록<br>strokes = [ [(x0,y0),(x1,y1),...], ... ]</code>
-          </div>
-          <div style="text-align:center;color:#909097;font-size:14px;padding:2px 0;">↓</div>
-          <div style="background:#fff;border:1px solid #e5e5e8;border-radius:6px;padding:9px 12px;">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#fff;background:#0b0b0c;border-radius:3px;padding:1px 5px;">02</span><span style="font-family:'Pretendard','Inter',sans-serif;font-size:12px;font-weight:700;color:#0b0b0c;">좌표 정규화</span></div>
-            <code style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#3f3f44;line-height:1.5;">bounding box 중심 정렬 → 40mm 안으로 스케일<br>scale = 40.0 / max(width, height)</code>
-          </div>
-          <div style="text-align:center;color:#909097;font-size:14px;padding:2px 0;">↓</div>
-          <div style="background:#fff;border:1px solid #2b2bff;border-radius:6px;padding:9px 12px;">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#fff;background:#2b2bff;border-radius:3px;padding:1px 5px;">03</span><span style="font-family:'Pretendard','Inter',sans-serif;font-size:12px;font-weight:700;color:#0b0b0c;">로봇 좌표계 변환 <span style="color:#2b2bff;">X↔Y 축 반전</span></span></div>
-            <code style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#3f3f44;line-height:1.5;">rx = CENTER_X − dy · scale<br>ry = CENTER_Y − dx · scale</code>
-            <p style="font-size:9.5px;color:#909097;margin:3px 0 0;">로봇 베이스 좌표축과 종이 배치 방향이 90도 어긋나 있어 좌표를 교차 매핑</p>
-          </div>
-          <div style="text-align:center;color:#909097;font-size:14px;padding:2px 0;">↓</div>
-          <div style="background:#fff;border:1px solid #e5e5e8;border-radius:6px;padding:9px 12px;">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#fff;background:#0b0b0c;border-radius:3px;padding:1px 5px;">04</span><span style="font-family:'Pretendard','Inter',sans-serif;font-size:12px;font-weight:700;color:#0b0b0c;">1mm 선형 보간</span></div>
-            <code style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#3f3f44;line-height:1.5;">n = dist / 1mm · blend_radius=3mm → 곡선 부드럽게</code>
-          </div>
-          <div style="text-align:center;color:#909097;font-size:14px;padding:2px 0;">↓</div>
-          <div style="background:#fff;border:1px solid #e5e5e8;border-radius:6px;padding:9px 12px;">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#fff;background:#0b0b0c;border-radius:3px;padding:1px 5px;">05</span><span style="font-family:'Pretendard','Inter',sans-serif;font-size:12px;font-weight:700;color:#0b0b0c;">컴플라이언스 제어 드로잉</span></div>
-            <code style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#3f3f44;line-height:1.5;">Z 강성 300 N/m (유연) · XY 3000 N/m (고정) · 목표힘 −20N</code>
-          </div>
-        </div>
-        <div style="display:grid;grid-template-rows:1fr 1fr;gap:18px;min-height:0;overflow:hidden;">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;min-height:0;overflow:hidden;">
-            <div style="border:1px solid #e5e5e8;border-radius:8px;overflow:hidden;min-height:0;"><img src="assets/p01-shaved-ice/글씨쓰기_영어.png" style="width: 268px; height: 100%; object-fit: cover; object-position: center; display: block"></div>
-            <div style="border:1px solid #e5e5e8;border-radius:8px;overflow:hidden;min-height:0;"><img src="assets/p01-shaved-ice/글씨쓰기_한글.jpg" style="object-fit: cover; object-position: center; display: block; width: 267px; height: 421px; margin-top: -50px; margin-bottom: -50px"></div>
-          </div>
-          <div style="border:1px solid #e5e5e8;border-radius:10px;overflow:hidden;min-height:0;"><img src="assets/p01-shaved-ice/글씨쓰는 로봇.png" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ S9 · P03 TASK SEQUENCING ============ -->
+    <!-- ============ S8 · P03 TASK SEQUENCING ============ -->
     <section data-slide="" data-screen-label="P03 task sequencing" style="position:absolute;inset:0;display:flex;flex-direction:column;padding:42px 60px;background:#ffffff;color:#0b0b0c;">
       <div data-anim="" style="margin-bottom:16px;">
         <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#6c6c72;margin:0 0 6px;">두산 P3 — 로봇 동작 실행 구조</p>
@@ -879,11 +835,56 @@
       </div>
     </section>
 
+    <!-- ============ S9 · P03 NICKNAME ============ -->
+    <section data-slide="" data-screen-label="P03 닉네임" style="position:absolute;inset:0;display:flex;flex-direction:column;padding:48px 60px;background:#ffffff;color:#0b0b0c;">
+      <div data-anim="" style="margin-bottom:18px;">
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#6c6c72;margin:0 0 8px;">두산 P3 — Handwriting Routine</p>
+        <h2 style="font-family:'Space Grotesk','Pretendard',sans-serif;font-weight:600;font-size:30px;letter-spacing:-0.02em;margin:0;">닉네임 쓰기 — 글씨쓰기 알고리즘</h2>
+      </div>
+      <div data-anim="2" style="display:grid;grid-template-columns:1.25fr 1fr;gap:28px;flex:1;min-height:0;">
+        <div style="border:1px solid #e5e5e8;border-radius:10px;background:#fafafa;padding:20px 22px;display:flex;flex-direction:column;gap:0;overflow:hidden;">
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#909097;margin:0 0 12px;">Handwriting Algorithm — Flow</p>
+          <div style="background:#fff;border:1px solid #e5e5e8;border-radius:6px;padding:9px 12px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#fff;background:#0b0b0c;border-radius:3px;padding:1px 5px;">01</span><span style="font-family:'Pretendard','Inter',sans-serif;font-size:12px;font-weight:700;color:#0b0b0c;">텍스트 → 획 좌표 추출</span></div>
+            <code style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#3f3f44;line-height:1.5;">Hershey 필기체 폰트 — 글자 = 획(stroke) 목록<br>strokes = [ [(x0,y0),(x1,y1),...], ... ]</code>
+          </div>
+          <div style="text-align:center;color:#909097;font-size:14px;padding:2px 0;">↓</div>
+          <div style="background:#fff;border:1px solid #e5e5e8;border-radius:6px;padding:9px 12px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#fff;background:#0b0b0c;border-radius:3px;padding:1px 5px;">02</span><span style="font-family:'Pretendard','Inter',sans-serif;font-size:12px;font-weight:700;color:#0b0b0c;">좌표 정규화</span></div>
+            <code style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#3f3f44;line-height:1.5;">bounding box 중심 정렬 → 40mm 안으로 스케일<br>scale = 40.0 / max(width, height)</code>
+          </div>
+          <div style="text-align:center;color:#909097;font-size:14px;padding:2px 0;">↓</div>
+          <div style="background:#fff;border:1px solid #2b2bff;border-radius:6px;padding:9px 12px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#fff;background:#2b2bff;border-radius:3px;padding:1px 5px;">03</span><span style="font-family:'Pretendard','Inter',sans-serif;font-size:12px;font-weight:700;color:#0b0b0c;">로봇 좌표계 변환 <span style="color:#2b2bff;">X↔Y 축 반전</span></span></div>
+            <code style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#3f3f44;line-height:1.5;">rx = CENTER_X − dy · scale<br>ry = CENTER_Y − dx · scale</code>
+            <p style="font-size:9.5px;color:#909097;margin:3px 0 0;">로봇 베이스 좌표축과 종이 배치 방향이 90도 어긋나 있어 좌표를 교차 매핑</p>
+          </div>
+          <div style="text-align:center;color:#909097;font-size:14px;padding:2px 0;">↓</div>
+          <div style="background:#fff;border:1px solid #e5e5e8;border-radius:6px;padding:9px 12px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#fff;background:#0b0b0c;border-radius:3px;padding:1px 5px;">04</span><span style="font-family:'Pretendard','Inter',sans-serif;font-size:12px;font-weight:700;color:#0b0b0c;">1mm 선형 보간</span></div>
+            <code style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#3f3f44;line-height:1.5;">n = dist / 1mm · blend_radius=3mm → 곡선 부드럽게</code>
+          </div>
+          <div style="text-align:center;color:#909097;font-size:14px;padding:2px 0;">↓</div>
+          <div style="background:#fff;border:1px solid #e5e5e8;border-radius:6px;padding:9px 12px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#fff;background:#0b0b0c;border-radius:3px;padding:1px 5px;">05</span><span style="font-family:'Pretendard','Inter',sans-serif;font-size:12px;font-weight:700;color:#0b0b0c;">컴플라이언스 제어 드로잉</span></div>
+            <code style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#3f3f44;line-height:1.5;">Z 강성 300 N/m (유연) · XY 3000 N/m (고정) · 목표힘 −20N</code>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-rows:1fr 1fr;gap:18px;min-height:0;overflow:hidden;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;min-height:0;overflow:hidden;">
+            <div style="border:1px solid #e5e5e8;border-radius:8px;overflow:hidden;min-height:0;"><img src="assets/p01-shaved-ice/글씨쓰기_영어.png" style="width: 268px; height: 100%; object-fit: cover; object-position: center; display: block"></div>
+            <div style="border:1px solid #e5e5e8;border-radius:8px;overflow:hidden;min-height:0;"><img src="assets/p01-shaved-ice/글씨쓰기_한글.jpg" style="object-fit: cover; object-position: center; display: block; width: 267px; height: 421px; margin-top: -50px; margin-bottom: -50px"></div>
+          </div>
+          <div style="border:1px solid #e5e5e8;border-radius:10px;overflow:hidden;min-height:0;"><img src="assets/p01-shaved-ice/글씨쓰는 로봇.png" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"></div>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ S10 · P03 TROUBLE SHOOTING ============ -->
     <section data-slide="" data-screen-label="P03 trouble" style="position:absolute;inset:0;display:flex;flex-direction:column;padding:38px 60px;background:#ffffff;color:#0b0b0c;">
       <div data-anim="" style="margin-bottom:12px;">
         <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#6c6c72;margin:0 0 5px;">두산 P3 — ROS 2 통합 &amp; 하드웨어 설계</p>
-        <h2 style="font-family:'Space Grotesk','Pretendard',sans-serif;font-weight:600;font-size:26px;letter-spacing:-0.02em;margin:0;">TROUBLE SHOOTING</h2>
+        <h2 style="font-family:'Space Grotesk','Pretendard',sans-serif;font-weight:600;font-size:26px;letter-spacing:-0.02em;margin:0;">Troubleshooting &amp; 배운 점</h2>
       </div>
       <div data-anim="2" style="display:flex;flex-direction:column;flex:1;min-height:0;gap:30px;">
         <div style="border-top:1px solid #e5e5e8;padding-top:10px;display:flex;flex-direction:column;min-height:0;">
@@ -917,7 +918,7 @@
           <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;">
             <div style="padding-right:14px;border-right:1px solid #e5e5e8;"><p style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#a32a2a;margin:0 0 4px;">Problem</p><p style="font-size:12.5px;line-height:1.5;color:#3f3f44;margin:0;">기능별 개발 후 인터페이스를 맞추며 통합 병목 발생</p></div>
             <div style="padding:0 14px;border-right:1px solid #e5e5e8;"><p style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#8a6d1f;margin:0 0 4px;">Action</p><p style="font-size:12.5px;line-height:1.5;color:#3f3f44;margin:0;">우선 시나리오 동작 확인 후 규약 정리</p></div>
-            <div style="padding-left:14px;"><p style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#1f7a4d;margin:0 0 4px;">Lesson</p><p style="font-size:12.5px;line-height:1.5;color:#2a2a2d;margin:0;">Mock data 기반 사전 통합 테스트 필요</p></div>
+            <div style="padding-left:14px;"><p style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#1f7a4d;margin:0 0 4px;">배운 점</p><p style="font-size:12.5px;line-height:1.5;color:#2a2a2d;margin:0;">Mock data 기반 사전 통합 테스트 필요</p></div>
           </div>
         </div>
 
@@ -966,7 +967,8 @@
       </div>
       <div data-anim="2" style="display:flex;flex-direction:column;max-width:680px;border-top:1px solid #e5e5e8;">
         <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">01</span><span style="font-size:15px;color:#2a2a2d;">프로젝트 개요 · 자동 회진 &amp; 보조 카트</span></div>
-        <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">02</span><span style="font-size:15px;color:#2a2a2d;">Trouble Shooting</span></div>
+        <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid #e5e5e8;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">02</span><span style="font-size:15px;color:#2a2a2d;">System Architecture · State Machine</span></div>
+        <div style="display:grid;grid-template-columns:32px 1fr;gap:16px;padding:12px 0;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#909097;">03</span><span style="font-size:15px;color:#2a2a2d;">Troubleshooting &amp; 배운 점</span></div>
       </div>
     </section>
 
@@ -1032,11 +1034,40 @@
       </div>
     </section>
 
+    <!-- ============ S15-A · P04 ARCHITECTURE PLACEHOLDER ============ -->
+    <section data-slide="" data-screen-label="P04 architecture placeholder" style="position:absolute;inset:0;display:flex;flex-direction:column;padding:44px 60px;background:#ffffff;color:#0b0b0c;">
+      <div data-anim="" style="margin-bottom:18px;">
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#6c6c72;margin:0 0 6px;">두산 P4 — MediCart · System Architecture</p>
+        <h2 style="font-family:'Space Grotesk','Pretendard',sans-serif;font-weight:600;font-size:30px;letter-spacing:-0.02em;margin:0;">Mode A 회진 상태머신 · 시스템 아키텍처</h2>
+      </div>
+      <div data-anim="2" style="flex:1;min-height:0;display:grid;grid-template-columns:1.1fr 0.9fr;gap:28px;">
+        <div style="border:1px dashed #bfc1c8;border-radius:10px;background:#fafafa;padding:22px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#909097;margin:0 0 10px;">Placeholder</p>
+          <p style="font-size:18px;font-weight:700;color:#0b0b0c;margin:0 0 8px;">Architecture diagram to be added</p>
+          <p style="font-size:13px;line-height:1.6;color:#6c6c72;margin:0;max-width:520px;">Nav2 patrol, mission_manager state machine, patient_identifier, web questionnaire, Firebase, and dashboard/service interface flow.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="border:1px solid #e5e5e8;border-radius:8px;padding:14px 16px;">
+            <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#a32a2a;margin:0 0 6px;">State Machine</p>
+            <p style="font-size:13px;line-height:1.6;color:#3f3f44;margin:0;">ROOM_MOVE → PATIENT_CHECK → INTERVIEW → NEXT_ROOM flow placeholder.</p>
+          </div>
+          <div style="border:1px solid #e5e5e8;border-radius:8px;padding:14px 16px;">
+            <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#8a6d1f;margin:0 0 6px;">ROS 2 / Web Interface</p>
+            <p style="font-size:13px;line-height:1.6;color:#3f3f44;margin:0;">Service/topic names, Firebase state updates, and dashboard trigger points placeholder.</p>
+          </div>
+          <div style="border:1px solid #e5e5e8;border-radius:8px;padding:14px 16px;">
+            <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#1f7a4d;margin:0 0 6px;">My Role Detail</p>
+            <p style="font-size:13px;line-height:1.6;color:#3f3f44;margin:0;">Mode A integration responsibilities and implementation notes placeholder.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ S15-B · P04 TROUBLE SHOOTING ============ -->
     <section data-slide="" data-screen-label="P04 trouble" style="position:absolute;inset:0;display:flex;flex-direction:column;padding:38px 60px;background:#ffffff;color:#0b0b0c;">
       <div data-anim="" style="margin-bottom:11px;">
         <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#6c6c72;margin:0 0 5px;">두산 P4 — MediCart 회진 통합</p>
-        <h2 style="font-family:'Space Grotesk','Pretendard',sans-serif;font-weight:600;font-size:26px;letter-spacing:-0.02em;margin:0;">TROUBLE SHOOTING</h2>
+        <h2 style="font-family:'Space Grotesk','Pretendard',sans-serif;font-weight:600;font-size:26px;letter-spacing:-0.02em;margin:0;">Troubleshooting &amp; 배운 점</h2>
       </div>
       <div data-anim="2" style="display:flex;flex-direction:column;flex:1;min-height:0;gap:10px;">
         <div style="border-top:1px solid #e5e5e8;padding-top:9px;">
@@ -1124,10 +1155,10 @@
             <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#3f3f44;padding:5px 10px;display:block;text-align:center;">PyBullet Pick &amp; Place — DQN 학습 씬</span>
           </div>
         </div>
-        <div style="display:flex;flex-direction:column;gap:12px;min-height:0;overflow:hidden;">
+        <div style="display:flex;flex-direction:column;gap:8px;min-height:0;overflow:hidden;">
           <div>
             <p style="font-family:'Pretendard','Inter',sans-serif;font-size:13px;font-weight:800;letter-spacing:0.01em;text-transform:uppercase;color:#0b0b0c;margin:0 0 5px;">주제</p>
-            <p style="font-size:14px;line-height:1.62;color:#2a2a2d;margin:0;">DRL 이론 학습 스터디로 <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;background:#f5f5f5;border:1px solid #e5e5e8;border-radius:3px;padding:1px 5px;">DTaglietti/Pick-and-Place-with-RL</span> reference code를 분석하며 PyBullet 기반 DQN Pick &amp; Place 파이프라인을 이해했다. 실제 로봇 적용은 최종적으로 마무리하지 못했다.</p>
+            <p style="font-size:14px;line-height:1.62;color:#2a2a2d;margin:0;">DRL 이론 학습 스터디로 <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;background:#f5f5f5;border:1px solid #e5e5e8;border-radius:3px;padding:1px 5px;">DTaglietti/Pick-and-Place-with-RL</span> reference code를 분석하며 PyBullet 기반 DQN Pick &amp; Place 파이프라인을 이해했다.</p>
           </div>
           <div>
             <p style="font-family:'Pretendard','Inter',sans-serif;font-size:13px;font-weight:800;letter-spacing:0.01em;text-transform:uppercase;color:#0b0b0c;margin:0 0 6px;">학습 설계</p>
@@ -1147,7 +1178,7 @@
             </div>
           </div>
           <div>
-            <p style="font-family:'Pretendard','Inter',sans-serif;font-size:13px;font-weight:800;letter-spacing:0.01em;text-transform:uppercase;color:#0b0b0c;margin:0 0 5px;">시행착오</p>
+            <p style="font-family:'Pretendard','Inter',sans-serif;font-size:13px;font-weight:800;letter-spacing:0.01em;text-transform:uppercase;color:#0b0b0c;margin:0 0 5px;">Pipeline · 구현 포인트</p>
             <ul style="margin:0;padding:0 0 0 14px;font-size:13px;line-height:1.65;color:#3f3f44;">
               <li><strong>Camera→World 좌표 변환</strong> — 내부 파라미터·R·T 계산, 큐브 위치 고정 후 해결</li>
               <li><strong>Depth 정규화</strong> — 0~255 값을 <code style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;">depth / 255.0 × far</code> 로 실제 거리 복원</li>
@@ -1172,8 +1203,8 @@
                 <p style="font-size:11.5px;line-height:1.55;color:#3f3f44;margin:0;">Reference Code 아키텍처 분석 · camera→world 좌표 변환 · depth 정규화 구현</p>
               </div>
               <div style="padding:7px 9px;background:#f2f9f5;border:1px solid #c0deca;border-radius:6px;">
-                <p style="font-family:'Pretendard',sans-serif;font-size:11px;font-weight:700;color:#1f7a4d;margin:0 0 3px;">교훈</p>
-                <p style="font-size:11.5px;line-height:1.55;color:#2a2a2d;margin:0;">실제 로봇 적용 실패 → DRL 이론·동작 방식의 깊은 이해. 코드 분석 자체가 설계 역량을 키우는 과정.</p>
+                <p style="font-family:'Pretendard',sans-serif;font-size:11px;font-weight:700;color:#1f7a4d;margin:0 0 3px;">배운 점</p>
+                <p style="font-size:11.5px;line-height:1.55;color:#2a2a2d;margin:0;">레퍼런스 코드를 분해하며 관찰값, 보상, 좌표 변환이 학습 파이프라인에 어떻게 연결되는지 이해했다.</p>
               </div>
             </div>
           </div>
@@ -1243,7 +1274,7 @@
                 <p style="font-size:12px;line-height:1.55;color:#3f3f44;margin:0;">제작 기간의 한계로 3축 robot arm이 최선 — 목표는 원이었으나 singularity 영역에서 레몬 형태로 찌그러짐. 좌표·각도 다변화 및 특이점 회피 시도에도 모터 한계 + 관절 충돌 등 복합 원인 존재.</p>
               </div>
               <div style="padding:8px 10px;background:#f2f9f5;border:1px solid #c0deca;border-radius:6px;">
-                <p style="font-family:'Pretendard',sans-serif;font-size:11px;font-weight:700;color:#1f7a4d;margin:0 0 4px;text-transform:uppercase;letter-spacing:0.03em;">교훈</p>
+                <p style="font-family:'Pretendard',sans-serif;font-size:11px;font-weight:700;color:#1f7a4d;margin:0 0 4px;text-transform:uppercase;letter-spacing:0.03em;">배운 점</p>
                 <p style="font-size:12px;line-height:1.55;color:#2a2a2d;margin:0;">알고리즘을 짜거나 시스템을 설계할 때, <strong>기계 자체의 물리적 한계를 전제</strong>로 두어야 한다. 소프트웨어만으로 해결할 수 없는 영역이 반드시 존재한다.</p>
               </div>
             </div>
@@ -1279,13 +1310,13 @@
             <img src="assets/p07-vision/드론_마커.png" alt="Marker 인식" style="width:100%;height:100px;object-fit:cover;border-radius:7px;border:1px solid #e5e5e8;" />
           </div>
         </div>
-        <div style="display:flex;flex-direction:column;gap:12px;min-height:0;overflow:hidden;">
+        <div style="display:flex;flex-direction:column;gap:8px;min-height:0;overflow:hidden;">
           <div>
             <p style="font-family:'Pretendard','Inter',sans-serif;font-size:13px;font-weight:800;letter-spacing:0.01em;text-transform:uppercase;color:#0b0b0c;margin:0 0 5px;">주제</p>
             <p style="font-size:14px;line-height:1.62;color:#2a2a2d;margin:0;">모든 센서 고장을 가정하고, 카메라 정면 비전 정보만으로 Landing Marker를 인식해 드론을 안전하게 자율 착륙시키는 시스템. AirSim 시뮬레이션 검증 후 DJI Tello 실물 적용.</p>
           </div>
           <div>
-            <p style="font-family:'Pretendard','Inter',sans-serif;font-size:13px;font-weight:800;letter-spacing:0.01em;text-transform:uppercase;color:#0b0b0c;margin:0 0 6px;">핵심 기술 3단계</p>
+            <p style="font-family:'Pretendard','Inter',sans-serif;font-size:13px;font-weight:800;letter-spacing:0.01em;text-transform:uppercase;color:#0b0b0c;margin:0 0 6px;">Landing Pipeline</p>
             <div style="display:flex;flex-direction:column;gap:5px;">
               <div style="display:flex;align-items:baseline;gap:10px;padding:6px 10px;border:1px solid #e5e5e8;border-radius:6px;">
                 <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#a32a2a;font-weight:700;text-transform:uppercase;white-space:nowrap;">Marker Detection</span>
@@ -1302,6 +1333,15 @@
             </div>
           </div>
           <div>
+            <p style="font-family:'Pretendard','Inter',sans-serif;font-size:13px;font-weight:800;letter-spacing:0.01em;text-transform:uppercase;color:#0b0b0c;margin:0 0 4px;">My role</p>
+            <ul style="margin:0;padding:0 0 0 14px;font-size:13px;line-height:1.5;color:#2a2a2d;">
+              <li>Landing Algorithm 설계</li>
+              <li>Camera Calibration</li>
+              <li>Distance 계산 구현</li>
+              <li>AirSim 시뮬레이션 환경 구축</li>
+            </ul>
+          </div>
+          <div>
             <p style="font-family:'Pretendard','Inter',sans-serif;font-size:13px;font-weight:800;letter-spacing:0.01em;text-transform:uppercase;color:#0b0b0c;margin:0 0 5px;">결과</p>
             <div style="display:flex;gap:8px;">
               <div style="flex:1;border:1px solid #e5e5e8;border-radius:6px;padding:7px 10px;text-align:center;">
@@ -1315,6 +1355,10 @@
             </div>
             <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#6c6c72;margin:6px 0 0;line-height:1.55;">※ Tello 기체 폭 98 mm 기준 · 목표 오차 15 cm 이내 달성 · Sim → Real 전환 오차 +1.8 cm</p>
           </div>
+          <div style="border-top:1px solid #e5e5e8;padding-top:9px;">
+            <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#0b0b0c;margin:0 0 5px;">배운 점</p>
+            <p style="font-size:12.5px;line-height:1.55;color:#2a2a2d;margin:0;">AirSim에서 검증한 착륙 흐름을 실물 DJI Tello로 옮기려면, 마커 크기·카메라 파라미터·기체 치수 차이를 캘리브레이션으로 보정해야 한다는 점을 배웠다.</p>
+          </div>
           <div>
             <p style="font-family:'Pretendard','Inter',sans-serif;font-size:13px;font-weight:800;letter-spacing:0.01em;text-transform:uppercase;color:#0b0b0c;margin:0 0 5px;">기술</p>
             <div style="display:flex;flex-wrap:wrap;gap:5px;">
@@ -1326,10 +1370,6 @@
               <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;border:1px solid #d6d6da;border-radius:4px;padding:2px 7px;color:#2a2a2d;">OpenCV</span>
               <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;border:1px solid #d6d6da;border-radius:4px;padding:2px 7px;color:#2a2a2d;">Python 3.8</span>
             </div>
-          </div>
-          <div style="border-top:1px solid #e5e5e8;padding-top:10px;">
-            <p style="font-family:'Pretendard','Inter',sans-serif;font-size:13px;font-weight:800;letter-spacing:0.01em;text-transform:uppercase;color:#0b0b0c;margin:0 0 4px;">My role</p>
-            <p style="font-size:13px;line-height:1.6;color:#2a2a2d;margin:0;">Landing Algorithm 설계 · Camera Calibration · Distance 계산 구현 · AirSim 시뮬레이션 환경 구축</p>
           </div>
         </div>
       </div>
