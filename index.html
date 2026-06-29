@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-lang="en">
+<html lang="ko" data-lang="kr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -132,13 +132,18 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       gap: 56px;
       padding: 120px 48px 80px;
       position: relative;
       overflow: hidden;
+      text-align: left;
     }
-    .hero-content { flex: 1; min-width: 0; }
+    .hero-content {
+      flex: 0 1 980px;
+      min-width: 0;
+      max-width: 980px;
+    }
     .hero-photo {
       flex-shrink: 0;
       width: clamp(180px, 22vw, 300px);
@@ -189,7 +194,9 @@
       color: var(--gray);
       font-weight: 400;
       margin-top: 28px;
-      max-width: 600px;
+      max-width: 860px;
+      margin-left: 0;
+      margin-right: 0;
       text-wrap: pretty;
       line-height: 1.7;
     }
@@ -199,6 +206,7 @@
       gap: 16px;
       margin-top: 48px;
       flex-wrap: wrap;
+      justify-content: flex-start;
     }
     .btn {
       display: inline-flex;
@@ -265,8 +273,10 @@
     #projects { background: var(--bg); }
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 24px;
+      max-width: 1120px;
+      margin: 0 auto;
     }
     .project-card {
       background: var(--bg2);
@@ -297,12 +307,18 @@
 
     .project-img {
       width: 100%;
-      height: 220px;
+      aspect-ratio: 5 / 3;
       object-fit: cover;
       display: block;
       flex-shrink: 0;
       filter: brightness(0.88);
       transition: filter 0.35s;
+    }
+    .project-img-bingsu {
+      object-position: center 72%;
+    }
+    .project-img-rl {
+      object-position: center 28%;
     }
     .project-card:hover .project-img { filter: brightness(1.0); }
 
@@ -336,7 +352,7 @@
     }
 
     .project-card-body {
-      padding: 28px 32px;
+      padding: clamp(22px, 2.4vw, 30px);
       display: flex;
       flex-direction: column;
       gap: 14px;
@@ -390,17 +406,6 @@
     .project-role-list {
       font-size: 13px;
     }
-    .project-challenge {
-      font-family: var(--font-body);
-      font-size: 12.5px;
-      line-height: 1.65;
-      color: var(--gray);
-      padding: 10px 12px;
-      background: rgba(0,0,0,0.025);
-      border-left: 2px solid var(--accent);
-      border-radius: 4px;
-    }
-    .project-challenge strong { color: var(--white); font-weight: 600; }
     .project-links { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 4px; }
     .project-stack {
       display: flex;
@@ -544,9 +549,7 @@
       section { padding: 72px 20px; }
       #hero { padding: 100px 20px 60px; flex-direction: column-reverse; gap: 32px; }
       .hero-photo { width: 160px; }
-      @media (max-width: 768px) {
-        .project-grid { grid-template-columns: 1fr; }
-      }
+      .project-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 8px; text-align: center; }
       .hero-scroll { display: none; }
     }
@@ -564,9 +567,9 @@
     <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
   </ul>
   <div class="lang-toggle">
-    <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
     <span class="lang-divider">|</span>
-    <button class="lang-btn" data-lang="kr" onclick="setLang('kr')">KR</button>
+    <button class="lang-btn active" data-lang="kr" onclick="setLang('kr')">KR</button>
   </div>
 </nav>
 
@@ -659,7 +662,7 @@
 
     <!-- P01 -->
     <div class="project-card fade-up">
-      <img class="project-img" src="assets/p02-doob-e/두비_실제동작화면.png" alt="Doob-E 공구정리 로봇" />
+      <img class="project-img" src="assets/p02-doob-e/두비로봇환경세팅.png" alt="Doob-E 공구정리 로봇" />
       <div class="project-card-body">
         <span class="project-badge badge-doosan" data-i18n="badge.doosan">Doosan Bootcamp</span>
         <div class="project-name">
@@ -681,10 +684,10 @@
             <li data-i18n="role.doobe.4">Added web UI safety controls (emergency stop, wake-word toggle, etc.)</li>
           </ul>
         </div>
-        <div class="project-challenge"><strong>배운 점 —</strong> 명령 해석·비전 매칭 로직과 실행 백엔드를 분리하면, Gazebo 검증과 실제 로봇 실행을 같은 구조로 연결할 수 있다는 점을 배웠습니다.</div>
         <div class="project-stack">
           <span class="stack-chip">ROS2</span>
-          <span class="stack-chip">M0609</span>
+          <span class="stack-chip">6-DOF Robot Arm</span>
+          <span class="stack-chip">Doosan Robot Language</span>
           <span class="stack-chip">RealSense</span>
           <span class="stack-chip">STT/LLM</span>
           <span class="stack-chip">Gazebo</span>
@@ -720,17 +723,15 @@
         <div>
           <p class="project-role-label" data-i18n="role.label">My Role</p>
           <ul class="about-list project-role-list">
-            <li data-i18n="role.aquasweep.lead">Team lead — led a 5-person team and set communication norms</li>
-            <li data-i18n="role.aquasweep.1">Built Isaac Sim extensions for the farm, water physics, cameras, and robot motion</li>
-            <li data-i18n="role.aquasweep.2">Defined ROS 2 msg/srv/action contracts for pool state, motion control, and progress feedback</li>
-            <li data-i18n="role.aquasweep.3">Integrated Detection → Planner → Controller → Isaac Sim execution and test flow</li>
+            <li data-i18n="role.aquasweep.lead">Team lead — coordinated a 5-person team, role split, and integration standards</li>
+            <li data-i18n="role.aquasweep.1">Configured Isaac Sim models and motions for floor cleaners, wall-cleaning arms, and a gantry robot</li>
+            <li data-i18n="role.aquasweep.2">Connected Isaac Sim extensions with ROS 2-based interfaces</li>
+            <li data-i18n="role.aquasweep.3">Integrated camera input, robot motion, and dashboard status display into one simulation flow</li>
           </ul>
         </div>
-        <div class="project-challenge"><strong>배운 점 —</strong> ROS 2 노드와 Isaac Sim 물리 루프의 주기가 다를 때, 직접 속도 명령보다 Action → Service → MotionStatus로 책임을 나누는 구조가 더 안정적임을 배웠습니다.</div>
         <div class="project-stack">
           <span class="stack-chip">Isaac Sim</span>
           <span class="stack-chip">ROS2</span>
-          <span class="stack-chip">Action/Service</span>
           <span class="stack-chip">YOLO</span>
           <span class="stack-chip">OpenCV</span>
           <span class="stack-chip">PyQt5</span>
@@ -750,7 +751,7 @@
 
     <!-- P03 -->
     <div class="project-card fade-up">
-      <img class="project-img" src="assets/p01-shaved-ice/제조환경세팅.jpg" alt="빙수 제조 협동로봇" />
+      <img class="project-img project-img-bingsu" src="assets/p01-shaved-ice/제조환경세팅.jpg" alt="빙수 제조 협동로봇" />
       <div class="project-card-body">
         <span class="project-badge badge-doosan" data-i18n="badge.doosan">Doosan Bootcamp</span>
         <div class="project-name">
@@ -768,12 +769,13 @@
             <li data-i18n="role.shavedice.1">Designed ROS2 interfaces between modules</li>
             <li data-i18n="role.shavedice.2">Full integration and web-service design</li>
             <li data-i18n="role.shavedice.3">Built the handwriting-generation algorithm</li>
+            <li data-i18n="role.shavedice.4">Tested and adjusted the end-to-end serving flow on the real M0609</li>
           </ul>
         </div>
-        <div class="project-challenge"><strong>배운 점 —</strong> 펜이 휘어지는 물리 접촉 문제를 겪으며, 로봇 동작 품질은 소프트웨어 보정뿐 아니라 그리퍼와 툴 설계까지 함께 봐야 한다는 점을 배웠습니다.</div>
         <div class="project-stack">
-          <span class="stack-chip">M0609</span>
+          <span class="stack-chip">6-DOF Robot Arm</span>
           <span class="stack-chip">ROS2</span>
+          <span class="stack-chip">Doosan Robot Language</span>
           <span class="stack-chip">Firebase</span>
           <span class="stack-chip">PySide</span>
           <span class="stack-chip">Python</span>
@@ -811,10 +813,8 @@
             <li data-i18n="role.medicart.1">Built the Mode A patrol state machine (mission_manager) end to end</li>
             <li data-i18n="role.medicart.2">Nav2 ward-rounding logic, patient-ID integration, Firebase state logging</li>
             <li data-i18n="role.medicart.3">Designed the interface between the web questionnaire and the state machine</li>
-            <li data-i18n="role.medicart.4" style="color:var(--gray-light);">Mode B (nurse-following, OCR) — built by a teammate</li>
           </ul>
         </div>
-        <div class="project-challenge"><strong>배운 점 —</strong> Nav2 기반 순회 로봇에서는 localization이 실행의 전제조건이며, 상태머신과 웹 대시보드 사이에 명시적인 완료 신호와 가드가 필요하다는 점을 배웠습니다.</div>
         <div class="project-stack">
           <span class="stack-chip">TurtleBot4</span>
           <span class="stack-chip">Nav2</span>
@@ -837,7 +837,7 @@
 
     <!-- RL -->
     <div class="project-card fade-up">
-      <img class="project-img" src="assets/p05-rl-robot/강화학습.png" alt="강화학습 로봇팔" />
+      <img class="project-img project-img-rl" src="assets/p05-rl-robot/강화학습.png" alt="강화학습 로봇팔" />
       <div class="project-card-body">
         <span class="project-badge badge-school" data-i18n="badge.school">School Project</span>
         <div class="project-name">
@@ -857,7 +857,6 @@
             <li data-i18n="role.rl.3">Depth normalization</li>
           </ul>
         </div>
-        <div class="project-challenge"><strong>배운 점 —</strong> 레퍼런스 코드를 분석하고 Camera→World 변환과 depth 정규화를 직접 구현하며, 강화학습 기반 로봇 제어 파이프라인을 이해했습니다.</div>
         <div class="project-stack">
           <span class="stack-chip">PyBullet</span>
           <span class="stack-chip">DQN</span>
@@ -881,7 +880,7 @@
     <div class="project-card fade-up">
       <img class="project-img" src="assets/p07-vision/real_drone.png" alt="드론 비전 졸업작품" />
       <div class="project-card-body">
-        <span class="project-badge badge-vision" data-i18n="badge.vision">Graduation</span>
+        <span class="project-badge badge-vision" data-i18n="badge.vision">SCHOOL PROJECT</span>
         <div class="project-name">
           Drone Vision System
           <span class="project-name-kr">드론 비전 졸업작품</span>
@@ -900,7 +899,6 @@
             <li data-i18n="role.vision.4">Built the AirSim simulation environment</li>
           </ul>
         </div>
-        <div class="project-challenge"><strong>배운 점 —</strong> AirSim과 실물 DJI Tello의 크기 차이로 생기는 오차를 보정하며, 시뮬레이션 결과를 실제 환경으로 옮길 때 캘리브레이션이 필수라는 점을 배웠습니다.</div>
         <div class="project-stack">
           <span class="stack-chip">YOLO</span>
           <span class="stack-chip">Camera Calibration</span>
@@ -1035,7 +1033,7 @@ const translations = {
     'projects.title': "What I've taken part in.",
     'badge.doosan': 'Doosan Bootcamp',
     'badge.school': 'School Project',
-    'badge.vision': 'Graduation',
+    'badge.vision': 'SCHOOL PROJECT',
     'p01.desc': 'Shaved-ice making cobot built on the Doosan M0609. Integrates order handling, ice shaving, topping, and nickname labeling through ROS 2 interfaces and web-service integration.',
     'p02.desc': 'Voice-command tool-sorting robot built on the Doosan M0609. Connects wake word, STT/LLM command parsing, YOLO vision matching, and ROS 2 execution, then validates the flow in Gazebo before real-robot pick/place.',
     'p03.desc': 'Multi-robot aquafarm simulator built with Isaac Sim and ROS 2. Recreates a 7-tank sturgeon farm and connects 15 simulated robots through custom msg/srv/action interfaces for perception, planning, control, and execution feedback.',
@@ -1043,10 +1041,10 @@ const translations = {
     'rl.desc': 'Robot-arm reinforcement learning study built in PyBullet. Analyzes a reference DQN implementation and reproduces an RGB-D based pick/place agent with camera-to-world transforms and depth normalization.',
     'vision.desc': 'Vision-based autonomous landing system for a DJI Tello drone. Detects a landing marker using camera vision only, validates the landing flow in AirSim, and tests it on real hardware.',
     'role.label': 'My Role',
-    'role.aquasweep.lead': 'Team lead — led a 5-person team and set communication norms',
-    'role.aquasweep.1': 'Built Isaac Sim extensions for the farm, water physics, cameras, and robot motion',
-    'role.aquasweep.2': 'Defined ROS 2 msg/srv/action contracts for pool state, motion control, and progress feedback',
-    'role.aquasweep.3': 'Integrated Detection → Planner → Controller → Isaac Sim execution and test flow',
+    'role.aquasweep.lead': 'Team lead — coordinated a 5-person team, role split, and integration standards',
+    'role.aquasweep.1': 'Configured Isaac Sim models and motions for floor cleaners, wall-cleaning arms, and a gantry robot',
+    'role.aquasweep.2': 'Connected Isaac Sim extensions with ROS 2-based interfaces',
+    'role.aquasweep.3': 'Integrated camera input, robot motion, and dashboard status display into one simulation flow',
     'role.doobe.1': 'Integrated STT/LLM command parsing with robot execution',
     'role.doobe.2': 'Matched vision results with command conditions and published ROS 2 target/sort topics',
     'role.doobe.3': 'Separated Gazebo and real-robot execution paths for validation',
@@ -1054,10 +1052,10 @@ const translations = {
     'role.medicart.1': 'Built the Mode A patrol state machine (mission_manager) end to end',
     'role.medicart.2': 'Nav2 ward-rounding logic, patient-ID integration, Firebase state logging',
     'role.medicart.3': 'Designed the interface between the web questionnaire and the state machine',
-    'role.medicart.4': 'Mode B (nurse-following, OCR) — built by a teammate',
     'role.shavedice.1': 'Designed ROS2 interfaces between modules',
     'role.shavedice.2': 'Full integration and web-service design',
     'role.shavedice.3': 'Built the handwriting-generation algorithm',
+    'role.shavedice.4': 'Tested and adjusted the end-to-end serving flow on the real M0609',
     'role.rl.1': 'Reference-code architecture analysis',
     'role.rl.2': 'Camera-to-world coordinate transform',
     'role.rl.3': 'Depth normalization',
@@ -1083,13 +1081,13 @@ const translations = {
     'nav.skills': 'Skills',
     'nav.contact': 'Contact',
     'hero.eyebrow': 'Robotics Software Engineer',
-    'hero.tagline': '<strong>통신·제어·비전·센서</strong>를 통합하고, 시뮬레이션으로 검증하는 로봇 엔지니어입니다.',
+    'hero.tagline': '<strong>통신·제어·비전·센서</strong>를 통합하고, 시뮬레이션으로 검증하는<br>로봇 엔지니어입니다.',
     'hero.about': 'About',
     'hero.cta': 'Projects',
     'hero.contact': 'Contact',
     'hero.scroll': 'Scroll',
     'about.label': 'About',
-    'about.title': '로봇 시스템을 통합하고, 시뮬레이션으로 검증합니다.',
+    'about.title': '로봇 시스템을 통합하고,<br>시뮬레이션으로 검증합니다.',
     'about.p1': '시뮬레이션과 실제 로봇 환경을 오가며 동작을 검증하는 <strong>시스템 통합·테스트 엔지니어</strong>를 지향합니다.',
     'about.p2': '통신(ROS 2 인터페이스)·제어·비전·센서를 폭넓게 다루며, 여러 서브시스템을 하나로 통합해 동작시키는 데 강점이 있습니다.',
     'about.p3': '개별 기능이 아니라 시스템 전체가 맞물려 동작하도록 설계하고, 통합 단계에서 강건한 로봇을 만드는 엔지니어가 되겠습니다.',
@@ -1107,29 +1105,29 @@ const translations = {
     'projects.title': '내가 참여한 것들.',
     'badge.doosan': 'Doosan Bootcamp',
     'badge.school': 'School Project',
-    'badge.vision': '졸업작품',
+    'badge.vision': 'SCHOOL PROJECT',
     'p01.desc': 'Doosan M0609 기반 컵빙수 제조 협동로봇입니다. 주문 처리, 제빙, 토핑, 닉네임 부착 흐름을 ROS 2 인터페이스와 웹 연동으로 통합했습니다.',
-    'p02.desc': 'Doosan M0609 기반 음성 명령 공구 정리 로봇입니다. Wake Word, STT/LLM 명령 해석, YOLO 비전 매칭, ROS 2 실행 흐름을 연결하고 Gazebo 검증 후 실제 로봇에서 pick/place를 수행했습니다.',
-    'p03.desc': 'Isaac Sim + ROS 2 기반 양식장 멀티로봇 시뮬레이터입니다. 수조 7개의 철갑상어 양식장을 재현하고, 커스텀 msg/srv/action 인터페이스로 15대 로봇의 인지·계획·제어·실행 피드백을 연결했습니다.',
+    'p02.desc': 'Doosan M0609 기반 음성 명령 공구 정리 로봇입니다. Wake Word와 STT/LLM으로 해석한 사용자 명령을 YOLO 비전 결과와 매칭하고, ROS 2 토픽으로 실행 타깃을 구성했습니다. Gazebo 검증 환경을 실제 로봇 개발과 병렬로 구성해 명령-비전-실행 통합 흐름을 먼저 검증하고, 이를 실제 로봇 pick/place 동작에 적용했습니다.',
+    'p03.desc': 'Isaac Sim과 ROS 2로 구현한 양식장 멀티로봇 시뮬레이터입니다. 7개 수조 환경에 바닥 청소 모바일 로봇 7대, 벽면 청소 로봇팔 7대, 폐사체 수거 gantry robot 1대를 구성하고, Isaac Sim extension과 ROS 2 기반 인터페이스를 연결해 카메라 입력, 로봇 동작, 대시보드 상태 표시를 하나의 시뮬레이션 흐름으로 통합했습니다.',
     'p04.desc': 'TurtleBot4 기반 병원 순회 보조 로봇입니다. Nav2 자율 회진, YOLO+QR 환자 확인, 웹 문진, Firebase 상태 기록, OCR 약품 검증을 하나의 서비스 흐름으로 연결했습니다.',
     'rl.desc': 'PyBullet 기반 로봇팔 강화학습 스터디 프로젝트입니다. Reference DQN 코드를 분석하고, RGB-D 입력 기반 pick/place 에이전트를 Camera→World 변환과 depth 정규화 흐름으로 재현했습니다.',
     'vision.desc': 'DJI Tello 드론을 위한 비전 기반 자율 착륙 시스템입니다. 카메라 비전만으로 착륙 마커를 인식하고, AirSim에서 착륙 흐름을 검증한 뒤 실물 드론으로 테스트했습니다.',
     'role.label': 'My Role',
-    'role.aquasweep.lead': '팀장 — 5인 팀을 이끌고 커뮤니케이션 기준 정립',
-    'role.aquasweep.1': 'Isaac Sim 익스텐션 구현 — 양식장 환경·물리·카메라·로봇 모션',
-    'role.aquasweep.2': '수조 상태·모션 제어·진행률 피드백용 ROS 2 msg/srv/action 인터페이스 정의',
-    'role.aquasweep.3': 'Detection → Planner → Controller → Isaac Sim 실행·테스트 흐름 통합',
+    'role.aquasweep.lead': '팀장 — 5인 팀 역할 분담, 일정 관리, 통합 기준 정리',
+    'role.aquasweep.1': '바닥 청소 로봇, 벽면 청소 로봇팔, gantry robot의 Isaac Sim 모델·모션 구성',
+    'role.aquasweep.2': 'Isaac Sim extension과 ROS 2 기반 인터페이스 연결 구조 설계',
+    'role.aquasweep.3': '카메라 입력·로봇 동작·대시보드 상태 표시를 하나의 시뮬레이션 흐름으로 통합',
     'role.doobe.1': 'STT/LLM 명령 해석과 로봇 실행 흐름 연동',
     'role.doobe.2': '비전 인식 결과와 명령 조건을 매칭해 ROS 2 target/sort topic 발행',
-    'role.doobe.3': 'Gazebo 검증 경로와 real robot 실행 경로 분리',
+    'role.doobe.3': 'Gazebo 검증 환경을 실제 로봇 개발과 병렬로 구성해 통합 테스트 수행',
     'role.doobe.4': 'Web UI 안전 제어 추가 (비상정지, Wake Word 토글 등)',
     'role.medicart.1': 'Mode A 회진 통합 — mission_manager patrol 상태머신 전체 구현',
     'role.medicart.2': 'Nav2 병실 순회 로직 · 환자 확인 연동 · Firebase 상태 기록',
     'role.medicart.3': '웹 문진 완료 대기 ↔ 상태머신 전환 인터페이스 설계',
-    'role.medicart.4': 'Mode B (간호사 추종, OCR 검증) — 팀원 담당',
     'role.shavedice.1': '단위 기능 간 ROS2 인터페이스 설계',
     'role.shavedice.2': '전체 기능 통합 및 web 연동 설계',
     'role.shavedice.3': '손글씨 알고리즘 구현',
+    'role.shavedice.4': '실제 M0609에서 주문부터 제조·서빙까지 end-to-end 흐름 테스트 및 조정',
     'role.rl.1': 'Reference Code 아키텍처 분석',
     'role.rl.2': 'Camera → World 좌표 변환 구현',
     'role.rl.3': '깊이 정규화 구현',
@@ -1205,7 +1203,7 @@ window.addEventListener('scroll', () => {
 });
 
 // ─── INIT ───────────────────────────────────────────────────────
-const savedLang = localStorage.getItem('yevettee-lang') || 'en';
+const savedLang = localStorage.getItem('yevettee-lang') || 'kr';
 setLang(savedLang);
 </script>
 
