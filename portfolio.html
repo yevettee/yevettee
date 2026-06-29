@@ -612,7 +612,7 @@
         <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#909097;letter-spacing:0.08em;">ROS 2 Humble · Isaac Sim 5.1</span>
       </div>
 
-      <div data-anim="2" style="display:grid;grid-template-columns:1.15fr 0.85fr;gap:26px;flex:1;min-height:0;">
+      <div data-anim="2" style="display:grid;grid-template-columns:1fr 1fr;gap:26px;flex:1;min-height:0;">
         <div style="display:flex;flex-direction:column;gap:12px;min-height:0;">
           <div style="border:1px solid #e5e5e8;border-radius:8px;padding:13px 15px;background:#fbfbfc;">
             <div style="display:grid;grid-template-columns:1fr 42px 1fr 42px 1fr;align-items:center;gap:8px;">
@@ -649,43 +649,23 @@
 
           <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
             <div style="border-top:2px solid #a32a2a;background:#fdf6f6;padding:10px 11px;border-radius:0 0 6px 6px;">
-              <p style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#a32a2a;margin:0 0 5px;font-weight:700;">왜 분리했나</p>
-              <p style="font-size:11.8px;line-height:1.5;color:#3f3f44;margin:0;">ROS 2 노드에서 직접 cmd_vel을 계산하면 Isaac Sim physics_dt와 지연/누락 문제가 생길 수 있어 실행 책임을 Isaac 내부로 옮겼다.</p>
+              <p style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#a32a2a;margin:0 0 5px;font-weight:700;">ROS 2 ↔ Isaac 실행 분리</p>
+              <p style="font-size:11.8px;line-height:1.5;color:#3f3f44;margin:0;">ROS 2 노드에서 직접 cmd_vel을 계산하면 Isaac Sim physics_dt와 지연/누락 문제가 생기므로, 실행 주체를 Isaac 내부로 옮겼다.</p>
             </div>
             <div style="border-top:2px solid #8a6d1f;background:#fbf8ef;padding:10px 11px;border-radius:0 0 6px 6px;">
-              <p style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#8a6d1f;margin:0 0 5px;font-weight:700;">어떻게 연결했나</p>
+              <p style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#8a6d1f;margin:0 0 5px;font-weight:700;">연결 방식</p>
               <p style="font-size:11.8px;line-height:1.5;color:#3f3f44;margin:0;">Planner는 Action goal만 보내고, Controller는 <code style="font-family:'IBM Plex Mono',monospace;font-size:10px;">/{pool}/isaac/start_*</code> service로 Isaac Sim 모션을 시작한다.</p>
             </div>
             <div style="border-top:2px solid #1f7a4d;background:#f2f9f5;padding:10px 11px;border-radius:0 0 6px 6px;">
-              <p style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#1f7a4d;margin:0 0 5px;font-weight:700;">어떻게 검증했나</p>
+              <p style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#1f7a4d;margin:0 0 5px;font-weight:700;">검증 방법</p>
               <p style="font-size:11.8px;line-height:1.5;color:#3f3f44;margin:0;">Action 단독 호출, Mock PoolStatus, Dashboard start까지 단계별로 나눠 통합 지점을 확인했다.</p>
             </div>
           </div>
         </div>
 
-        <div style="display:flex;flex-direction:column;gap:10px;min-height:0;">
-          <div style="position:relative;flex:1.15;border-radius:8px;background:#0b0b0c;overflow:hidden;">
+        <div style="display:flex;flex-direction:column;min-height:0;">
+          <div style="position:relative;flex:0 0 57.5%;border-radius:8px;background:#0b0b0c;overflow:hidden;">
             <video src="assets/p03-aquasweep/aquasweep_demo.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
-          </div>
-          <div style="flex:0.85;border:1px solid #e5e5e8;border-radius:8px;background:#fbfbfc;display:flex;flex-direction:column;justify-content:center;padding:16px;">
-            <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#6c6c72;margin:0 0 10px;">Interface contract</p>
-            <div style="display:grid;grid-template-columns:1fr 24px 1fr;gap:7px;align-items:center;">
-              <div style="border:1px solid #d6d6da;border-radius:6px;background:#fff;padding:9px 10px;text-align:center;">
-                <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#0b0b0c;margin:0 0 4px;">ROS 2</p>
-                <p style="font-size:11.7px;line-height:1.4;color:#3f3f44;margin:0;">Planner<br>Controller</p>
-              </div>
-              <div style="font-family:'IBM Plex Mono',monospace;text-align:center;color:#909097;font-size:16px;">↔</div>
-              <div style="border:1px solid #d6d6da;border-radius:6px;background:#fff;padding:9px 10px;text-align:center;">
-                <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#0b0b0c;margin:0 0 4px;">Isaac</p>
-                <p style="font-size:11.7px;line-height:1.4;color:#3f3f44;margin:0;">Motion<br>Status</p>
-              </div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;">
-              <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;border:1px solid #d6d6da;border-radius:4px;padding:2px 6px;color:#2a2a2d;background:#fff;">Action</span>
-              <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;border:1px solid #d6d6da;border-radius:4px;padding:2px 6px;color:#2a2a2d;background:#fff;">Service</span>
-              <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;border:1px solid #d6d6da;border-radius:4px;padding:2px 6px;color:#2a2a2d;background:#fff;">MotionStatus</span>
-              <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;border:1px solid #d6d6da;border-radius:4px;padding:2px 6px;color:#2a2a2d;background:#fff;">PoolStatus</span>
-            </div>
           </div>
         </div>
       </div>
@@ -743,93 +723,66 @@
     </section>
 
     <!-- ============ S8 · P03 TASK SEQUENCING ============ -->
-    <section data-slide="" data-screen-label="P03 task sequencing" style="position:absolute;inset:0;display:flex;flex-direction:column;padding:42px 60px;background:#ffffff;color:#0b0b0c;">
-      <div data-anim="" style="margin-bottom:16px;">
+    <section data-slide="" data-screen-label="P03 task sequencing" style="position:absolute;inset:0;display:flex;flex-direction:column;padding:44px 60px;background:#ffffff;color:#0b0b0c;">
+      <div data-anim="" style="margin-bottom:18px;">
         <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#6c6c72;margin:0 0 6px;">두산 P3 — 로봇 동작 실행 구조</p>
-        <h2 style="font-family:'Space Grotesk','Pretendard',sans-serif;font-weight:600;font-size:29px;letter-spacing:-0.02em;margin:0;">공정 실행 구조 — 래퍼 기반 시퀀스 제어</h2>
+        <h2 style="font-family:'Space Grotesk','Pretendard',sans-serif;font-weight:600;font-size:29px;letter-spacing:-0.02em;margin:0;">전체 시퀀스 구조 설계</h2>
       </div>
-      <div data-anim="2" style="flex:1;min-height:0;display:flex;flex-direction:column;gap:16px;">
-        <div style="border:1px solid #e5e5e8;border-radius:8px;background:#fafafa;flex:1;min-height:0;overflow:hidden;">
-          <svg viewBox="0 0 1120 425" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-            <rect width="1120" height="425" fill="#fafafa"></rect>
-            <text x="28" y="34" font-size="12" font-family="'IBM Plex Mono',monospace" fill="#909097" letter-spacing="1.2">BINGSU PROCESS SEQUENCE</text>
-            <text x="28" y="58" font-size="15" font-family="'Pretendard','Inter',sans-serif" fill="#2a2a2d">5개 페이즈의 제조 공정을 bingsu_sequence가 순차 실행</text>
-
-            <g transform="translate(42 105)">
-              <rect x="0" y="0" width="112" height="58" rx="6" fill="#fff" stroke="#0b0b0c" stroke-width="1.4"></rect>
-              <text x="56" y="26" font-size="13" font-family="'IBM Plex Mono',monospace" fill="#0b0b0c" text-anchor="middle">Task 01</text>
-              <text x="56" y="43" font-size="10" font-family="'IBM Plex Mono',monospace" fill="#6c6c72" text-anchor="middle">motion step</text>
-
-              <line x1="112" y1="29" x2="174" y2="29" stroke="#1f7a4d" stroke-width="2.2"></line>
-              <polygon points="174,24 184,29 174,34" fill="#1f7a4d"></polygon>
-              <circle cx="148" cy="29" r="15" fill="#eef8f3" stroke="#1f7a4d" stroke-width="1.5"></circle>
-              <text x="148" y="33" font-size="10" font-family="'IBM Plex Mono',monospace" fill="#1f7a4d" text-anchor="middle">abort</text>
-
-              <rect x="192" y="0" width="112" height="58" rx="6" fill="#fff" stroke="#0b0b0c" stroke-width="1.4"></rect>
-              <text x="248" y="26" font-size="13" font-family="'IBM Plex Mono',monospace" fill="#0b0b0c" text-anchor="middle">Task 02</text>
-              <text x="248" y="43" font-size="10" font-family="'IBM Plex Mono',monospace" fill="#6c6c72" text-anchor="middle">motion step</text>
-
-              <line x1="304" y1="29" x2="366" y2="29" stroke="#1f7a4d" stroke-width="2.2"></line>
-              <polygon points="366,24 376,29 366,34" fill="#1f7a4d"></polygon>
-              <circle cx="340" cy="29" r="15" fill="#eef8f3" stroke="#1f7a4d" stroke-width="1.5"></circle>
-              <text x="340" y="33" font-size="10" font-family="'IBM Plex Mono',monospace" fill="#1f7a4d" text-anchor="middle">abort</text>
-
-              <rect x="384" y="0" width="112" height="58" rx="6" fill="#fff" stroke="#0b0b0c" stroke-width="1.4"></rect>
-              <text x="440" y="26" font-size="13" font-family="'IBM Plex Mono',monospace" fill="#0b0b0c" text-anchor="middle">Task 03</text>
-              <text x="440" y="43" font-size="10" font-family="'IBM Plex Mono',monospace" fill="#6c6c72" text-anchor="middle">motion step</text>
-
-              <line x1="496" y1="29" x2="558" y2="29" stroke="#1f7a4d" stroke-width="2.2"></line>
-              <polygon points="558,24 568,29 558,34" fill="#1f7a4d"></polygon>
-              <circle cx="532" cy="29" r="15" fill="#eef8f3" stroke="#1f7a4d" stroke-width="1.5"></circle>
-              <text x="532" y="33" font-size="10" font-family="'IBM Plex Mono',monospace" fill="#1f7a4d" text-anchor="middle">abort</text>
-
-              <text x="615" y="36" font-size="24" font-family="'IBM Plex Mono',monospace" fill="#909097" text-anchor="middle">...</text>
-              <line x1="652" y1="29" x2="714" y2="29" stroke="#1f7a4d" stroke-width="2.2"></line>
-              <polygon points="714,24 724,29 714,34" fill="#1f7a4d"></polygon>
-              <circle cx="688" cy="29" r="15" fill="#eef8f3" stroke="#1f7a4d" stroke-width="1.5"></circle>
-              <text x="688" y="33" font-size="10" font-family="'IBM Plex Mono',monospace" fill="#1f7a4d" text-anchor="middle">abort</text>
-
-              <rect x="732" y="0" width="112" height="58" rx="6" fill="#fff" stroke="#0b0b0c" stroke-width="1.4"></rect>
-              <text x="788" y="26" font-size="13" font-family="'IBM Plex Mono',monospace" fill="#0b0b0c" text-anchor="middle">Task 24</text>
-              <text x="788" y="43" font-size="10" font-family="'IBM Plex Mono',monospace" fill="#6c6c72" text-anchor="middle">motion step</text>
-
-              <line x1="844" y1="29" x2="920" y2="29" stroke="#1f7a4d" stroke-width="2.2"></line>
-              <polygon points="920,24 930,29 920,34" fill="#1f7a4d"></polygon>
-              <rect x="938" y="0" width="98" height="58" rx="6" fill="#1f7a4d"></rect>
-              <text x="987" y="25" font-size="13" font-family="'IBM Plex Mono',monospace" fill="#ffffff" text-anchor="middle">Complete</text>
-              <text x="987" y="43" font-size="10" font-family="'IBM Plex Mono',monospace" fill="#dcefe6" text-anchor="middle">scenario</text>
-            </g>
-
-            <g transform="translate(104 215)">
-              <rect x="0" y="0" width="912" height="76" rx="8" fill="#ffffff" stroke="#d6d6da" stroke-width="1.2"></rect>
-              <text x="456" y="24" font-size="13" font-family="'IBM Plex Mono',monospace" fill="#0b0b0c" text-anchor="middle">_exec_step() / _exec_gripper()</text>
-              <text x="456" y="48" font-size="20" font-family="'Pretendard','Inter',sans-serif" font-weight="700" fill="#0b0b0c" text-anchor="middle">모든 모션 호출을 래퍼로 감싸 중단 검사·체크포인트·재개 로직 공통 적용</text>
-              <text x="456" y="66" font-size="12" font-family="'IBM Plex Mono',monospace" fill="#6c6c72" text-anchor="middle">_check_abort · Firebase checkpoint · resume skip · gripper safety</text>
-            </g>
-
-            <g transform="translate(165 330)">
-              <rect x="0" y="0" width="210" height="50" rx="6" fill="#fff5f5" stroke="#a32a2a" stroke-width="1.2"></rect>
-              <text x="105" y="21" font-size="12" font-family="'IBM Plex Mono',monospace" fill="#a32a2a" text-anchor="middle">Abort / SAFE_STOP</text>
-              <text x="105" y="38" font-size="11" font-family="'Pretendard','Inter',sans-serif" fill="#3f3f44" text-anchor="middle">비상정지 즉시 중단</text>
-
-              <rect x="352" y="0" width="210" height="50" rx="6" fill="#f7f3e6" stroke="#8a6d1f" stroke-width="1.2"></rect>
-              <text x="457" y="21" font-size="12" font-family="'IBM Plex Mono',monospace" fill="#8a6d1f" text-anchor="middle">Firebase Checkpoint</text>
-              <text x="457" y="38" font-size="11" font-family="'Pretendard','Inter',sans-serif" fill="#3f3f44" text-anchor="middle">Firebase에 재개 지점 저장</text>
-
-              <rect x="704" y="0" width="210" height="50" rx="6" fill="#eef8f3" stroke="#1f7a4d" stroke-width="1.2"></rect>
-              <text x="809" y="21" font-size="12" font-family="'IBM Plex Mono',monospace" fill="#1f7a4d" text-anchor="middle">Resume Safety</text>
-              <text x="809" y="38" font-size="11" font-family="'Pretendard','Inter',sans-serif" fill="#3f3f44" text-anchor="middle">그리퍼 재개 시 낙하 방지</text>
-            </g>
-
-            <path d="M270 330 V291" stroke="#a32a2a" stroke-width="1.5" stroke-dasharray="4 4"></path>
-            <path d="M622 330 V291" stroke="#8a6d1f" stroke-width="1.5" stroke-dasharray="4 4"></path>
-            <path d="M974 330 V291" stroke="#1f7a4d" stroke-width="1.5" stroke-dasharray="4 4"></path>
-          </svg>
+      <div data-anim="2" style="flex:1;min-height:0;display:flex;flex-direction:column;gap:24px;">
+        <div>
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#6c6c72;margin:0 0 10px;">BINGSU PROCESS — 5 PHASES · 24 TASKS</p>
+          <div style="display:flex;align-items:center;gap:7px;">
+            <div style="flex:1;border:1px solid #d6d6da;border-radius:8px;padding:14px 10px;text-align:center;"><p style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#909097;margin:0 0 5px;">01</p><p style="font-size:14px;font-weight:700;color:#0b0b0c;margin:0;">제빙기 동작</p></div>
+            <span style="color:#c2c2c7;font-size:18px;">›</span>
+            <div style="flex:1;border:1px solid #d6d6da;border-radius:8px;padding:14px 10px;text-align:center;"><p style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#909097;margin:0 0 5px;">02</p><p style="font-size:14px;font-weight:700;color:#0b0b0c;margin:0;">팥·연유 올리기</p></div>
+            <span style="color:#c2c2c7;font-size:18px;">›</span>
+            <div style="flex:1;border:1px solid #d6d6da;border-radius:8px;padding:14px 10px;text-align:center;"><p style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#909097;margin:0 0 5px;">03</p><p style="font-size:14px;font-weight:700;color:#0b0b0c;margin:0;">토핑 올리기</p></div>
+            <span style="color:#c2c2c7;font-size:18px;">›</span>
+            <div style="flex:1;border:1px solid #d6d6da;border-radius:8px;padding:14px 10px;text-align:center;"><p style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#909097;margin:0 0 5px;">04</p><p style="font-size:14px;font-weight:700;color:#0b0b0c;margin:0;">닉네임 쓰기</p></div>
+            <span style="color:#c2c2c7;font-size:18px;">›</span>
+            <div style="flex:1;border:1px solid #d6d6da;border-radius:8px;padding:14px 10px;text-align:center;"><p style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#909097;margin:0 0 5px;">05</p><p style="font-size:14px;font-weight:700;color:#0b0b0c;margin:0;">서빙</p></div>
+          </div>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
-          <div style="border-top:1px solid #0b0b0c;padding-top:8px;"><p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#909097;margin:0 0 4px;">01</p><p style="font-size:14px;font-weight:700;color:#0b0b0c;margin:0;">공정 시퀀스 연결</p></div>
-          <div style="border-top:1px solid #0b0b0c;padding-top:8px;"><p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#909097;margin:0 0 4px;">02</p><p style="font-size:14px;font-weight:700;color:#0b0b0c;margin:0;">중단 검사 + 체크포인트</p></div>
-          <div style="border-top:1px solid #0b0b0c;padding-top:8px;"><p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#909097;margin:0 0 4px;">03</p><p style="font-size:14px;font-weight:700;color:#0b0b0c;margin:0;">정지 지점부터 재개</p></div>
+
+        <div style="border-top:1px solid #e5e5e8;padding-top:20px;">
+          <p style="font-size:15px;line-height:1.85;color:#2a2a2d;margin:0 0 12px;">빙수 제조 시퀀스는 위 5가지 페이즈로 크게 나뉘지만, 세부 task는 <strong>24개</strong>로 구성되어 있고 각 task별 공정 순서를 관리자 web에서 제어할 수 있도록 구현했다. 관리자 web에서 실행 가능한 기능은 <strong>특정 task로 이동</strong>, <strong>정지</strong>, <strong>외력 감지 시 safety mode 해제</strong> 세 가지다.</p>
+          <p style="font-size:15px;line-height:1.85;color:#2a2a2d;margin:0;">따라서 시스템 통합을 진행하며, 모든 task 실행을 아래와 같은 <strong>공통 래퍼</strong>로 감싸 매 task마다 동일한 점검을 거치도록 설계했다.</p>
+        </div>
+
+        <div style="flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="border:1px solid #d6d6da;border-radius:8px;padding:14px 20px;text-align:center;min-width:96px;">
+              <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#0b0b0c;font-weight:700;margin:0 0 3px;">Task N</p>
+              <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#909097;margin:0;">motion step</p>
+            </div>
+            <span style="color:#1f7a4d;font-size:20px;">→</span>
+            <div style="border:1.5px solid #1f7a4d;border-radius:10px;background:#f2f9f5;padding:16px 28px;">
+              <p style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.08em;color:#1f7a4d;text-align:center;text-transform:uppercase;margin:0 0 10px;">공통 래퍼 — _exec_step() / _exec_gripper()</p>
+              <div style="display:flex;gap:24px;">
+                <span style="font-size:12.5px;color:#2a2a2d;white-space:nowrap;">① 상태 기록</span>
+                <span style="font-size:12.5px;color:#2a2a2d;white-space:nowrap;">② 외력 감지 체크</span>
+                <span style="font-size:12.5px;color:#2a2a2d;white-space:nowrap;">③ 체크포인트 저장</span>
+              </div>
+            </div>
+            <span style="color:#1f7a4d;font-size:20px;">→</span>
+            <div style="border:1px solid #d6d6da;border-radius:8px;padding:14px 20px;text-align:center;min-width:96px;">
+              <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#0b0b0c;font-weight:700;margin:0 0 3px;">Task N+1</p>
+              <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#909097;margin:0;">motion step</p>
+            </div>
+          </div>
+
+          <div style="width:1.5px;height:24px;background:#c2c2c7;"></div>
+
+          <div style="display:flex;gap:36px;">
+            <div style="border:1px solid #e8c0c0;border-radius:8px;background:#fff5f5;padding:12px 20px;text-align:center;">
+              <p style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#a32a2a;font-weight:700;margin:0 0 3px;">② 외력 감지 → SAFE_STOP</p>
+              <p style="font-size:11.5px;color:#3f3f44;margin:0;">관리자 web에서 safety mode 해제 후 재개</p>
+            </div>
+            <div style="border:1px solid #d8cfa0;border-radius:8px;background:#f7f3e6;padding:12px 20px;text-align:center;">
+              <p style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8a6d1f;font-weight:700;margin:0 0 3px;">③ 체크포인트 → Firebase 저장</p>
+              <p style="font-size:11.5px;color:#3f3f44;margin:0;">재개 시 정지된 task부터 재실행</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -889,35 +842,12 @@
         <div style="border-top:1px solid #e5e5e8;padding-top:10px;display:flex;flex-direction:column;min-height:0;">
           <div style="display:flex;flex-direction:column;min-height:0;">
             <p style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:#6c6c72;margin:0 0 8px;">Case 1 — ROS 2 인터페이스 미정의 · 후반 통합 병목</p>
-            <svg viewBox="0 0 430 156" width="78%" height="150" xmlns="http://www.w3.org/2000/svg" style="background:#fafafa;border:1px solid #e5e5e8;border-radius:8px;margin:0 auto 9px;display:block;">
-              <rect width="430" height="156" fill="#fafafa"></rect>
-              <g transform="translate(18 8)">
-                <rect x="0" y="0" width="108" height="38" rx="5" fill="#fff" stroke="#d6d6da"></rect>
-                <text x="54" y="17" font-size="12" font-family="'IBM Plex Mono',monospace" fill="#3f3f44" text-anchor="middle">Function A</text>
-                <text x="54" y="31" font-size="9.5" font-family="'IBM Plex Mono',monospace" fill="#909097" text-anchor="middle">local signal</text>
-                <rect x="0" y="54" width="108" height="38" rx="5" fill="#fff" stroke="#d6d6da"></rect>
-                <text x="54" y="71" font-size="12" font-family="'IBM Plex Mono',monospace" fill="#3f3f44" text-anchor="middle">Function B</text>
-                <text x="54" y="85" font-size="9.5" font-family="'IBM Plex Mono',monospace" fill="#909097" text-anchor="middle">local signal</text>
-                <rect x="0" y="108" width="108" height="38" rx="5" fill="#fff" stroke="#d6d6da"></rect>
-                <text x="54" y="125" font-size="12" font-family="'IBM Plex Mono',monospace" fill="#3f3f44" text-anchor="middle">Function C</text>
-                <text x="54" y="139" font-size="9.5" font-family="'IBM Plex Mono',monospace" fill="#909097" text-anchor="middle">local signal</text>
-                <line x1="124" y1="19" x2="164" y2="73" stroke="#a32a2a" stroke-width="1.5" stroke-dasharray="4 3"></line>
-                <line x1="124" y1="73" x2="164" y2="73" stroke="#a32a2a" stroke-width="1.5" stroke-dasharray="4 3"></line>
-                <line x1="124" y1="127" x2="164" y2="73" stroke="#a32a2a" stroke-width="1.5" stroke-dasharray="4 3"></line>
-                <rect x="166" y="39" width="146" height="68" rx="6" fill="#fff5f5" stroke="#a32a2a" stroke-width="1.5"></rect>
-                <text x="239" y="67" font-size="14" font-family="'Pretendard','Inter',sans-serif" font-weight="700" fill="#a32a2a" text-anchor="middle">Late Integration</text>
-                <text x="239" y="87" font-size="10.5" font-family="'IBM Plex Mono',monospace" fill="#6c6c72" text-anchor="middle">Topic / Service 재정렬</text>
-                <line x1="312" y1="73" x2="336" y2="73" stroke="#1f7a4d" stroke-width="1.5"></line>
-                <polygon points="336,69 344,73 336,77" fill="#1f7a4d"></polygon>
-                <rect x="346" y="55" width="58" height="36" rx="5" fill="#eef8f3" stroke="#1f7a4d" stroke-width="1.2"></rect>
-                <text x="375" y="77" font-size="11" font-family="'IBM Plex Mono',monospace" fill="#1f7a4d" text-anchor="middle">Mock</text>
-              </g>
-            </svg>
+            <p style="font-size:13px;line-height:1.7;color:#3f3f44;margin:0 0 9px;">기존 패키지 단위로 파일을 나누고 ROS 통신으로 시스템 통합을 진행하려 했다. 하지만 통합 전에 인터페이스를 따로 정하지 않고 각 패키지를 단위 단위로 개발 완료한 뒤 통합을 시도하다 보니, 막상 인터페이스만 추가해서 데이터를 주고받으려 하자 전체 코드를 수정해야 하는 상황이 되었고, 결국 일정상 <strong>하드코딩 방식</strong>으로 통합을 진행하게 되었다.</p>
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;">
-            <div style="padding-right:14px;border-right:1px solid #e5e5e8;"><p style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#a32a2a;margin:0 0 4px;">Problem</p><p style="font-size:12.5px;line-height:1.5;color:#3f3f44;margin:0;">기능별 개발 후 인터페이스를 맞추며 통합 병목 발생</p></div>
-            <div style="padding:0 14px;border-right:1px solid #e5e5e8;"><p style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#8a6d1f;margin:0 0 4px;">Action</p><p style="font-size:12.5px;line-height:1.5;color:#3f3f44;margin:0;">우선 시나리오 동작 확인 후 규약 정리</p></div>
-            <div style="padding-left:14px;"><p style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#1f7a4d;margin:0 0 4px;">배운 점</p><p style="font-size:12.5px;line-height:1.5;color:#2a2a2d;margin:0;">Mock data 기반 사전 통합 테스트 필요</p></div>
+            <div style="padding-right:14px;border-right:1px solid #e5e5e8;"><p style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#a32a2a;margin:0 0 4px;">Problem</p><p style="font-size:12.5px;line-height:1.5;color:#3f3f44;margin:0;">인터페이스 사전 정의 없이 패키지별 독립 개발 후 통합</p></div>
+            <div style="padding:0 14px;border-right:1px solid #e5e5e8;"><p style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#8a6d1f;margin:0 0 4px;">Action</p><p style="font-size:12.5px;line-height:1.5;color:#3f3f44;margin:0;">인터페이스 추가만으로 해결 시도 → 전체 코드 수정 필요 → 하드코딩 통합</p></div>
+            <div style="padding-left:14px;"><p style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#1f7a4d;margin:0 0 4px;">배운 점</p><p style="font-size:12.5px;line-height:1.5;color:#2a2a2d;margin:0;">통합 전 인터페이스·통신 규약을 먼저 정의해야 함</p></div>
           </div>
         </div>
 
@@ -1302,11 +1232,11 @@
         <h2 style="font-family:'Space Grotesk','Pretendard',sans-serif;font-weight:600;font-size:28px;letter-spacing:-0.02em;margin:0;">Vision-Based Autonomous Landing</h2>
       </div>
       <div data-anim="2" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;flex:1;min-height:0;">
-        <div style="display:flex;flex-direction:column;gap:7px;min-height:0;overflow:hidden;">
-          <img src="assets/p07-vision/real_drone.png" alt="드론 실외 착륙" style="width:100%;flex:1;min-height:0;object-fit:cover;border-radius:8px;border:1px solid #e5e5e8;" />
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;flex-shrink:0;">
-            <img src="assets/p07-vision/sim_화면.png" alt="AirSim 시뮬레이션" style="width:100%;height:100px;object-fit:cover;border-radius:7px;border:1px solid #e5e5e8;" />
-            <img src="assets/p07-vision/드론_마커.png" alt="Marker 인식" style="width:100%;height:100px;object-fit:cover;border-radius:7px;border:1px solid #e5e5e8;" />
+        <div style="display:grid;grid-template-rows:2fr 1fr;gap:7px;min-height:0;overflow:hidden;">
+          <img src="assets/p07-vision/real_drone.png" alt="드론 실외 착륙" style="width:100%;height:100%;min-height:0;object-fit:cover;border-radius:8px;border:1px solid #e5e5e8;" />
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;min-height:0;">
+            <img src="assets/p07-vision/sim_화면.png" alt="AirSim 시뮬레이션" style="width:100%;height:100%;min-height:0;object-fit:cover;border-radius:7px;border:1px solid #e5e5e8;" />
+            <img src="assets/p07-vision/드론_마커.png" alt="Marker 인식" style="width:100%;height:100%;min-height:0;object-fit:cover;border-radius:7px;border:1px solid #e5e5e8;" />
           </div>
         </div>
         <div style="display:flex;flex-direction:column;gap:8px;min-height:0;overflow:hidden;">
