@@ -1,0 +1,68 @@
+---
+layout: default
+---
+<article class="max-w-3xl mx-auto px-6 py-12 md:py-20">
+  <header>
+    <span class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">{{ page.badge }}</span>
+    <h1 class="mt-3 text-3xl md:text-5xl font-black text-slate-900 dark:text-white leading-tight">{{ page.title }}</h1>
+    {% if page.title_kr %}<p class="mt-2 text-slate-500 dark:text-slate-400 font-medium">{{ page.title_kr }}</p>{% endif %}
+    <p class="mt-5 text-lg text-slate-600 dark:text-slate-400">{{ page.one_liner }}</p>
+
+    <div class="mt-6 flex flex-wrap gap-2">
+      {% for item in page.stack %}
+      <span class="px-3 py-1.5 rounded-full bg-slate-200/60 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-medium">{{ item }}</span>
+      {% endfor %}
+    </div>
+
+    {% if page.github %}
+    <a href="{{ page.github }}" target="_blank" rel="noopener" class="mt-8 inline-block px-6 py-3 rounded-xl font-bold border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition">View on GitHub →</a>
+    {% endif %}
+  </header>
+
+  <div class="mt-10 prose-sm text-slate-600 dark:text-slate-400 leading-relaxed text-[15px]">
+    {{ content }}
+  </div>
+
+  {% if page.media and page.media.size > 0 %}
+  <section class="mt-12 space-y-8">
+    {% for m in page.media %}
+    <figure class="glass rounded-3xl overflow-hidden shadow-sm">
+      {% if m.type == 'video' %}
+      <video src="{{ m.src | relative_url }}" controls muted playsinline preload="metadata" class="w-full"></video>
+      {% elsif m.type == 'youtube' %}
+      <div class="relative pb-[56.25%] h-0"><iframe src="https://www.youtube.com/embed/{{ m.id }}" title="{{ m.caption }}" frameborder="0" allowfullscreen class="absolute inset-0 w-full h-full"></iframe></div>
+      {% else %}
+      <img src="{{ m.src | relative_url }}" alt="{{ m.caption }}" loading="lazy" class="w-full{% if m.fit == 'contain' %} object-contain bg-white max-h-[480px]{% endif %}" />
+      {% endif %}
+      {% if m.caption %}<figcaption class="px-6 py-4 text-sm text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800">{{ m.caption }}</figcaption>{% endif %}
+    </figure>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if page.role %}
+  <section class="mt-12">
+    <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-5">My Role</h2>
+    <ul class="space-y-3">
+      {% for r in page.role %}
+      <li class="flex items-start text-[15px] text-slate-600 dark:text-slate-400">
+        <span class="mt-2 mr-3 w-1.5 h-1.5 rounded-full bg-slate-500 flex-shrink-0"></span>{{ r }}
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if page.challenge %}
+  <section class="mt-12">
+    <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-5">Key Challenge</h2>
+    <div class="glass p-6 rounded-3xl shadow-sm text-[15px] text-slate-600 dark:text-slate-400 leading-relaxed">
+      {{ page.challenge }}
+    </div>
+  </section>
+  {% endif %}
+
+  <nav class="mt-16">
+    <a href="{{ '/#projects' | relative_url }}" class="text-slate-700 dark:text-slate-300 font-bold hover:text-slate-900 dark:hover:text-white transition">← All projects</a>
+  </nav>
+</article>

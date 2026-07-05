@@ -1,0 +1,70 @@
+# ─── Site ───────────────────────────────────────────────
+title: Yunjeong Ok
+description: >-
+  Yunjeong Ok (yevettee), Robot System Integration Engineer working on
+  ROS 2, computer vision, simulation, and real robot validation.
+url: "https://yevettee.github.io"
+baseurl: "/yevettee"
+lang: "en"
+
+author:
+  name: OK YUNJEONG
+  name_kr: 옥윤정
+  role: Robot System Integration Engineer
+  email: oyj9280@naver.com
+  github: https://github.com/yevettee
+  linkedin: https://www.linkedin.com/in/윤정-옥-850b68291/
+  resume: /assets/resume/yunjeong-ok-resume.pdf
+  location: Seoul, Korea
+
+# ─── Home copy ──────────────────────────────────────────
+hero:
+  tagline: >-
+    I integrate perception, navigation, control, and simulation
+    into reliable robotic systems.
+
+# uta-folio style skill cards (icon / name / description)
+skills_title: "What I Do"
+skills_description: "Core areas I work across, from simulation to real robots."
+skills:
+  - name: "Robot System Integration"
+    icon: "🤖"
+    description: "ROS 2 interface design, system bring-up, and connecting perception, control, and UI modules into one working robot system."
+  - name: "Simulation & Validation"
+    icon: "🕹️"
+    description: "Gazebo, NVIDIA Isaac Sim, and AirSim — validating robot behavior in simulation before deploying to real hardware."
+  - name: "Computer Vision"
+    icon: "👁️"
+    description: "OpenCV, YOLO, and camera calibration for detection and vision-guided robot tasks."
+
+tech_stack: [ROS 2, Python, C++, Gazebo, NVIDIA Isaac Sim, Nav2, OpenCV, YOLO, Linux, Git]
+
+projects_title: "Featured Projects"
+projects_description: "Robot systems I built and integrated, in teams and solo."
+
+# ─── Build ──────────────────────────────────────────────
+markdown: kramdown
+highlighter: rouge
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - .jekyll-cache
