@@ -30,7 +30,6 @@ I connect ROS 2 interfaces, perception, and control into one working system — 
 ![Nav2](https://img.shields.io/badge/Nav2-22314E?style=flat-square&logo=ros&logoColor=white)
 ![Gazebo](https://img.shields.io/badge/Gazebo-FF6600?style=flat-square&logoColor=white)
 ![Isaac Sim](https://img.shields.io/badge/NVIDIA%20Isaac%20Sim-76B900?style=flat-square&logo=nvidia&logoColor=white)
-![AirSim](https://img.shields.io/badge/AirSim-0078D4?style=flat-square&logoColor=white)
 
 **Computer Vision**
 
@@ -51,12 +50,12 @@ I connect ROS 2 interfaces, perception, and control into one working system — 
 
 | Project | Description | Stack |
 |---|---|---|
-| 🔧 **[Doob-E](https://github.com/yevettee/Doob-E)** | Wake word + YOLO vision matching tool-sorting robot on Doosan M0609 — same decision logic runs through Gazebo validation before pick/place on the real robot | ROS2 · YOLOv8 · Gazebo · STT/LLM |
-| 🌊 **[AquaSweep](https://github.com/yevettee/AquaSweep)** | Isaac Sim + ROS 2 multi-robot aquafarm simulator — 7-tank sturgeon farm, 15 simulated robots from detection through controller execution feedback | Isaac Sim · ROS2 · YOLO · PyQt5 |
-| 🍧 **[Bingsu Cobot](https://github.com/yevettee/mother_bird)** | Doosan M0609 cobot automating shaved-ice order-to-pickup, including a hand-written nickname sticker | M0609 · ROS2 · Firebase · PySide |
-| 🏥 **[MediCart](https://github.com/yevettee/MediCart)** | TurtleBot4 ward-rounding robot — Nav2 patrol, YOLO+QR patient check, web questionnaire integration | TurtleBot4 · Nav2 · YOLO · OCR |
-| 🧠 **[RL Robot Arm](https://github.com/yevettee/RL_robot)** | DRL study project — reproduced a DQN pick-and-place agent in PyBullet from RGB-D input (simulation only) | PyBullet · DQN · Python |
-| 🎯 **Vision Drone** | Graduation capstone — camera-only autonomous landing on a DJI Tello, validated in AirSim first | YOLO · Camera Calibration · AirSim |
+| 🔧 **[Doob-E](https://github.com/yevettee/Doob-E)** | M0609 tool sorting system with STT/LLM commands, Gazebo virtual mode, and Web UI control | ROS2 · Gazebo · M0609 · D435i · Web UI · STT/LLM |
+| 🌊 **[AquaSweep](https://github.com/yevettee/AquaSweep)** | Isaac Sim + ROS 2 aquafarm simulator with physics scene cleanup, Hippo robot customization, and dashboard topic control | Isaac Sim · ROS2 · USD · URDF/Xacro · Bringup · PyQt5 |
+| 🍧 **[Bingsu Cobot](https://github.com/yevettee/mother_bird)** | Doosan M0609 cobot for shaved ice preparation — Firebase order/state flow, task sequence integration, and nickname handwriting paths | M0609 · ROS2 · Firebase · PySide |
+| 🏥 **[MediCart](https://github.com/yevettee/MediCart)** | TurtleBot4 questionnaire patrol flow — Nav2 waypoints, QR result handling, Firebase state logging, web questionnaire transitions | TurtleBot4 · Nav2 · ROS2 · State Machine · Firebase |
+| 🧠 **[RL Robot Arm](https://github.com/yevettee/RL_robot)** | DRL study project — reproduced a DQN pick-and-place agent in PyBullet from RGB-D input | PyBullet · DQN · Python |
+| 🎯 **Vision Drone** | Graduation capstone — camera-only autonomous landing on a DJI Tello, validated in AirSim first | YOLO · Camera Calibration |
 
 > The first four are Doosan Robotics Bootcamp projects, built in team sprints with real hardware deployment.
 
