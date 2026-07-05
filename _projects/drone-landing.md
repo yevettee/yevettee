@@ -25,6 +25,6 @@ implementation:
 
 ## Project Topic
 
-Camera-only autonomous drone landing capstone입니다. 드론이 착륙 마커를 인식하고, marker position update를 기반으로 목표 위치를 보정하며 착륙하는 시나리오를 다룹니다.
+Camera-only autonomous drone landing capstone입니다. 드론이 착륙 마커를 인식하고, marker position update를 기반으로 목표 위치를 보정하며 착륙하는 시나리오를 구현한 프로젝트입니다.
 
-AirSim simulation과 DJI Tello test를 통해 vision-based landing flow를 검증합니다.
+AirSim simulation과 DJI Tello test를 통해 vision-based landing flow를 검증하였습니다.

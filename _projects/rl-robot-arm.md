@@ -16,13 +16,13 @@ role:
   - Depth normalization 구현
 implementation_title: Study Note
 implementation:
-  - "Code analysis: reference DQN code의 perception, action selection 흐름을 분석."
-  - "Camera geometry: camera-to-world transform과 depth normalization 흐름을 구현."
-  - "PyBullet replay: RGB-D input 기반 DQN pick-and-place structure를 PyBullet에서 재현."
+  - "Perception preprocessing: RGB-D observation에서 heightmap/depth input으로 이어지는 전처리 흐름을 추적."
+  - "Camera geometry: camera-to-world transform과 depth normalization 구현."
+  - "Action pipeline: Q-value 기반 action selection과 pick/place command 생성 흐름을 분석."
 ---
 
 ## Project Topic
 
-PyBullet 기반 RGB-D pick-and-place DRL study project입니다. RGB-D observation을 입력으로 받아 물체를 집고 목표 위치에 놓는 pick-and-place 시나리오를 재현합니다.
+PyBullet 기반 RGB-D pick-and-place DRL study project입니다. RGB-D observation을 입력으로 받아 물체를 집고 목표 위치에 놓는 pick-and-place 시나리오를 재현한 프로젝트입니다.
 
-Reference DQN code를 기준으로 perception preprocessing, coordinate transform, action selection 흐름을 분석합니다.
+Reference DQN code를 기준으로 perception preprocessing, coordinate transform, action selection 흐름을 분석하였습니다.
