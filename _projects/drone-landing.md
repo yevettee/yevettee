@@ -16,8 +16,15 @@ role:
   - Real-time position update landing flow
   - AirSim marker, drone, camera setup
   - DJI Tello validation과 camera calibration
+implementation_title: Validation Note
+implementation:
+  - "AirSim validation: marker, drone, camera 환경을 구성해 landing flow를 먼저 검증."
+  - "Camera calibration: DJI Tello test 과정에서 marker size, camera calibration, distance estimation 값을 재조정."
+  - "Landing error 보정: simulation setup과 실제 드론 테스트 사이의 위치 오차를 보정."
 ---
 
-카메라 비전만으로 landing marker를 인식해 드론을 자율 착륙시키는
-졸업작품입니다. YOLO와 ArUco로 marker를 탐지하고, 실시간으로 목표 위치를
-갱신하며, AirSim 세팅부터 DJI Tello validation까지 진행했습니다.
+## Project Topic
+
+Camera-only autonomous drone landing capstone입니다. 드론이 착륙 마커를 인식하고, marker position update를 기반으로 목표 위치를 보정하며 착륙하는 시나리오를 다룹니다.
+
+AirSim simulation과 DJI Tello test를 통해 vision-based landing flow를 검증합니다.

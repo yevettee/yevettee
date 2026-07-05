@@ -19,13 +19,69 @@ layout: default
     {% endif %}
   </header>
 
-  <div class="mt-10 prose-sm text-slate-600 dark:text-slate-400 leading-relaxed text-[15px]">
+  <section class="mt-10 project-copy text-slate-600 dark:text-slate-400 text-[15px]">
     {{ content }}
-  </div>
+  </section>
 
   {% if page.media and page.media.size > 0 %}
+  {% assign hero_media = page.media | first %}
+  <figure class="mt-10 glass rounded-3xl overflow-hidden shadow-sm">
+    {% if hero_media.type == 'video' %}
+    <video src="{{ hero_media.src | relative_url }}" controls muted playsinline preload="metadata" class="w-full"></video>
+    {% elsif hero_media.type == 'youtube' %}
+    <div class="relative pb-[56.25%] h-0"><iframe src="https://www.youtube.com/embed/{{ hero_media.id }}" title="{{ hero_media.caption }}" frameborder="0" allowfullscreen class="absolute inset-0 w-full h-full"></iframe></div>
+    {% else %}
+    <img src="{{ hero_media.src | relative_url }}" alt="{{ hero_media.caption | default: page.title }}" loading="eager" class="w-full{% if hero_media.fit == 'contain' %} object-contain bg-white max-h-[520px]{% endif %}" />
+    {% endif %}
+    {% if hero_media.caption %}<figcaption class="px-6 py-4 text-sm text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800">{{ hero_media.caption }}</figcaption>{% endif %}
+  </figure>
+  {% endif %}
+
+  <section class="mt-10 project-copy text-slate-600 dark:text-slate-400 text-[15px]">
+    {% if page.implementation %}
+    <h2>{{ page.implementation_title | default: "Implementation Details" }}</h2>
+    <ul>
+      {% for item in page.implementation %}
+      <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if page.role %}
+    <h2>My Role</h2>
+    <ul>
+      {% for r in page.role %}
+      <li>{{ r }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if page.challenge_issue or page.challenge_fix or page.challenge %}
+    <h2>Key Challenge</h2>
+    <div class="glass p-6 rounded-3xl shadow-sm">
+      {% if page.challenge_issue %}
+      <div class="challenge-row">
+        <span class="challenge-label">Issue</span>
+        <p>{{ page.challenge_issue }}</p>
+      </div>
+      {% endif %}
+      {% if page.challenge_fix %}
+      <div class="challenge-row{% if page.challenge_issue %} challenge-row-spaced{% endif %}">
+        <span class="challenge-label">Fix</span>
+        <p>{{ page.challenge_fix }}</p>
+      </div>
+      {% endif %}
+      {% unless page.challenge_issue or page.challenge_fix %}
+      <p>{{ page.challenge }}</p>
+      {% endunless %}
+    </div>
+    {% endif %}
+  </section>
+
+  {% if page.media and page.media.size > 1 %}
   <section class="mt-12 space-y-8">
-    {% for m in page.media %}
+    <h2 class="text-xl font-bold text-slate-900 dark:text-white">Media Gallery</h2>
+    {% for m in page.media offset:1 %}
     <figure class="glass rounded-3xl overflow-hidden shadow-sm">
       {% if m.type == 'video' %}
       <video src="{{ m.src | relative_url }}" controls muted playsinline preload="metadata" class="w-full"></video>
@@ -37,28 +93,6 @@ layout: default
       {% if m.caption %}<figcaption class="px-6 py-4 text-sm text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800">{{ m.caption }}</figcaption>{% endif %}
     </figure>
     {% endfor %}
-  </section>
-  {% endif %}
-
-  {% if page.role %}
-  <section class="mt-12">
-    <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-5">My Role</h2>
-    <ul class="space-y-3">
-      {% for r in page.role %}
-      <li class="flex items-start text-[15px] text-slate-600 dark:text-slate-400">
-        <span class="mt-2 mr-3 w-1.5 h-1.5 rounded-full bg-slate-500 flex-shrink-0"></span>{{ r }}
-      </li>
-      {% endfor %}
-    </ul>
-  </section>
-  {% endif %}
-
-  {% if page.challenge %}
-  <section class="mt-12">
-    <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-5">Key Challenge</h2>
-    <div class="glass p-6 rounded-3xl shadow-sm text-[15px] text-slate-600 dark:text-slate-400 leading-relaxed">
-      {{ page.challenge }}
-    </div>
   </section>
   {% endif %}
 

@@ -11,10 +11,18 @@ stack: [PyBullet, DQN, Python, OpenCV]
 media:
   - { type: image, src: /assets/p05-rl-robot/강화학습.png, caption: PyBullet 학습 환경 }
 role:
-  - Reference Code 아키텍처 분석
-  - Camera → World 좌표 변환 구현
-  - Depth 정규화 구현
+  - Reference code architecture 분석
+  - Camera-to-world 좌표 변환 구현
+  - Depth normalization 구현
+implementation_title: Study Note
+implementation:
+  - "Code analysis: reference DQN code의 perception, action selection 흐름을 분석."
+  - "Camera geometry: camera-to-world transform과 depth normalization 흐름을 구현."
+  - "PyBullet replay: RGB-D input 기반 DQN pick-and-place structure를 PyBullet에서 재현."
 ---
 
-DRL 스터디 프로젝트. Reference DQN 코드를 분석하고, PyBullet에서 RGB-D
-입력 기반 pick & place 에이전트를 재현했습니다.
+## Project Topic
+
+PyBullet 기반 RGB-D pick-and-place DRL study project입니다. RGB-D observation을 입력으로 받아 물체를 집고 목표 위치에 놓는 pick-and-place 시나리오를 재현합니다.
+
+Reference DQN code를 기준으로 perception preprocessing, coordinate transform, action selection 흐름을 분석합니다.
