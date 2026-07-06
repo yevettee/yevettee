@@ -20,7 +20,7 @@ author:
 # ─── Home copy ──────────────────────────────────────────
 hero:
   tagline: >-
-    I integrate perception, navigation, control, and simulation
+    I integrate Perception, Navigation, Control, and Simulation
     into reliable robotic systems.
 
 # uta-folio style skill cards (icon / name / description)
@@ -29,18 +29,18 @@ skills_description: "Core areas I work across, from simulation to real robots."
 skills:
   - name: "Robot System Integration"
     icon: "🤖"
-    description: "ROS 2 interface design, system bring-up, and connecting perception, control, and UI modules into one working robot system."
+    description: "ROS 2 Interface Design, System Bring-up, and integration of Perception, Navigation, and UI modules into one working robot system."
   - name: "Simulation & Validation"
     icon: "🕹️"
-    description: "Gazebo and NVIDIA Isaac Sim based validation, checking robot behavior before real-hardware testing."
+    description: "Validation in Gazebo and NVIDIA Isaac Sim, verifying robot behavior before testing on real hardware."
   - name: "Computer Vision"
     icon: "👁️"
-    description: "OpenCV, YOLO, and camera calibration for detection and vision-guided robot tasks."
+    description: "OpenCV, YOLO, and Camera Calibration for Object Detection and vision-guided robot tasks."
 
 tech_stack: [ROS 2, Python, Gazebo, NVIDIA Isaac Sim, Nav2, OpenCV, YOLO, Linux, Git]
 
 projects_title: "Featured Projects"
-projects_description: "Robot systems I built and integrated, in teams and solo."
+projects_description: "Robot systems I built and integrated with my teams."
 
 # ─── Build ──────────────────────────────────────────────
 markdown: kramdown
