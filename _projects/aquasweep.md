@@ -4,7 +4,7 @@ title_kr: 양식장 청소 로봇
 one_liner: 다중 로봇 양식장 청소 시뮬레이터 (Isaac Sim + ROS 2)
 badge: Doosan Bootcamp
 featured: true
-order: 3
+order: 1
 thumbnail: /assets/p03-aquasweep/빠끔이청소단_환경.png
 github: https://github.com/yevettee/AquaSweep
 stack: [Isaac Sim, ROS2, USD, URDF/Xacro, Bringup, PyQt5]

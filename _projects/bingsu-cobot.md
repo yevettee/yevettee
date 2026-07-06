@@ -4,7 +4,7 @@ title_kr: 빙수 제조 협동로봇
 one_liner: 빙수 제조 협동로봇 (Doosan M0609)
 badge: Doosan Bootcamp
 featured: true
-order: 2
+order: 3
 thumbnail: /assets/p01-shaved-ice/제조환경세팅.jpg
 github: https://github.com/yevettee/mother_bird
 stack: [M0609, ROS2, Firebase, PySide, Python]

@@ -4,7 +4,7 @@ title_kr: 공구정리 로봇
 one_liner: 음성 명령 기반 공구 정리 로봇 (Doosan M0609)
 badge: Doosan Bootcamp
 featured: true
-order: 1
+order: 2
 thumbnail: /assets/p02-doob-e/두비_실제동작화면.png
 github: https://github.com/yevettee/Doob-E
 stack: [ROS2, Gazebo, M0609, D435i, Web UI, STT/LLM]
