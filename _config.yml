@@ -1,7 +1,7 @@
 # ─── Site ───────────────────────────────────────────────
 title: Yunjeong Ok
 description: >-
-  Yunjeong Ok (yevettee), Robot System Integration Engineer working on
+  Yunjeong Ok (yevettee), Robotics Software Engineer working on
   ROS 2, computer vision, simulation, and real robot validation.
 url: "https://yevettee.github.io"
 baseurl: "/yevettee"
@@ -10,7 +10,7 @@ lang: "en"
 author:
   name: Yunjeong Ok
   name_kr: 옥윤정
-  role: Robot System Integration Engineer
+  role: Robotics Software Engineer
   email: oyj9280@naver.com
   github: https://github.com/yevettee
   linkedin: https://www.linkedin.com/in/윤정-옥-850b68291/
