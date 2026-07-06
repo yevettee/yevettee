@@ -1,7 +1,7 @@
 ---
 title: Bingsu Cobot
 title_kr: 빙수 제조 협동로봇
-one_liner: Shaved-ice making cobot (Doosan M0609)
+one_liner: 빙수 제조 협동로봇 (Doosan M0609)
 badge: Doosan Bootcamp
 featured: true
 order: 3
@@ -33,8 +33,6 @@ implementation:
 
 Doosan M0609로 컵빙수 제조 과정을 자동화한 cobot project입니다.
 
-고객이 web에서 주문과 닉네임을 입력하면 제빙기 동작, 재료 토핑, 닉네임 손글씨 작성, 픽업 위치 전달까지 이어지는 제조 시나리오가 진행됩니다.
+고객이 Web에서 주문과 닉네임을 입력하면, 제빙부터 토핑, 닉네임 작성, 픽업 안내까지 전 과정을 자동으로 수행합니다.
 
-관리자 web에서는 24개 task 중 현재 진행 상태를 모니터링하고, 원하는 task 이동, 비상정지, 처음부터 다시 진행을 제어할 수 있습니다.
-
-외력 감지 시 로봇이 비상정지하며, 관리자 web에서 해제 후 정지된 task부터 이어서 진행할 수 있습니다.
+관리자 Web에서는 24개의 Task 진행 상태를 실시간으로 모니터링하고, 특정 Task 이동, 비상 정지, 작업 재시작을 제어할 수 있습니다. 또한 외력 감지 시 로봇을 즉시 정지하고, 해제 후 중단된 Task부터 작업을 재개할 수 있습니다.
