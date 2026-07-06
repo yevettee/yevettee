@@ -15,16 +15,16 @@ media:
 role:
   - 주문부터 픽업까지 로봇 task sequence 통합
   - Firebase order/state와 robot controller 연동
-  - HersheyFonts 기반 handwriting path generation
+  - 닉네임 작성 기능 구현
 challenge_issue: >-
-  손글씨 동작 중 펜 파지 불안정, 접촉 압력 편차, 글씨 밀림 발생.
+  손글씨 작성 과정에서 펜 파지 불안정, 접촉 압력 편차로 인해 글씨가 밀리거나 품질이 일정하지 않는 문제가 발생
 challenge_fix: >-
-  펜이 빠지지 않으면서 종이를 과하게 누르지 않는 압력을 찾기 위해 holder
-  prototype을 테스트하고, 스프링 구조의 분필 홀더 적용.
+  다양한 Pen Holder Prototype을 제작·비교하여 적절한 접촉 압력을 확보하고,
+스프링 구조의 Chalk Holder를 적용해 필기 품질과 안정성을 개선
 implementation_title: Implementation Details
 implementation:
-  - "Task sequence: Firebase order/state를 robot controller와 연결하고 제조 단계별 execution flow를 통합."
-  - "Handwriting path: HersheyFonts stroke path에 scale normalization, coordinate transform, interpolation을 적용해 robot motion path로 변환."
+  - "Task sequence: Firebase order/state를 robot controller와 연결하고 제조 단계별 실행 흐름을 통합."
+  - "Handwriting Path: HersheyFonts Stroke Path에 Scale Normalization, Coordinate Transform, Interpolation을 적용하여 Robot Motion Path를 생성."
   - "Hardware debugging: 펜 파지, 접촉 압력, 글씨 밀림 사이의 trade-off를 holder prototype 테스트로 확인하고 스프링 구조의 분필 홀더로 개선."
   - "Integration lesson: 이후 프로젝트부터 ROS 2 interface와 mock data를 먼저 고정한 뒤 module integration을 진행하는 방식으로 전환."
 ---
