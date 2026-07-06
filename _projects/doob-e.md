@@ -32,8 +32,6 @@ implementation:
 
 ## Project Topic
 
-Doosan M0609 기반 정비소 공구 정리 시스템입니다.
+Doosan M0609 기반의 자동 공구 정리 시스템입니다.
 
-사용자가 음성으로 공구 정리 명령을 내리면 STT, LLM, command parser를 거쳐 planner가 실행 명령을 생성하고, YOLO detection 결과와 매칭해 공구를 pick/sort하는 시나리오를 다룹니다.
-
-Gazebo virtual mode와 실제 로봇 관제 UI를 함께 사용해 명령 입력부터 로봇 동작까지의 흐름을 검증합니다.
+음성 명령을 STT, LLM, Command Parser를 거쳐 실행 가능한 작업 계획으로 변환하고, Planner와 YOLO Detection을 연계하여 공구 Pick & Sort를 수행합니다.
