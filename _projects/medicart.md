@@ -34,5 +34,3 @@ implementation:
 ## Project Topic
 
 TurtleBot4 기반 hospital assistant robot입니다. 병동 내 지정 병상을 순회하며 QR 확인, 문진 안내, 환자 부재 처리, 복귀까지 수행하는 문진 patrol 시나리오를 다룹니다.
-
-Nav2 waypoint following과 web questionnaire state가 같은 patrol flow 안에서 연결됩니다.
