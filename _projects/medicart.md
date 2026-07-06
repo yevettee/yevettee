@@ -1,7 +1,7 @@
 ---
 title: MediCart
 title_kr: 간호사 보조 로봇
-one_liner: Hospital ward patrol assistant robot (TurtleBot4)
+one_liner: 병동 순회 간호사 보조 로봇 (TurtleBot4)
 badge: Doosan Bootcamp
 featured: true
 order: 4

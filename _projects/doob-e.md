@@ -1,7 +1,7 @@
 ---
 title: Doob-E
 title_kr: 공구정리 로봇
-one_liner: Voice-commanded tool-sorting robot (Doosan M0609)
+one_liner: 음성 명령 기반 공구 정리 로봇 (Doosan M0609)
 badge: Doosan Bootcamp
 featured: true
 order: 1

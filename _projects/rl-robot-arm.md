@@ -1,7 +1,7 @@
 ---
 title: RL Robot Arm
 title_kr: 강화학습 로봇팔
-one_liner: DQN pick-and-place agent in PyBullet (DRL study)
+one_liner: DQN 기반 Pick-and-Place 로봇팔 강화학습 (PyBullet)
 badge: School Project
 featured: false
 order: 6

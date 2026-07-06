@@ -16,7 +16,7 @@ role:
   - 실시간 마커 위치 추정을 통한 착륙 제어
   - AirSim 기반 시뮬레이션 환경 구축
   - DJI Tello 실기체 검증 및 Camera Calibration
-implementation_title: :Implementation Details
+implementation_title: Implementation Details
 implementation:
   - "AirSim validation: marker, drone, camera 환경을 구성해 landing flow를 먼저 검증."
   - "Camera calibration: DJI Tello test 과정에서 marker size, camera calibration, distance estimation 파라미터 조정."

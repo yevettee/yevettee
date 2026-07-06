@@ -4,7 +4,7 @@ title_kr: 빙수 제조 협동로봇
 one_liner: 빙수 제조 협동로봇 (Doosan M0609)
 badge: Doosan Bootcamp
 featured: true
-order: 3
+order: 2
 thumbnail: /assets/p01-shaved-ice/제조환경세팅.jpg
 github: https://github.com/yevettee/mother_bird
 stack: [M0609, ROS2, Firebase, PySide, Python]
@@ -20,7 +20,7 @@ challenge_issue: >-
   손글씨 작성 과정에서 펜 파지 불안정, 접촉 압력 편차로 인해 글씨가 밀리거나 품질이 일정하지 않는 문제가 발생
 challenge_fix: >-
   다양한 Pen Holder Prototype을 제작·비교하여 적절한 접촉 압력을 확보하고,
-스프링 구조의 Chalk Holder를 적용해 필기 품질과 안정성을 개선
+  스프링 구조의 Chalk Holder를 적용해 필기 품질과 안정성을 개선
 implementation_title: Implementation Details
 implementation:
   - "Task sequence: Firebase order/state를 robot controller와 연결하고 제조 단계별 실행 흐름을 통합."
