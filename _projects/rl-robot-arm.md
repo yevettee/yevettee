@@ -1,7 +1,8 @@
 ---
 title: RL Robot Arm
 title_kr: 강화학습 로봇팔
-one_liner: DQN 기반 Pick-and-Place 로봇팔 강화학습 (PyBullet)
+one_liner: DQN 기반 Pick-and-Place 로봇팔 강화학습
+card_stack: [PyBullet, DQN]
 badge: School Project
 featured: false
 order: 6
@@ -16,9 +17,9 @@ role:
   - Depth normalization 구현
 implementation_title: Study Note
 implementation:
-  - "Perception preprocessing: RGB-D observation에서 heightmap/depth input으로 이어지는 전처리 흐름을 추적."
-  - "Camera geometry: camera-to-world transform과 depth normalization 구현."
-  - "Action pipeline: Q-value 기반 action selection과 pick/place command 생성 흐름을 분석."
+  - "Perception preprocessing: RGB-D observation에서 heightmap/depth input으로 이어지는 전처리 흐름을 추적"
+  - "Camera geometry: camera-to-world transform과 depth normalization 구현"
+  - "Action pipeline: Q-value 기반 action selection과 pick/place command 생성 흐름을 분석"
 ---
 
 ## Project Topic
