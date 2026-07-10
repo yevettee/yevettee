@@ -1,7 +1,7 @@
 ---
 title: Vision-based Drone Landing
 title_kr: 비전 기반 드론 착륙
-one_liner: YOLO와 ArUco 기반 자율 착륙 시스템
+one_liner: 마커 인식과 위치 추정으로 자율 착륙을 수행하는 드론 비전 시스템
 card_roles:
   - YOLO·ArUco 마커 인식과 위치 추정 기반 착륙 제어 구현
   - AirSim 검증 후 DJI Tello 실기체 착륙 테스트와 오차 분석
@@ -33,9 +33,7 @@ challenge_fix: >-
   최초 detection 좌표 기반 착륙으로 범위를 조정해 실기체 검증을 완료하고,
   착륙 오차 분석으로 실시간 re-detection 보정 구조의 필요성을 도출
 implementation:
-  - "AirSim validation: marker, drone, camera 환경을 구성해 landing flow를 먼저 검증"
-  - "Camera calibration: DJI Tello test 과정에서 marker size, camera calibration, distance estimation 파라미터 조정"
-  - "Landing accuracy: 실기체 착륙 오차를 분석해 stale detection 좌표 사용을 원인으로 확인하고, 착륙 접근 중 marker re-detection으로 target 좌표를 갱신하는 실시간 보정 구조를 개선 방향으로 도출"
+  - "Camera calibration: DJI Tello 실기체 테스트 과정에서 camera calibration과 marker size 기반 distance estimation 파라미터를 조정"
 ---
 
 ## Overview

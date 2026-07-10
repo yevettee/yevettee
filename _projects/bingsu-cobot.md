@@ -31,9 +31,7 @@ challenge_fix: >-
   다양한 Pen Holder Prototype을 제작·비교하여 적절한 접촉 압력을 확보하고,
   스프링 구조의 Chalk Holder를 적용해 필기 품질과 안정성을 개선
 implementation:
-  - "Task sequence: Firebase order/state를 robot controller와 연결하고 제조 단계별 실행 흐름을 통합"
-  - "Handwriting Path: HersheyFonts Stroke Path에 Scale Normalization, Coordinate Transform, Interpolation을 적용하여 Robot Motion Path를 생성"
-  - "Hardware debugging: 펜 파지, 접촉 압력, 글씨 밀림 사이의 trade-off를 holder prototype 테스트로 확인하고 스프링 구조의 분필 홀더로 개선"
+  - "Handwriting path: HersheyFonts stroke path에 scale normalization, coordinate transform, interpolation을 적용해 robot motion path를 생성"
   - "Integration lesson: 이후 프로젝트부터 ROS 2 interface와 mock data를 먼저 고정한 뒤 module integration을 진행하는 방식으로 전환"
 ---
 

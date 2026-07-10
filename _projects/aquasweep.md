@@ -1,7 +1,7 @@
 ---
 title: AquaSweep
 title_kr: 양식장 청소 멀티 로봇
-one_liner: Isaac Sim 기반 양식장 청소 멀티 로봇 시뮬레이터
+one_liner: Isaac Sim에서 로봇 15대를 운용하는 양식장 청소 시뮬레이터
 card_summary: >-
   Isaac Sim에서 바닥·벽면 청소 로봇과 gantry robot 15대를 운용하는
   철갑상어 양식장 청소 시뮬레이터입니다. 관제 dashboard에서 clean 명령을
@@ -38,10 +38,8 @@ challenge_fix: >-
   모든 pool topic을 subscribe하지 않고, dashboard에서 선택한 pool의 topic만
   subscribe하도록 filtering 적용
 implementation:
-  - "Scene cleanup: Blender asset을 scene / robot / pool 단위로 정리하고, pool/building 좌표를 재정렬"
+  - "Scene 구조화: Blender asset을 scene / robot / pool 단위로 나누고 pool/building 좌표를 재정렬"
   - "Extension bring-up: 기능별 Isaac Sim extension을 하나의 launch sequence로 묶고 startup order를 조정"
-  - "Runtime tuning: camera view, debris/shark spawn range, latency를 simulation scenario 기준으로 조정"
-  - "Topic filtering: dashboard가 모든 pool topic을 subscribe하지 않고, 선택한 pool topic만 subscribe하도록 범위를 제한"
 ---
 
 ## Overview

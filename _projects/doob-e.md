@@ -39,10 +39,8 @@ challenge_fix: >-
   각 grasp 전에 home 복귀 -> re-detect -> pick 순서로 execution loop를
   재구성해, 매 pick마다 최신 좌표를 사용하도록 수정
 implementation:
-  - "Backend 분리: real robot code와 충돌하지 않도록 simulation backend / hardware backend를 분리"
-  - "Gazebo validation: M0609, RG2 gripper, D435i camera, 카메라 위치와 공구 배치를 맞춰 voice command -> pick/sort flow를 검증"
-  - "UI state sync: E-stop, wake-word pause, object count, bounding box update를 robot state와 동기화"
-  - "Re-detect loop: 전체 정리 실행 중 stale detection result를 피하기 위해 home 복귀 -> re-detect -> pick 순서로 execution loop를 수정"
+  - "Backend 분리: real robot code와 충돌하지 않도록 simulation backend와 hardware backend를 분리"
+  - "Sim-first 검증: voice command -> pick/sort 전체 flow를 Gazebo에서 먼저 검증한 뒤 실로봇에서 실행"
 ---
 
 ## Overview

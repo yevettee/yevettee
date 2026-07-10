@@ -32,9 +32,6 @@ challenge_fix: >-
   시스템을 설계할 때 물리적 한계를 전제로 두는 기준을 얻음
 implementation_title: Study Note
 implementation:
-  - "이론: Rotation matrix, DH parameter, forward/inverse kinematics 학습"
-  - "MATLAB 시뮬레이션: 2링크·3링크 planar 로봇팔의 원 궤적을 기하 해법과 수치 해법으로 비교 구현"
-  - "실물 구현: Dynamixel 3개와 OpenRB-150, 3D 프린팅 링크로 로봇팔을 제작하고 원 그리기 검증"
   - "궤적 추종 확인: Dynamixel SDK로 목표 위치를 명령하고 현재 위치·속도·토크 피드백으로 실물 궤적을 확인"
 ---
 

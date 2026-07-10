@@ -39,11 +39,9 @@ challenge_fix: >-
   QR 결과와 웹 문진 상태를 state machine에 연결하고, 30초 timeout과
   부재중 fallback을 정리해 터미널 개입 없는 patrol mission flow를 완성
 implementation:
-  - "Patrol state machine: start button 이후 undock -> waypoint following -> QR 처리 -> 문진 대기 -> docking 흐름을 구성"
-  - "Fallback handling: QR 불일치, 환자 부재, 문진 완료 상태에 따라 next waypoint 또는 return flow로 전환"
-  - "Nav2 workflow: waypoint 이동과 web questionnaire state를 같은 patrol scenario 안에서 연결"
-  - "Localization guard: Nav2 initial pose 설정 전 mission start를 막는 dashboard guard 추가"
-  - "State logging: robot state와 questionnaire state를 Firebase에 기록해 Web UI와 TurtleBot4의 기준 상태를 맞춤"
+  - "Fallback 분기 설계: QR 불일치, 환자 부재, 문진 완료 상태에 따라 next waypoint 이동 또는 return flow로 분기하도록 상태 전환을 설계"
+  - "Localization guard: Nav2 initial pose 설정 전에는 mission start를 막는 dashboard guard 추가"
+  - "Launch bring-up: patrol에 필요한 노드를 하나의 launch 흐름으로 묶어, 시작 버튼 외의 터미널 개입을 제거"
 ---
 
 ## Overview
