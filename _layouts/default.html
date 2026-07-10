@@ -78,6 +78,29 @@
             border-radius: 999px;
             background: #64748b;
         }
+        .project-copy ol {
+            margin-top: 0.75rem;
+            display: grid;
+            gap: 0.6rem;
+            counter-reset: impl;
+        }
+        .project-copy ol li {
+            padding-left: 2rem;
+            counter-increment: impl;
+        }
+        .project-copy ol li::before {
+            content: counter(impl, decimal-leading-zero);
+            top: 0.35em;
+            width: auto;
+            height: auto;
+            border-radius: 0;
+            background: none;
+            font-size: 0.75em;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            color: #64748b;
+        }
+        .dark .project-copy ol li::before { color: #94a3b8; }
         .project-copy code {
             padding: 0.12rem 0.32rem;
             border-radius: 0.35rem;
