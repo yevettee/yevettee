@@ -38,7 +38,7 @@ skills:
 
 tech_stack: [ROS 2, Python, Gazebo, NVIDIA Isaac Sim, Nav2, OpenCV, YOLO, Linux, Git]
 
-projects_title: "Featured Projects"
+projects_title: "Projects"
 
 # ─── Build ──────────────────────────────────────────────
 markdown: kramdown

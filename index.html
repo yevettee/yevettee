@@ -62,6 +62,7 @@ title: Home
     {% assign projects = site.projects | sort: 'order' %}
 
     <div>
+        <p class="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-4">Main Integration Projects</p>
         <div class="grid grid-cols-1 gap-8">
             {% for project in projects %}
             {% if project.tier == 'main' %}
@@ -111,7 +112,7 @@ title: Home
     </div>
 
     <div class="mt-12 md:mt-16">
-        <p class="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-4">More Projects</p>
+        <p class="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-4">Additional Robotics Projects</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {% for project in projects %}
             {% unless project.tier == 'main' %}
