@@ -58,15 +58,6 @@ layout: default
 
     {{ content }}
 
-    {% if page.implementation %}
-    <h2>{{ page.implementation_title | default: "Implementation Highlights" }}</h2>
-    <ol>
-      {% for item in page.implementation %}
-      <li>{{ item }}</li>
-      {% endfor %}
-    </ol>
-    {% endif %}
-
     {% if page.challenge_issue or page.challenge_fix or page.challenge %}
     <h2>Key Challenge</h2>
     <div class="glass p-6 rounded-3xl shadow-sm">
@@ -86,6 +77,22 @@ layout: default
       <p>{{ page.challenge }}</p>
       {% endunless %}
     </div>
+    {% endif %}
+
+    {% if page.lessons %}
+    <div class="mt-8 p-6 rounded-3xl border border-slate-200 bg-slate-500/[0.14] dark:border-slate-700/60 dark:bg-slate-400/[0.18]">
+      <p class="!mt-0 text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">Lessons Learned</p>
+      {{ page.lessons | markdownify }}
+    </div>
+    {% endif %}
+
+    {% if page.implementation %}
+    <h2>{{ page.implementation_title | default: "Implementation Highlights" }}</h2>
+    <ol>
+      {% for item in page.implementation %}
+      <li>{{ item }}</li>
+      {% endfor %}
+    </ol>
     {% endif %}
   </section>
 
