@@ -11,6 +11,10 @@ featured: false
 order: 5
 thumbnail: /assets/p07-vision/real_drone.png
 stack: [YOLO, ArUco, Camera Calibration, AirSim, DJI Tello]
+facts:
+  - { label: Robot, value: DJI Tello }
+  - { label: Team, value: 2명 }
+  - { label: Duration, value: 2023.09 – 2024.07 (졸업작품 · 2개 학기) }
 media:
   - { type: video, src: /assets/p07-vision/실기체검증.mp4, caption: DJI Tello 실기체 검증 — 최초 detection 좌표 기반 착륙으로 목표 지점 오차 발생 }
   - { type: image, src: /assets/p07-vision/real_drone.png, caption: DJI Tello validation }
@@ -28,14 +32,13 @@ challenge_issue: >-
 challenge_fix: >-
   최초 detection 좌표 기반 착륙으로 범위를 조정해 실기체 검증을 완료하고,
   착륙 오차 분석으로 실시간 re-detection 보정 구조의 필요성을 도출
-implementation_title: Implementation Details
 implementation:
   - "AirSim validation: marker, drone, camera 환경을 구성해 landing flow를 먼저 검증"
   - "Camera calibration: DJI Tello test 과정에서 marker size, camera calibration, distance estimation 파라미터 조정"
   - "Landing accuracy: 실기체 착륙 오차를 분석해 stale detection 좌표 사용을 원인으로 확인하고, 착륙 접근 중 marker re-detection으로 target 좌표를 갱신하는 실시간 보정 구조를 개선 방향으로 도출"
 ---
 
-## Project Topic
+## Overview
 
 Camera-only autonomous drone landing 졸업 프로젝트입니다.
 

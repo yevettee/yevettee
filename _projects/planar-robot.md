@@ -11,6 +11,10 @@ featured: false
 order: 7
 thumbnail: /assets/p06-planar/3축로봇팔_완성품.png
 stack: [MATLAB, Arduino, Dynamixel SDK, OpenRB-150, 3D Printing]
+facts:
+  - { label: Robot, value: 3축 로봇팔 (Dynamixel · 자체 제작) }
+  - { label: Team, value: 6명 }
+  - { label: Duration, value: 2023.12 – 2024.02 (동계 스터디) }
 media:
   - { type: image, src: /assets/p06-planar/3-planar-demo.gif, caption: 원 그리기 동작 }
   - { type: image, src: /assets/p06-planar/3축로봇팔_완성품.png, caption: 3축 planar 로봇팔 완성품 }
@@ -34,7 +38,7 @@ implementation:
   - "궤적 추종 확인: Dynamixel SDK로 목표 위치를 명령하고 현재 위치·속도·토크 피드백으로 실물 궤적을 확인"
 ---
 
-## Project Topic
+## Overview
 
 한국항공대학교 RCS 동계 스터디 프로젝트입니다 (2023.12 – 2024.02).
 

@@ -18,22 +18,25 @@ order: 1
 thumbnail: /assets/p03-aquasweep/빠끔이청소단_환경.png
 github: https://github.com/yevettee/AquaSweep
 stack: [Isaac Sim, ROS2, USD, URDF/Xacro, Bringup, PyQt5]
+facts:
+  - { label: Robot, value: 멀티 로봇 15대 (Isaac Sim) }
+  - { label: Team, value: 5명 · 팀장 }
+  - { label: Duration, value: 2026.05.14 – 05.28 (2주) }
 media:
   - { type: video, src: /assets/p03-aquasweep/aquasweep_demo.mp4, caption: 시뮬레이션 데모 }
   - { type: image, src: /assets/p03-aquasweep/빠끔이청소단_환경.png, caption: 양식장 시뮬레이션 환경 }
   - { type: image, src: /assets/p03-aquasweep/빠끔이청소단_dashboard.png, caption: 관제 dashboard }
   - { type: image, src: /assets/p03-aquasweep/hippo.gif, caption: Hippo 바닥 청소 로봇 }
 role:
-  - Isaac Sim scene cleanup. 양식장 asset과 pool/building 좌표 정리
-  - Dashboard pool selector와 topic filtering 적용
-  - Simulation bring-up tuning. camera view, debris/shark range, latency 조정
+  - 양식장 asset과 pool/building 좌표를 정리하는 Isaac Sim scene cleanup
+  - Dashboard가 선택한 pool의 topic만 구독하도록 pool selector와 topic filtering 적용
+  - Camera view, debris/shark spawn 범위, latency 등 simulation bring-up tuning
 challenge_issue: >-
   15대 로봇 동시 실행 중 dashboard가 전체 pool topic을 구독해 CPU 부하 증가,
   message update 지연, camera/status 갱신 지연 발생
 challenge_fix: >-
   모든 pool topic을 subscribe하지 않고, dashboard에서 선택한 pool의 topic만
   subscribe하도록 filtering 적용
-implementation_title: Implementation Details
 implementation:
   - "Scene cleanup: Blender asset을 scene / robot / pool 단위로 정리하고, pool/building 좌표를 재정렬"
   - "Extension bring-up: 기능별 Isaac Sim extension을 하나의 launch sequence로 묶고 startup order를 조정"
@@ -41,9 +44,9 @@ implementation:
   - "Topic filtering: dashboard가 모든 pool topic을 subscribe하지 않고, 선택한 pool topic만 subscribe하도록 범위를 제한"
 ---
 
-## Project Topic
+## Overview
 
-Isaac Sim과 ROS 2 기반의 철갑상어 양식장 multi-robot 청소 시스템입니다.
+Isaac Sim과 ROS 2 기반의 철갑상어 양식장 multi-robot 청소 시스템입니다. 저는 시뮬레이션 환경 구성과 extension bring-up, dashboard 최적화를 담당했습니다.
 
 수조 바닥 청소 로봇 Hippo 7대, 벽면 청소 로봇 M1013 7대, 폐사체 수거용 gantry robot 1대로 구성된 총 15대 로봇 시나리오를 다룹니다.
 

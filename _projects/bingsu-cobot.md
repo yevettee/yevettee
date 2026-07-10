@@ -12,6 +12,10 @@ order: 4
 thumbnail: /assets/p01-shaved-ice/제조환경세팅.jpg
 github: https://github.com/yevettee/mother_bird
 stack: [M0609, ROS2, Firebase, PySide, Python]
+facts:
+  - { label: Robot, value: Doosan M0609 }
+  - { label: Team, value: 6명 }
+  - { label: Duration, value: 2026.04.14 – 04.27 (2주) }
 media:
   - { type: video, src: /assets/p01-shaved-ice/빙수로봇.mp4, caption: 최종 시연 영상 }
   - { type: image, src: /assets/p01-shaved-ice/제조환경세팅.jpg, caption: 제조 환경 세팅 }
@@ -26,7 +30,6 @@ challenge_issue: >-
 challenge_fix: >-
   다양한 Pen Holder Prototype을 제작·비교하여 적절한 접촉 압력을 확보하고,
   스프링 구조의 Chalk Holder를 적용해 필기 품질과 안정성을 개선
-implementation_title: Implementation Details
 implementation:
   - "Task sequence: Firebase order/state를 robot controller와 연결하고 제조 단계별 실행 흐름을 통합"
   - "Handwriting Path: HersheyFonts Stroke Path에 Scale Normalization, Coordinate Transform, Interpolation을 적용하여 Robot Motion Path를 생성"
@@ -34,7 +37,7 @@ implementation:
   - "Integration lesson: 이후 프로젝트부터 ROS 2 interface와 mock data를 먼저 고정한 뒤 module integration을 진행하는 방식으로 전환"
 ---
 
-## Project Topic
+## Overview
 
 Doosan M0609로 컵빙수 제조 과정을 자동화한 cobot project입니다.
 
