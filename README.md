@@ -4,16 +4,14 @@
 
 <br/>
 
-**Robotics Software Engineer**
-
 Perception, Navigation, Robot Control을 하나의 로봇 시스템으로 통합하고,  
 시뮬레이션부터 실로봇까지 검증합니다.
 
 <br/>
 
-[![Contact](https://img.shields.io/badge/Contact-475569?style=for-the-badge&logo=gmail&logoColor=white)](https://yevettee.github.io/yevettee/#contact)
-[![Resume](https://img.shields.io/badge/Resume-64748b?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](https://yevettee.github.io/yevettee/assets/resume/yunjeong-ok-resume.pdf)
 [![Portfolio](https://img.shields.io/badge/Portfolio-1e293b?style=for-the-badge&logo=github&logoColor=white)](https://yevettee.github.io/yevettee/)
+[![Resume](https://img.shields.io/badge/Resume-64748b?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](https://yevettee.github.io/yevettee/assets/resume/yunjeong-ok-resume.pdf)
+[![Contact](https://img.shields.io/badge/Contact-475569?style=for-the-badge&logo=gmail&logoColor=white)](https://yevettee.github.io/yevettee/#contact)
 
 </div>
 
@@ -36,6 +34,7 @@ Perception, Navigation, Robot Control을 하나의 로봇 시스템으로 통합
 **Languages & Tools**
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 
@@ -47,28 +46,15 @@ Perception, Navigation, Robot Control을 하나의 로봇 시스템으로 통합
 
 | 프로젝트 | 소개 | Stack |
 |---|---|---|
-| 🌊 **[AquaSweep](https://yevettee.github.io/yevettee/projects/aquasweep/)** ([GitHub](https://github.com/yevettee/AquaSweep)) | Isaac Sim에서 로봇 15대를 운용하는 양식장 청소 시뮬레이터 | Isaac Sim · ROS 2 · Multi-Robot · Bring-up |
-| 🔧 **[Doob-E](https://yevettee.github.io/yevettee/projects/doob-e/)** ([GitHub](https://github.com/yevettee/Doob-E)) | 음성 명령을 해석해 공구를 집고 제자리에 정리하는 협동로봇 시스템 | ROS 2 · Gazebo · M0609 · STT/LLM · YOLO |
-| 🏥 **[MediCart](https://yevettee.github.io/yevettee/projects/medicart/)** ([GitHub](https://github.com/yevettee/MediCart)) | 병동 순회 문진과 복귀를 수행하는 간호사 보조 로봇 | TurtleBot4 · Nav2 · State Machine · Firebase |
-| 🍧 **[Bingsu Cobot](https://yevettee.github.io/yevettee/projects/bingsu-cobot/)** ([GitHub](https://github.com/yevettee/mother_bird)) | 주문부터 픽업까지 수행하는 컵빙수 제조 협동로봇 | M0609 · ROS 2 · Firebase · Task Sequence |
+| 🌊 **[AquaSweep](https://yevettee.github.io/yevettee/projects/aquasweep/)** | Isaac Sim에서 로봇 15대를 운용하는 양식장 청소 시뮬레이터 | Isaac Sim · ROS 2 · Multi-Robot · Bring-up |
+| 🔧 **[Doob-E](https://yevettee.github.io/yevettee/projects/doob-e/)** | 음성 명령을 해석해 공구를 집고 제자리에 정리하는 협동로봇 시스템 | ROS 2 · Gazebo · M0609 · STT/LLM · YOLO |
+| 🏥 **[MediCart](https://yevettee.github.io/yevettee/projects/medicart/)** | 병동 순회 문진과 복귀를 수행하는 간호사 보조 로봇 | TurtleBot4 · Nav2 · State Machine · Firebase |
+| 🍧 **[Bingsu Cobot](https://yevettee.github.io/yevettee/projects/bingsu-cobot/)** | 주문부터 픽업까지 수행하는 컵빙수 제조 협동로봇 | M0609 · ROS 2 · Firebase · Task Sequence |
 | 🎯 **[Vision Drone Landing](https://yevettee.github.io/yevettee/projects/drone-landing/)** | 마커 인식과 위치 추정으로 자율 착륙을 수행하는 드론 비전 시스템 | YOLO · ArUco · AirSim · DJI Tello |
-| 🧠 **[RL Robot Arm](https://yevettee.github.io/yevettee/projects/rl-robot-arm/)** ([GitHub](https://github.com/yevettee/RL_robot)) | RGB-D Pick-and-Place 강화학습 구조를 분석한 스터디 프로젝트 | PyBullet · DQN · RGB-D |
+| 🧠 **[RL Robot Arm](https://yevettee.github.io/yevettee/projects/rl-robot-arm/)** | RGB-D Pick-and-Place 강화학습 구조를 분석한 스터디 프로젝트 | PyBullet · DQN · RGB-D |
 | 🦾 **[3-Axis Planar Robot Arm](https://yevettee.github.io/yevettee/projects/planar-robot/)** | 기구학 이론부터 실물 원 그리기까지 구현한 3축 Planar Robot Arm | MATLAB · Dynamixel SDK · Kinematics |
 
 > AquaSweep · Doob-E · MediCart · Bingsu Cobot은 두산로보틱스 부트캠프 팀 프로젝트로, 실제 하드웨어 시연까지 진행했습니다.
-
----
-
-## 📊 GitHub Stats
-
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=yevettee&show_icons=true&theme=dark&hide_border=true&bg_color=0b0b0c&title_color=94a3b8&icon_color=94a3b8&text_color=ffffff&rank_icon=github" height="170"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=yevettee&layout=compact&theme=dark&hide_border=true&bg_color=0b0b0c&title_color=94a3b8&text_color=ffffff&langs_count=6" height="170"/>
-</div>
-
-<div align="center">
-  <img src="https://streak-stats.demolab.com?user=yevettee&theme=dark&hide_border=true&background=0b0b0c&ring=94a3b8&fire=94a3b8&currStreakLabel=ffffff&sideLabels=aaaaaa&dates=888888" />
-</div>
 
 ---
 
