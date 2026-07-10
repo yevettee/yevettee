@@ -1,7 +1,7 @@
 ---
 title: Doob-E
 title_kr: 음성 명령 기반 공구정리 로봇
-one_liner: 음성 명령 기반 공구 정리 로봇
+one_liner: 음성 명령을 해석해 공구를 집고 제자리에 정리하는 협동로봇 시스템
 card_summary: >-
   음성 명령을 STT/LLM으로 해석해 Doosan M0609가 공구를 집어 정리하는
   시스템입니다. YOLO detection과 연계한 pick & sort flow를 Gazebo에서
