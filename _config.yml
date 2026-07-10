@@ -1,8 +1,8 @@
 # ─── Site ───────────────────────────────────────────────
 title: Yunjeong Ok
 description: >-
-  Yunjeong Ok (yevettee), Robotics Software Engineer working on
-  ROS 2, computer vision, simulation, and real robot validation.
+  Yunjeong Ok (yevettee), Robot System Integration Engineer working on
+  ROS 2 interface integration, simulation, and real robot validation.
 url: "https://yevettee.github.io"
 baseurl: "/yevettee"
 lang: "en"
@@ -10,7 +10,7 @@ lang: "en"
 author:
   name: Yunjeong Ok
   name_kr: 옥윤정
-  role: Robotics Software Engineer
+  role: Robot System SW Engineer
   email: oyj9280@naver.com
   github: https://github.com/yevettee
   linkedin: https://www.linkedin.com/in/윤정-옥-850b68291/
@@ -24,21 +24,21 @@ hero:
     시뮬레이션부터 실로봇까지 검증합니다.
 
 # uta-folio style skill cards (icon / name / description)
-skills_title: "What I Do"
+skills_title: "Engineering Profile"
 skills:
   - name: "System Integration"
     icon: "🤖"
-    description: "팀원들이 개발한 기능을 하나의 로봇 시스템으로 통합합니다. 개별 기능보다 전체 시스템이 안정적으로 동작하는 구조를 만드는 데 집중합니다."
+    description: "개별 모듈을 ROS 2 interface와 실행 흐름으로 연결해 하나의 로봇 시스템으로 통합합니다."
   - name: "Simulation & Validation"
     icon: "🕹️"
-    description: "Gazebo와 Isaac Sim에서 먼저 검증한 뒤, 실로봇에서 Bring-up과 테스트를 진행합니다. 시뮬레이션과 실제 환경의 차이에서 생기는 문제를 찾아 해결합니다."
+    description: "Gazebo와 Isaac Sim에서 동작을 먼저 검증하고, 실로봇 bring-up과 테스트로 이어갑니다."
   - name: "Practical Problem Solving"
     icon: "🧭"
-    description: "개발 기간과 장비, 구현 난이도를 고려해 실행 가능한 범위를 먼저 정합니다. 복잡한 방법보다 통합과 유지보수가 쉬운 구조를 우선합니다."
+    description: "장비, 시간, 구현 난이도를 고려해 실제로 완성 가능한 구조와 디버깅 경로를 선택합니다."
 
-tech_stack: [ROS 2, Python, Gazebo, NVIDIA Isaac Sim, Nav2, OpenCV, YOLO, Linux, Git]
+tech_stack: [ROS 2, Python, C++, Gazebo, NVIDIA Isaac Sim, Nav2, Linux, Git]
 
-projects_title: "Projects"
+projects_title: "My Projects"
 
 # ─── Build ──────────────────────────────────────────────
 markdown: kramdown
