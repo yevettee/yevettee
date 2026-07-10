@@ -1,8 +1,17 @@
 ---
 title: AquaSweep
 title_kr: 양식장 청소 멀티 로봇
-one_liner: 다중 로봇 양식장 청소 시뮬레이터
-card_stack: [Isaac Sim, ROS 2]
+one_liner: Isaac Sim 기반 양식장 청소 멀티 로봇 시뮬레이터
+card_summary: >-
+  Isaac Sim에서 바닥·벽면 청소 로봇과 gantry robot 15대를 운용하는
+  철갑상어 양식장 청소 시뮬레이터입니다. 관제 dashboard에서 clean 명령을
+  내리면 상어가 없는 pool을 탐지해 청소 작업을 할당합니다.
+card_roles:
+  - 양식장 asset 정리와 Isaac Sim extension bring-up 구성
+  - 로봇 15대 동시 실행 시 dashboard CPU 부하를 pool별 topic filtering으로 해결
+  - Camera view, spawn 범위, latency 등 simulation runtime tuning
+tier: main
+card_stack: [Isaac Sim, ROS 2, Multi-robot Simulation, Topic Filtering, Bring-up]
 badge: Doosan Bootcamp
 featured: true
 order: 1
@@ -10,8 +19,8 @@ thumbnail: /assets/p03-aquasweep/빠끔이청소단_환경.png
 github: https://github.com/yevettee/AquaSweep
 stack: [Isaac Sim, ROS2, USD, URDF/Xacro, Bringup, PyQt5]
 media:
-  - { type: image, src: /assets/p03-aquasweep/빠끔이청소단_환경.png, caption: 양식장 시뮬레이션 환경 }
   - { type: video, src: /assets/p03-aquasweep/aquasweep_demo.mp4, caption: 시뮬레이션 데모 }
+  - { type: image, src: /assets/p03-aquasweep/빠끔이청소단_환경.png, caption: 양식장 시뮬레이션 환경 }
   - { type: image, src: /assets/p03-aquasweep/빠끔이청소단_dashboard.png, caption: 관제 dashboard }
   - { type: image, src: /assets/p03-aquasweep/hippo.gif, caption: Hippo 바닥 청소 로봇 }
 role:

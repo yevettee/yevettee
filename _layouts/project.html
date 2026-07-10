@@ -78,20 +78,22 @@ layout: default
   </section>
 
   {% if page.media and page.media.size > 1 %}
-  <section class="mt-12 space-y-8">
+  <section class="mt-12">
     <h2 class="text-xl font-bold text-slate-900 dark:text-white">Media Gallery</h2>
-    {% for m in page.media offset:1 %}
-    <figure class="glass rounded-3xl overflow-hidden shadow-sm">
-      {% if m.type == 'video' %}
-      <video src="{{ m.src | relative_url }}" controls muted playsinline preload="metadata" class="w-full"></video>
-      {% elsif m.type == 'youtube' %}
-      <div class="relative pb-[56.25%] h-0"><iframe src="https://www.youtube.com/embed/{{ m.id }}" title="{{ m.caption }}" frameborder="0" allowfullscreen class="absolute inset-0 w-full h-full"></iframe></div>
-      {% else %}
-      <img src="{{ m.src | relative_url }}" alt="{{ m.caption }}" loading="lazy" class="w-full{% if m.fit == 'contain' %} object-contain bg-white max-h-[480px]{% endif %}" />
-      {% endif %}
-      {% if m.caption %}<figcaption class="px-6 py-4 text-sm text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800">{{ m.caption }}</figcaption>{% endif %}
-    </figure>
-    {% endfor %}
+    <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
+      {% for m in page.media offset:1 %}
+      <figure class="glass rounded-2xl overflow-hidden shadow-sm flex flex-col{% if m.type == 'video' or m.type == 'youtube' %} sm:col-span-2{% endif %}">
+        {% if m.type == 'video' %}
+        <video src="{{ m.src | relative_url }}" controls muted playsinline preload="metadata" class="w-full"></video>
+        {% elsif m.type == 'youtube' %}
+        <div class="relative pb-[56.25%] h-0"><iframe src="https://www.youtube.com/embed/{{ m.id }}" title="{{ m.caption }}" frameborder="0" allowfullscreen class="absolute inset-0 w-full h-full"></iframe></div>
+        {% else %}
+        <img src="{{ m.src | relative_url }}" alt="{{ m.caption }}" loading="lazy" class="w-full{% if m.fit == 'contain' %} object-contain bg-white max-h-[360px]{% endif %}" />
+        {% endif %}
+        {% if m.caption %}<figcaption class="mt-auto px-4 py-3 text-sm text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800">{{ m.caption }}</figcaption>{% endif %}
+      </figure>
+      {% endfor %}
+    </div>
   </section>
   {% endif %}
 

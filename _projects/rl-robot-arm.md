@@ -1,8 +1,11 @@
 ---
 title: RL Robot Arm
 title_kr: 강화학습 로봇팔
-one_liner: DQN 기반 Pick-and-Place 로봇팔 강화학습
-card_stack: [PyBullet, DQN]
+one_liner: RGB-D 기반 Pick-and-Place 강화학습 구조 분석
+card_roles:
+  - Reference DQN 코드의 perception → action 흐름 분석
+  - Camera-to-world 좌표 변환과 depth normalization 구현
+card_stack: [PyBullet, DQN, RGB-D, Camera Transform]
 badge: School Project
 featured: false
 order: 6

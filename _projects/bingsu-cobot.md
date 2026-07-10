@@ -1,17 +1,20 @@
 ---
 title: Bingsu Cobot
 title_kr: 빙수 제조 협동로봇
-one_liner: 빙수 제조 협동로봇
-card_stack: [Doosan M0609, ROS 2]
+one_liner: 주문부터 픽업까지 수행하는 컵빙수 제조 협동로봇
+card_roles:
+  - 주문부터 픽업 안내까지 로봇 task sequence 통합
+  - 펜 파지 불안정으로 생긴 필기 품질 문제를 pen holder prototype 테스트로 개선
+card_stack: [Doosan M0609, ROS 2, Firebase, Task Sequence, Motion Path]
 badge: Doosan Bootcamp
 featured: true
-order: 3
+order: 4
 thumbnail: /assets/p01-shaved-ice/제조환경세팅.jpg
 github: https://github.com/yevettee/mother_bird
 stack: [M0609, ROS2, Firebase, PySide, Python]
 media:
-  - { type: image, src: /assets/p01-shaved-ice/제조환경세팅.jpg, caption: 제조 환경 세팅 }
   - { type: video, src: /assets/p01-shaved-ice/빙수로봇.mp4, caption: 최종 시연 영상 }
+  - { type: image, src: /assets/p01-shaved-ice/제조환경세팅.jpg, caption: 제조 환경 세팅 }
   - { type: image, src: /assets/p01-shaved-ice/글씨쓰는 로봇.png, caption: 닉네임 쓰는 로봇 }
   - { type: image, src: /assets/p01-shaved-ice/펜_최종.jpg, caption: 최종 펜 홀더구조 }
 role:

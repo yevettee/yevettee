@@ -1,16 +1,19 @@
 ---
 title: Vision-based Drone Landing
 title_kr: 비전 기반 드론 착륙
-one_liner: 비전 기반 드론 착륙 시스템
-card_stack: [YOLO, ArUco, AirSim]
+one_liner: YOLO와 ArUco 기반 자율 착륙 시스템
+card_roles:
+  - YOLO·ArUco 마커 인식과 위치 추정 기반 착륙 제어 구현
+  - AirSim 검증 후 DJI Tello 실기체 착륙 테스트와 오차 분석
+card_stack: [YOLO, ArUco, Camera Calibration, AirSim, DJI Tello]
 badge: School Project
 featured: false
 order: 5
 thumbnail: /assets/p07-vision/real_drone.png
 stack: [YOLO, ArUco, Camera Calibration, AirSim, DJI Tello]
 media:
-  - { type: image, src: /assets/p07-vision/real_drone.png, caption: DJI Tello validation }
   - { type: video, src: /assets/p07-vision/실기체검증.mp4, caption: DJI Tello 실기체 검증 — 최초 detection 좌표 기반 착륙으로 목표 지점 오차 발생 }
+  - { type: image, src: /assets/p07-vision/real_drone.png, caption: DJI Tello validation }
   - { type: image, src: /assets/p07-vision/sim_화면.png, caption: AirSim 시뮬레이션 화면 }
   - { type: image, src: /assets/p07-vision/드론_마커.png, caption: 착륙 마커 }
 role:
