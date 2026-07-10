@@ -3,15 +3,13 @@ title: Doob-E
 title_kr: 음성 명령 기반 공구정리 로봇
 one_liner: 음성 명령을 해석해 공구를 집고 제자리에 정리하는 협동로봇 시스템
 card_summary: >-
-  음성 명령을 STT/LLM으로 해석해 Doosan M0609가 공구를 집어 정리하는
-  시스템입니다. YOLO detection과 연계한 pick & sort flow를 Gazebo에서
-  검증한 뒤 실로봇 실행까지 완료했습니다.
+  음성 명령을 STT/LLM으로 해석해 Doosan M0609가 공구를 정리하는 시스템입니다. Gazebo에서 동일한 Workflow를 검증한 뒤 실로봇에서 실행했습니다.
 card_roles:
-  - 공구명 오인식을 줄이는 STT/LLM command parser 보정
-  - 실로봇 없이 전체 flow를 검증하는 Gazebo virtual mode 구축
-  - Pick 대상 좌표가 갱신되지 않는 문제를 re-detect loop로 해결
+  - STT/LLM Command Parser 보정
+  - Gazebo Virtual Mode 구축
+  - Re-detect Loop 기반 Pick & Sort 안정화
 tier: main
-card_stack: [Doosan M0609, ROS 2, Gazebo, Web UI, Real Robot Validation]
+card_stack: [ROS 2, Gazebo, M0609, STT/LLM, YOLO]
 badge: Doosan Bootcamp
 featured: true
 order: 2
@@ -28,25 +26,24 @@ media:
   - { type: image, src: /assets/p02-doob-e/실제관제.png, caption: 실제 관제 화면 }
   - { type: image, src: /assets/p02-doob-e/gazebo관제.png, caption: Gazebo virtual mode 관제 화면 }
 role:
-  - 공구명 오인식을 줄이는 STT/LLM command parser 보정
-  - M0609, RG2 gripper, D435i 카메라와 공구 배치를 맞춘 Gazebo virtual mode 구축
-  - E-stop, wake-word pause, 물체 개수, bounding box를 robot state와 맞추는 Web UI 상태 동기화
-  - Pick 대상 좌표가 갱신되지 않는 문제를 매 pick 전 re-detect loop로 해결
+  - STT/LLM Command Parser를 프로젝트 공구명과 음성 오인식 패턴에 맞게 보정
+  - M0609, RG2 Gripper, D435i를 포함한 Gazebo Virtual Mode 구축
+  - Web UI와 Robot State를 동기화하여 실행 상태와 오류 처리 개선
+  - Re-detect Execution Loop를 적용해 매 Pick마다 최신 YOLO 좌표 사용
 challenge_issue: >-
-  모든 공구를 한 번에 정리하는 명령을 실행하는 중 이전 YOLO detection
-  좌표가 재사용되어, 실제 공구 위치와 pick target이 어긋나는 문제 발생
+  "모두 정리해줘" 명령에서는 첫 YOLO Detection 결과를 계속 재사용해, Pick 이후 물체 위치가 바뀌어도 이전 좌표를 사용했습니다.
 challenge_fix: >-
-  각 grasp 전에 home 복귀 -> re-detect -> pick 순서로 execution loop를
-  재구성해, 매 pick마다 최신 좌표를 사용하도록 수정
+  매 Pick 전에 Home → Re-detect → Pick 순서로 Execution Loop를 재구성하여 항상 최신 YOLO Detection 결과를 사용하도록 수정했습니다.
 implementation:
-  - "Backend 분리: real robot code와 충돌하지 않도록 simulation backend와 hardware backend를 분리"
-  - "Sim-first 검증: voice command -> pick/sort 전체 flow를 Gazebo에서 먼저 검증한 뒤 실로봇에서 실행"
+  - "<strong>Virtual Mode Architecture</strong><br>sim_mode와 real_mode를 분리하고 Gazebo Backend를 독립 구성하여 실로봇 코드 수정 없이 동일한 Workflow를 검증"
+  - "<strong>Robot Simulation Setup</strong><br>M0609, RG2 Gripper, D435i Camera와 Bolt/Nut SDF 모델을 Gazebo 환경에 구성하고, Camera Pose와 Object Spawn을 실제 환경에 맞게 조정"
+  - "<strong>Web State Synchronization</strong><br>Robot State, Wake Word, Object Count, Bounding Box를 ROS2 Topic과 동기화하여 실행 상태를 실시간으로 반영"
 ---
 
 ## Overview
 
-Doosan M0609 기반의 자동 공구 정리 시스템입니다.
+Doosan M0609 기반의 음성 명령 공구 정리 로봇입니다.
 
-음성 명령을 STT, LLM, Command Parser를 거쳐 실행 가능한 작업 계획으로 변환하고, Planner와 YOLO Detection을 연계하여 공구 Pick & Sort를 수행합니다.
+Wake Word, STT, LLM Command Parsing을 통해 음성 명령을 작업 계획으로 변환하고, YOLO Detection과 Planner를 연계하여 Pick & Sort를 수행합니다.
 
-개별 공구 지시와 모든 공구를 한 번에 정리하는 명령을 지원하며, Gazebo virtual mode에서 검증한 뒤 실로봇에서 동일한 flow를 실행했습니다. 저는 Gazebo 검증 환경 구축과 Web UI 상태 동기화, 음성 명령 인식 보정을 담당했습니다.
+동일한 ROS2 Workflow를 Gazebo Virtual Mode에서 먼저 검증한 뒤, 실로봇에서 동일한 시나리오를 실행하도록 구성했습니다.

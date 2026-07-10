@@ -3,8 +3,8 @@ title: RL Robot Arm
 title_kr: 강화학습 로봇팔
 one_liner: RGB-D Pick-and-Place 강화학습 구조를 분석한 스터디 프로젝트
 card_roles:
-  - Reference DQN 코드의 perception → action 흐름 분석
-  - Camera-to-world 좌표 변환과 depth normalization 구현
+  - DQN Pick-and-Place Pipeline 분석
+  - Camera-to-World 좌표 변환 구현
 card_stack: [PyBullet, DQN, RGB-D, Camera Transform]
 badge: School Project
 featured: false
@@ -22,10 +22,6 @@ role:
   - Reference code architecture 분석
   - Camera-to-world 좌표 변환 구현
   - Depth normalization 구현
-implementation_title: Study Note
-implementation:
-  - "Perception preprocessing: RGB-D observation에서 heightmap/depth input으로 이어지는 전처리 흐름을 추적"
-  - "Action pipeline: Q-value 기반 action selection과 pick/place command 생성 흐름을 분석"
 ---
 
 ## Overview

@@ -3,15 +3,13 @@ title: AquaSweep
 title_kr: 양식장 청소 멀티 로봇
 one_liner: Isaac Sim에서 로봇 15대를 운용하는 양식장 청소 시뮬레이터
 card_summary: >-
-  Isaac Sim에서 바닥·벽면 청소 로봇과 gantry robot 15대를 운용하는
-  철갑상어 양식장 청소 시뮬레이터입니다. 관제 dashboard에서 clean 명령을
-  내리면 상어가 없는 pool을 탐지해 청소 작업을 할당합니다.
+  Isaac Sim 기반 15대 멀티 로봇 양식장 청소 시뮬레이션입니다. Dashboard에서 작업을 지시하면 YOLO 기반으로 작업 가능한 Pool을 선택해 청소를 수행합니다.
 card_roles:
-  - 양식장 asset 정리와 Isaac Sim extension bring-up 구성
-  - 로봇 15대 동시 실행 시 dashboard CPU 부하를 pool별 topic filtering으로 해결
-  - Camera view, spawn 범위, latency 등 simulation runtime tuning
+  - Isaac Sim Scene & Bring-up 구성
+  - Dashboard Topic Filtering 적용
+  - Simulation Runtime Tuning
 tier: main
-card_stack: [Isaac Sim, ROS 2, Multi-robot Simulation, Topic Filtering, Bring-up]
+card_stack: [Isaac Sim, ROS 2, Multi-Robot, Bring-up, Topic Filtering]
 badge: Doosan Bootcamp
 featured: true
 order: 1
@@ -28,26 +26,26 @@ media:
   - { type: image, src: /assets/p03-aquasweep/빠끔이청소단_dashboard.png, caption: 관제 dashboard }
   - { type: image, src: /assets/p03-aquasweep/hippo.gif, caption: Hippo 바닥 청소 로봇 }
 role:
-  - 양식장 asset과 pool/building 좌표를 정리하는 Isaac Sim scene cleanup
-  - Dashboard가 선택한 pool의 topic만 구독하도록 pool selector와 topic filtering 적용
-  - Camera view, debris/shark spawn 범위, latency 등 simulation bring-up tuning
+  - Isaac Sim scene organization 및 asset 좌표 정리
+  - Dashboard pool selector와 topic filtering 구조 개선
+  - Extension bring-up과 simulation startup sequence 통합
+  - Camera view, object spawn, latency 기반 simulation tuning
 challenge_issue: >-
-  15대 로봇 동시 실행 중 dashboard가 전체 pool topic을 구독해 CPU 부하 증가,
-  message update 지연, camera/status 갱신 지연 발생
+  15대 로봇 동시 실행 중 dashboard가 전체 pool topic을 동시에 subscribe하면서 CPU 사용량과, message latency가 증가했습니다
 challenge_fix: >-
-  모든 pool topic을 subscribe하지 않고, dashboard에서 선택한 pool의 topic만
-  subscribe하도록 filtering 적용
+  모든 pool topic을 subscribe하지 않고, dashboard에서 선택된 pool의 topic만
+  subscribe하도록 topic filtering구조를 적용했습니다
 implementation:
-  - "Scene 구조화: Blender asset을 scene / robot / pool 단위로 나누고 pool/building 좌표를 재정렬"
-  - "Extension bring-up: 기능별 Isaac Sim extension을 하나의 launch sequence로 묶고 startup order를 조정"
+  - "<strong>Scene Organization</strong><br>Blender에서 전달받은 Asset을 Scene, Robot, Pool 단위로 재구성하고 Prim Path와 좌표를 정리하여 Isaac Sim에서 관리하기 쉬운 구조로 개선"
+  - "<strong>Robot Customization</strong><br>Dingo 모델을 기반으로 Hippo 청소 로봇을 구성하고 Camera Pose와 URDF/Xacro를 수정하여 시나리오에 맞는 시야를 확보"
+  - "<strong>Extension Bring-up</strong><br>기능별 Extension을 분리한 뒤 Startup Order를 고려한 하나의 Launch Sequence로 통합하여 안정적인 초기화를 구성"
+  - "<strong>Simulation Tuning</strong><br>Camera View, Shark/Debris Spawn, Latency를 조정하여 실제 시나리오에 맞는 Simulation 환경을 구성"
 ---
 
 ## Overview
 
-Isaac Sim과 ROS 2 기반의 철갑상어 양식장 multi-robot 청소 시스템입니다. 저는 시뮬레이션 환경 구성과 extension bring-up, dashboard 최적화를 담당했습니다.
+Isaac Sim과 ROS2 기반의 15대 Multi-Robot 양식장 청소 시뮬레이션입니다.
 
-수조 바닥 청소 로봇 Hippo 7대, 벽면 청소 로봇 M1013 7대, 폐사체 수거용 gantry robot 1대로 구성된 총 15대 로봇 시나리오를 다룹니다.
+Dashboard에서 자동 청소를 시작하면 Top-view Camera와 YOLO를 통해 각 Pool 상태를 확인하고, 작업 가능한 Pool에 청소 작업을 할당합니다. 폐사체가 탐지되면 Gantry Robot이 해당 위치로 이동해 수거 작업을 수행합니다.
 
-관리자가 dashboard에서 clean 명령을 내리면 camera feed를 기준으로 상어가 없는 pool을 탐지하고, 해당 pool에 청소 작업을 할당합니다.
-
-또한 관리자는 pool별 상태를 확인하고, 선택한 pool에 수동 청소 명령을 보낼 수 있습니다.
+관리자는 Dashboard를 통해 Pool 상태를 모니터링하고, 특정 Pool에 수동 청소 명령을 보낼 수 있습니다.

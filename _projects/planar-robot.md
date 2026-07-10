@@ -1,10 +1,10 @@
 ---
 title: 3-Axis Planar Robot Arm
 title_kr: 3축 planar 로봇팔
-one_liner: 기구학 이론부터 실물 원 그리기까지 구현한 3축 planar 로봇팔
+one_liner: 기구학 이론부터 실물 원 그리기까지 구현한 3축 Planar Robot Arm
 card_roles:
-  - DH parameter와 순/역기구학 기반 MATLAB 원 궤적 시뮬레이션
-  - Dynamixel 3축 실물 제작과 원 그리기 궤적 검증
+  - Forward / Inverse Kinematics 구현
+  - Dynamixel 기반 3축 Robot Arm 제작
 card_stack: [MATLAB, Dynamixel SDK, OpenRB-150, Kinematics]
 badge: School Project
 featured: false
@@ -30,9 +30,6 @@ challenge_issue: >-
 challenge_fix: >-
   소프트웨어만으로 해결할 수 없는 기계적 한계를 확인. 이후 알고리즘과
   시스템을 설계할 때 물리적 한계를 전제로 두는 기준을 얻음
-implementation_title: Study Note
-implementation:
-  - "궤적 추종 확인: Dynamixel SDK로 목표 위치를 명령하고 현재 위치·속도·토크 피드백으로 실물 궤적을 확인"
 ---
 
 ## Overview
