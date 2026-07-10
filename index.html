@@ -25,7 +25,9 @@ title: Home
 <section id="about" class="max-w-6xl mx-auto px-6 py-16 md:py-24 border-t border-slate-200 dark:border-slate-800">
     <div class="text-center mb-12 md:mb-16">
         <h3 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">{{ site.skills_title }}</h3>
+        {% if site.skills_description %}
         <p class="text-slate-600 dark:text-slate-400 mt-2">{{ site.skills_description }}</p>
+        {% endif %}
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
@@ -52,7 +54,9 @@ title: Home
 <section id="projects" class="max-w-6xl mx-auto px-6 py-16 md:py-24 border-t border-slate-200 dark:border-slate-800">
     <div class="text-center mb-12 md:mb-16">
         <h3 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">{{ site.projects_title }}</h3>
+        {% if site.projects_description %}
         <p class="text-slate-600 dark:text-slate-400 mt-2">{{ site.projects_description }}</p>
+        {% endif %}
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -90,7 +94,6 @@ title: Home
 <section id="contact" class="max-w-6xl mx-auto px-6 py-16 md:py-24 border-t border-slate-200 dark:border-slate-800">
     <div class="text-center mb-12 md:mb-16">
         <h3 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">Experience &amp; Contact</h3>
-        <p class="text-slate-600 dark:text-slate-400 mt-2">Education, certifications, and where to reach me.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
