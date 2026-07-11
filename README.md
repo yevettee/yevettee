@@ -60,6 +60,6 @@ Perception, Navigation, Robot Control을 하나의 로봇 시스템으로 통합
 
 <div align="center">
 
-📫 **oyj9280@naver.com** &nbsp;·&nbsp; [LinkedIn](https://www.linkedin.com/in/yunjeong-ok-850b68291?utm_source=share_via&utm_content=profile&utm_medium=member_android) &nbsp;·&nbsp; [Portfolio](https://yevettee.github.io/yevettee/)
+📫 **oyj9280@naver.com** &nbsp;·&nbsp; [LinkedIn](https://kr.linkedin.com/in/yunjeong-ok-850b68291) &nbsp;·&nbsp; [Portfolio](https://yevettee.github.io/yevettee/)
 
 </div>
