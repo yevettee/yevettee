@@ -8,7 +8,7 @@ card_roles:
 card_stack: [YOLO, ArUco, Camera Calibration, AirSim, DJI Tello]
 badge: School Project
 featured: false
-order: 5
+order: 6
 thumbnail: /assets/p07-vision/real_drone.png
 stack: [YOLO, ArUco, Camera Calibration, AirSim, DJI Tello]
 facts:

@@ -25,16 +25,21 @@ hero:
 
 # uta-folio style skill cards (icon / name / description)
 skills_title: "Engineering Profile"
+skills_description: >-
+  저는 전자공학 기반의 임베디드·제어 경험을 바탕으로, 분리된 로봇 기능을
+  하나의 실행 흐름으로 연결하는 로봇 시스템 SW 엔지니어입니다. 프로젝트에서는
+  시뮬레이션에서 검증한 구조를 실로봇까지 이어가고, 핵심 동작을 먼저 검증한 뒤
+  일정과 우선순위에 맞춰 기능을 단계적으로 확장해 왔습니다.
 skills:
   - name: "System Integration"
-    icon: "🤖"
-    description: "개별 모듈을 ROS 2 interface와 실행 흐름으로 연결해 하나의 로봇 시스템으로 통합합니다."
-  - name: "Simulation & Validation"
-    icon: "🕹️"
-    description: "Gazebo와 Isaac Sim에서 동작을 먼저 검증하고, 실로봇 bring-up과 테스트로 이어갑니다."
-  - name: "Practical Problem Solving"
-    icon: "🧭"
-    description: "장비, 시간, 구현 난이도를 고려해 실제로 완성 가능한 구조와 디버깅 경로를 선택합니다."
+    label: "What I Build"
+    description: "ROS 2 interface와 실행 흐름으로 분리된 로봇 기능을 하나의 시스템으로 연결합니다."
+  - name: "Simulation-to-Real"
+    label: "How I Validate"
+    description: "시뮬레이션과 실로봇 실행부를 분리해, 동일한 Workflow를 시뮬레이션 검증부터 실기체 테스트까지 이어갑니다."
+  - name: "Iterative Implementation"
+    label: "How I Work"
+    description: "핵심 동작을 먼저 검증하고, 일정과 우선순위에 맞춰 기능을 단계적으로 확장하는 방식으로 프로젝트를 진행해 왔습니다."
 
 tech_stack: [ROS 2, Python, C++, Gazebo, NVIDIA Isaac Sim, Nav2, Linux, Git]
 

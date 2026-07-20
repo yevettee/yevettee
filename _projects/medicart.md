@@ -8,7 +8,6 @@ card_roles:
   - Patient Rounding State Machine 구현
   - Nav2·QR·Web을 연결한 Patrol Workflow 통합
   - Firebase 기반 Robot State 동기화
-tier: main
 card_stack: [TurtleBot4, Nav2, ROS 2, State Machine, Firebase]
 badge: Doosan Bootcamp
 featured: true

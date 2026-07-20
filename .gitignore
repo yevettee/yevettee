@@ -1,5 +1,6 @@
 .claude/
 .codex/
+.vscode/
 docs/projects/
 _site/
 .jekyll-cache/

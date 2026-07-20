@@ -8,7 +8,7 @@ card_roles:
 card_stack: [MATLAB, Dynamixel SDK, OpenRB-150, Kinematics]
 badge: School Project
 featured: false
-order: 7
+order: 8
 thumbnail: /assets/p06-planar/3축로봇팔_완성품.png
 stack: [MATLAB, Arduino, Dynamixel SDK, OpenRB-150, 3D Printing]
 facts:

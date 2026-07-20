@@ -8,7 +8,7 @@ card_roles:
 card_stack: [PyBullet, DQN, RGB-D, Camera Transform]
 badge: School Project
 featured: false
-order: 6
+order: 7
 thumbnail: /assets/p05-rl-robot/강화학습.png
 github: https://github.com/yevettee/RL_robot
 stack: [PyBullet, DQN, Python, OpenCV]
